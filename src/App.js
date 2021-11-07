@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './pages/HomePage';
+import "./pages/ShopPage";
+import { Route ,Switch} from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ShopPage from './pages/ShopPage';
+import ContactPage from './pages/Contact';
+import BlogPage from './pages/BlogPage';
+import AboutUs from './pages/AboutUs';
+import LoginPage from './pages/Login';
+import Onlineappointment from './pages/OnlineAppointment';
+import Dashboard from './pages/DashBoard';
+import NavbarResize from './components/layout/NavbarResize';
+import Footer from './components/layout/Footer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <NavbarResize/>
+   <Switch>
+   <Route path='/' exact>
+     <HomePage/>
+   </Route>
+   <Route path='/shoppage'>
+    <ShopPage/>
+   </Route>
+   <Route path='/contactpage'>
+   <ContactPage/>
+   </Route>
+   <Route path='/blogpage'>
+    <BlogPage/>
+   </Route>
+   <Route path='/aboutus'>
+    <AboutUs/>
+   </Route>
+   <Route path='/login'>
+    <LoginPage/>
+   </Route>
+   <Route path="/onlineappointment">
+     <Onlineappointment/>
+   </Route>
+   <Route path="/dashboard">
+     <Dashboard/>
+   </Route>
+   </Switch>
+  <Footer/>
+   </div>
   );
 }
 

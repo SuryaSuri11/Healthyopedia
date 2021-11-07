@@ -1,0 +1,21 @@
+.about-submenu{
+    width:max-content;
+    position: absolute;
+    top:97%;
+    list-style: none;
+    align-items: center;
+}
+.about-submenu.active{
+    display: none;
+}
+.about-submenu li{
+    background-color: white;
+    cursor: pointer;
+    padding: 12px;
+}
+.dropdownlist{
+    /* width: 50%; */
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+} 
