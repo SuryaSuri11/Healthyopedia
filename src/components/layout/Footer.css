@@ -10,6 +10,9 @@
     color: white;
     position: relative;
 }
+.footerheadings{
+    padding-left: 1.7em;
+}
 .footermain{
     width: 100%;
 }
@@ -28,12 +31,14 @@
 .footer-contents{
     margin-top: 2em;
     width:100% ;
-    margin-left: 2em;
+    /* padding-left: 2em; */
+    /* margin-left: 2em;*/
 }
 ul{
     list-style-type: none;
 }
 .footerlist{
+    padding-left:2em ;
     margin-top: 2em;
 }
 .footeritems{
@@ -53,10 +58,20 @@ ul{
   margin-top: 3em;
   margin-bottom: 3em;
 }
+.websitename{
+    margin-left: 0.9em;
+}
 @media (min-width:768px){
     .description{
         margin-top: 6em;
     }
+    .footer-contents{
+        position: relative;
+    }
+    /* .websitename{
+        margin-left: 4em;
+        margin-right:3em ;
+    } */
      .footermain{
         display: flex;
     }
@@ -87,7 +102,7 @@ ul{
         display: flex;
         justify-content: end;
     }
-    .fabandinstaicons{
+     .fabandinstaicons{
         margin-right: 2em;
-    }
+     }
 } 

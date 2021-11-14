@@ -11,10 +11,11 @@ import Onlineappointment from './pages/OnlineAppointment';
 import Dashboard from './pages/DashBoard';
 import NavbarResize from './components/layout/NavbarResize';
 import Footer from './components/layout/Footer';
+import Layout from './components/layout/Layout';
 function App() {
   return (
-    <div>
-      <NavbarResize/>
+    <div className='App'>
+    <Layout>
    <Switch>
    <Route path='/' exact>
      <HomePage/>
@@ -41,8 +42,8 @@ function App() {
      <Dashboard/>
    </Route>
    </Switch>
-  <Footer/>
-   </div>
+  </Layout>
+  </div>
   );
 }
 

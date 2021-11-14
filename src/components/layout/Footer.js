@@ -8,7 +8,7 @@ function Footer(){
             Got a Project that you would like to discuss?
         </p>
         <div className="footermain">
-          <div className='footer-contents'>
+          <div className='footer-headingcontents'>
           <div className="description">
         <h1 className='websitename'>Our Website Name</h1>
         </div>

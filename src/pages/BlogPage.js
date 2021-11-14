@@ -1,7 +1,7 @@
 function BlogPage(){
     return(
         <h1>
-            BlopPage Page
+            Blog Page
         </h1>
     );
     }

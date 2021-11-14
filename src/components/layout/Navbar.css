@@ -10,7 +10,7 @@
     width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: #0001;
+    background-color: blue;
     height: 70px;
     display: flex;
     justify-content: space-around;
@@ -44,7 +44,7 @@
 .sidebaricon{
     position: absolute;
     left: 1%;
-    top:27%;
+    top:22%;
     cursor: pointer;
 }
 .sidenav.active{
@@ -83,13 +83,6 @@ header svg{
     margin-right: 1em;
     cursor: pointer;
 }
-.navbarimage{
-    width: 100%;
-    /* min-width: 100%; */
-    height: 700px;
-    /* min-height: 100%; */
-    overflow: hidden;
-}
 .website-title{
     position: fixed;
     left:20%;
@@ -106,14 +99,14 @@ header svg{
 .logo{
     position: absolute;
     left: 10%;
-    top:38%;
+    top:33%;
 }
 .mainitems
 {
     text-decoration: none;
     color: white;
     font-size: 20px;
-    padding: 10px 20px;
+    padding: 10px 18px;
     margin: 0 10px;
     cursor: pointer;
     margin-right: 1.5em;
@@ -123,13 +116,13 @@ header svg{
 }
 .searchicon{
     position: absolute;
-    top: 0;
+    top: 34%;
     left: 96%;
 }
 .topnav{
     display: flex;
     align-items: center;
-    height: 16.8vh;
+    height: 18vh;
 }
 .products{
     margin-top:2em;
@@ -143,6 +136,25 @@ header svg{
     text-align: center;
     margin-bottom: 2em;
 }
+.activesubmenu{
+    width: max-content;
+    list-style-type: none;
+    padding-left: 40px;
+    padding-top: 30px;
+    line-height: 50px;
+    font-size: 1.3em;
+}
+.activesubmenu li{
+    background-color: white;
+    cursor: pointer;
+}
+.dropdownlist{
+    width: max-content;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 10px;
+} 
 @media (max-width:1180px){
     .navbar{
         width: 100%;
@@ -158,13 +170,5 @@ header svg{
         position: absolute;
         top: 42%;
         left: 42%;
-    }
-}
-@media (max-width:768px)
-{
-    .logo{
-        position: absolute;
-        top: 42%;
-        left: 35%;
     }
 }
