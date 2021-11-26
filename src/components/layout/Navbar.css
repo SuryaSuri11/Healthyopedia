@@ -20,6 +20,7 @@
     top: 0;
     z-index: 1;
 }
+
 .navbar.active
 {
     background: white;
@@ -27,6 +28,7 @@
     position:fixed;
     top:0;
 } 
+
 .sidenav{
     width: 100%;
     background-color:white ;
