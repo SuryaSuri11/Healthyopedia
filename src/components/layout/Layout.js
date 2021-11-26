@@ -1,11 +1,21 @@
 import Footer from "./Footer";
-import classes from './Layout.css';
+import './Layout.css';
 import NavbarResize from "./NavbarResize";
+import { useLocation } from 'react-router-dom';
+
 function Layout(props) {
+  const location = useLocation();
+  var clsName="";
+  if (location.pathname == '/') {
+    clsName = "main-homepage";
+  }
+  else {
+    clsName = 'main';
+  }
   return (
-    <div > 
-      <NavbarResize/>
-      <main className='main'>{props.children}</main>
+    <div >
+      <NavbarResize />
+      <main class={clsName}>{props.children}</main>
       <Footer />
     </div>
   );

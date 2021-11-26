@@ -6,9 +6,12 @@ import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Products from './Products';
 import Dropdown from "./Dropdown";
+import { useLocation } from 'react-router-dom';
+
 function Navbar(props) {
     const[sidebar,setSidebar]=useState(false);
     const showSidebar=() => setSidebar(!sidebar)
+    const location=useLocation();
     
     const[navbar,setNavbar]=useState(false);
     const[dropdown,setDropdown]=useState(false);
@@ -16,7 +19,7 @@ function Navbar(props) {
     const [maindrop,setmaindrop]=useState(false);
 
     function changebackground(){
-      if (window.scrollY>=500){
+      if (window.scrollY>=500 || location.pathname!='/'){
          setNavbar(true);
       }
       else{

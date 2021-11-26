@@ -1,6 +1,10 @@
-.main {
-    margin-top: 130px;
+.main,.main-homepge{
     margin-bottom: 0;
     z-index: -1;
-  }
+}
+
+.main
+{
+  margin-top: 130px;
+}
   
