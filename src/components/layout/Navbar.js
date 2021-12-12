@@ -66,7 +66,7 @@ function Navbar(props) {
                </Link>
                <Link to='/search' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
                   <li className='topnav'>Search</li>
-                  <FaIcons.FaSearch className='searchicon' />
+                  {/* <FaIcons.FaSearch className='searchicon' /> */}
                </Link>
             </ul>}
          </header>

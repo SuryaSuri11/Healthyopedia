@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import './Footer.css';
 function Footer(){
  return(
-     <div className='container'>
+     <div className='footercontainer'>
         <p className='footertop'>
             Got a Project that you would like to discuss?
         </p>

@@ -1,5 +1,5 @@
 .about-submenu{
-    width: 10%;
+    width: max-content;
     position: absolute;
     /* top: 97%; */
     list-style: none;
@@ -7,19 +7,6 @@
 }
 .dropdownitems{
     display: block;
-}
-.dropdownimages{
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 180px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    height: 100%;
-    display: block;
-    padding: 0;
-    /* overflow: hidden; */
-    opacity: 0;
 }
 .about-submenu.active{
     display: none;

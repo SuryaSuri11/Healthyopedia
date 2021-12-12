@@ -1,0 +1,163 @@
+.logincontainer{
+    width: 100%;
+    background-color: lightseagreen;
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.login-card{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    border-radius:25px;
+}
+.loginform{
+    width: 90%;
+}
+.row100{
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+}
+.col{
+    position: relative;
+    width: 100%;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+.inputbox{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: black;
+}
+.inputbox input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    z-index: 1;
+    color: white;
+    margin-left: 20px;
+}
+.inputbox .text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    display: block;
+    transition: 0.5s;
+    pointer-events:none;
+    margin-left: 15px;
+}
+.inputbox input:focus + .text,
+.inputbox input:valid + .text{
+    top: -35px;
+    left: -5px;
+}
+.inputbox .line{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 90%;
+    height: 2px;
+    border-radius: 2px;
+    pointer-events: none;
+    background-color: black;
+    margin-left: 15px;
+}
+.inputbox input:focus ~ .line,
+.inputbox input:valid ~ .line{
+    height: 100%;
+}
+input[type='submit']{
+    border:none;
+    cursor:pointer;
+    outline:none;
+    background-color: black;
+    font-size: 18px;
+    border-radius: 30px;
+    margin-left: 1em;
+    color: white;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.animationtext{
+   transform: translateY(1em);
+   margin-left: 73px;
+   color: white;
+}
+.signin{
+    font-size: 16px;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 1.4em;
+    padding-bottom: 20px;
+
+}
+.signin:hover{
+    color: red;
+}
+.animationcontainer{
+    position:relative;
+    background-color: black;
+    min-height: 25vh;
+}
+.animation{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.animation.svg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.animation .shape-fill {
+    fill: #FFFFFF;
+}
+.expand{
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    transform: rotate(60deg);
+}
+.collapse{
+    width: 100%;
+    height: 50%;
+    border-radius: 50%;
+    transform: rotate(60deg);
+}
+
+@media (min-width:768px){
+    .logincontainer
+    {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: ;
+    }
+    .login-card{
+        width: 30%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+    }
+}
