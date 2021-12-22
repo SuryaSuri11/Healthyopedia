@@ -1,15 +1,14 @@
 import './Login.css';
-import React,{useState} from 'react';
-function LoginPage(){
+import React,{useState,useRef} from 'react';
+import ReactDom from 'react-dom';
+function LoginPage({loginopen,onClose}){
     const[login,setloginform]=useState("loginpage");
-    function Form() {
-        if (login == true)
-           setloginform(false);
-        else
-           setloginform(true);
-     };
-    return(
-       <div className='logincontainer'>
+    
+
+    if(!loginopen) return null
+    return ReactDom.createPortal(
+        <>
+      <div className='overlay_styles' onClick={onClose}/>
         <div className='login-card'>
          {login === "loginpage" && <div className='loginform'>
             <div className='row100'>
@@ -28,8 +27,8 @@ function LoginPage(){
                     </div>
                 </div>
                 <div>
-                    <input type='submit' value='Submit'/>
-                    <p className='signin' onClick={() => setloginform("signin")}>Dont have a account Sign up?</p>
+                    <input type='submit' value='Submit' className='submit'/>
+                    <p className='signin'onClick={()=>setloginform("signin")}>Dont have a account? Sign up</p>
                 </div>
             </div>
         </div>}
@@ -64,14 +63,14 @@ function LoginPage(){
                     </div>
                 </div>
                 <div>
-                    <input type='submit' value='Submit'/>
-                    <p className='signin' onClick={() => setloginform("loginpage")}>Already have an account Login?</p>
+                    <input type='submit' value='Submit' className='submit'/>
+                    <p className='signin' onClick={() => setloginform("loginpage")}>Already have an account? Login</p>
                 </div>
             </div>
         </div> }
     </div>
-        </div>
-
-    );
+        </>,
+document.getElementById('portal')
+    )
     }
 export default LoginPage;

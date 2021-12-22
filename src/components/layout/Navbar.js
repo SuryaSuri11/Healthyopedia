@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import * as GiIcons from 'react-icons/gi';
 import * as AiIcons from 'react-icons/ai';
-import * as FaIcons from 'react-icons/fa';
+// import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Products from './Products';
 import Dropdown from "./Dropdown";
 import { useLocation } from 'react-router-dom';
+import LoginPage from "../../pages/Login";
 
 function Navbar(props) {
    var nothome="";
    const [sidebar, setSidebar] = useState(false);
-
+   const [loginopen,setloginopen]=useState(false);
+   
    const showSidebar = () => setSidebar(!sidebar)
    const location = useLocation();
 
@@ -20,11 +22,13 @@ function Navbar(props) {
 
    const [maindrop, setmaindrop] = useState(false);
 
-
    if (location.pathname != '/') {
       nothome = true;
    }
-
+   function  Oncancel() {
+      setloginopen(false);
+      console.log(loginopen)
+   }
    function changebackground() {
       if (window.scrollY >= 500) {
          setNavbar(true);
@@ -61,9 +65,10 @@ function Navbar(props) {
                <Link to='/dashboard' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
                   <li className='topnav'>DashBoard</li>
                </Link>
-               <Link to='/login' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
-                  <li className='topnav'>Login</li>
-               </Link>
+               <p className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
+                  <li className='topnav' onClick={()=> setloginopen(true)}>Login</li>
+                  <LoginPage loginopen={loginopen} onClose={Oncancel}/>
+               </p>
                <Link to='/search' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
                   <li className='topnav'>Search</li>
                   {/* <FaIcons.FaSearch className='searchicon' /> */}
@@ -141,9 +146,10 @@ function Navbar(props) {
                      </Link>
                   </li>
                   <li>
-                     <Link to='/login' className='mainitems active' onClick={showSidebar}>
-                        <h2 className='mobileviewsidebarheadings'>Login</h2>
-                     </Link>
+                     <p className='mainitems active' >
+                        <h2 className='mobileviewsidebarlogin' onClick={()=> setloginopen(true)}>Login</h2>
+                        <LoginPage loginopen={loginopen} onClose={Oncancel}/>
+                     </p>
                   </li>
                   <li>
                      <Link to='/search' className='mainitems active' onClick={showSidebar}>
