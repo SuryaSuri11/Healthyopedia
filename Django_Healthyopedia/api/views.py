@@ -7,6 +7,12 @@ from api.serializers import ProductSerializer
 from .models import Product
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+#news 
+from newsapi import NewsApiClient
+from django.http import JsonResponse
+
+
 # Create your views here.
 
 @api_view(['GET'])
@@ -64,5 +70,10 @@ def product_update(request,pk):
 
   return Response(serializer.data)
 
+
+def news(request):
+  newsapi = NewsApiClient(api_key='64592e96d9f4454ea620d7778ad005b9')
+  all_articles = newsapi.get_top_headlines(language='en',category='health')
+  return JsonResponse(all_articles) 
   
 
