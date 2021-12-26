@@ -79,8 +79,8 @@ function Navbar(props) {
             <AiIcons.AiOutlineClose onClick={showSidebar} color='white' className='icon' color="black" />
             <ul>
                <li>
-                  <Link to='./shoppage' className='menu-items'>
-                     <Products />
+                  <Link to='./shoppage' className='menu-items' onClick={showSidebar}>
+                  <h2 className='sidebarheadings'> Products</h2>
                   </Link>
                </li>
                <li>
