@@ -13,5 +13,5 @@ urlpatterns = [
   path('product-delete/<str:pk>',views.product_delete,name='product-delete'),
 
   #news
-  path('health-news/',views.news,name='health-news')
+  # path('health-news/',views.news,name='health-news')
 ]
