@@ -1,0 +1,6 @@
+__pycache__/
+<<<<<<< HEAD
+=======
+api/__pycache__/
+>>>>>>> tharun
+db.sqlite3
