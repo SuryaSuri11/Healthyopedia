@@ -7,10 +7,7 @@ import { Link } from 'react-router-dom';
 import Dropdown from "./Dropdown";
 import { useLocation } from 'react-router-dom';
 import LoginPage from "../../pages/Login";
-<<<<<<< HEAD
 import Onlineappoint from './Onlineconsultation';
-=======
->>>>>>> 5bf89f963161c3647531644224be9988e0bed35d
 
 function Navbar(props) {
    var nothome="";
@@ -82,7 +79,6 @@ function Navbar(props) {
             <AiIcons.AiOutlineClose onClick={showSidebar} color='white' className='icon' color="black" />
             <ul>
                <li>
-<<<<<<< HEAD
                   <Link to='./shoppage' className='menu-items'>
                      <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-service</h2>
                   </Link>
@@ -106,16 +102,6 @@ function Navbar(props) {
                         )
                         }
                      </div>
-=======
-                  <Link to='./shoppage' className='menu-items' onClick={showSidebar}>
-                  <h2 className='sidebarheadings'> Products</h2>
-                  </Link>
-               </li>
-               <li>
-                  <Link to='./onlineappointment' className='menu-items' onClick={showSidebar}>
-                     <h2 className='sidebarheadings'> Online-Appointment</h2>
-                  </Link>
->>>>>>> 5bf89f963161c3647531644224be9988e0bed35d
                </li>
                <li>
                   <Link to='./onlineappointment' className='menu-items'>

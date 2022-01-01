@@ -61,15 +61,10 @@ ul li{
     font-size: 1.2rem;
 }
 .sidebarheadings{
-<<<<<<< HEAD
     margin-top: 3em;
     margin-left: 1em;
     font-weight: bold;
     font-size: 30px;
-=======
-    margin-top: 2em;
-    margin-left: 2em;
->>>>>>> 5bf89f963161c3647531644224be9988e0bed35d
 }
 .mobileviewsidebarheadings{
     margin-left: 2em;
@@ -126,7 +121,6 @@ header svg{
 .mainitems.active{
     color:black;
 }
-<<<<<<< HEAD
 .online-consent{
     font-weight: bold;
     font-size: 22px;
@@ -151,8 +145,6 @@ header svg{
     color: black;
     text-decoration: none;
 }
-=======
->>>>>>> 5bf89f963161c3647531644224be9988e0bed35d
 .searchicon{
     position: absolute;
     top: 34%;
