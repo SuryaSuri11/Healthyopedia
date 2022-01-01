@@ -8,6 +8,7 @@ import Products from './Products';
 import Dropdown from "./Dropdown";
 import { useLocation } from 'react-router-dom';
 import LoginPage from "../../pages/Login";
+import Consultation from './Onlineconsultation';
 
 function Navbar(props) {
    var nothome="";
@@ -84,9 +85,31 @@ function Navbar(props) {
                   </Link>
                </li>
                <li>
-                  <Link to='./onlineappointment' className='menu-items' onClick={showSidebar}>
-                     <h2 className='sidebarheadings'> Online-Appointment</h2>
+                  <Link to='./onlineappointment' className='menu-items'>
+                     <h2 className='sidebarheadings' onClick={Dropdownlist}> Online-Services</h2>
                   </Link>
+                   <div>
+                        {dropdown && (
+                           <ul className='activesubmenu'>
+                              <li>
+                                 <a>
+                                   <Consultation/>
+                                 </a>
+                              </li>
+                              <li onClick={dropdown}>
+                                 <Link to='/' className='online-consent1' onClick={showSidebar}>
+                                    Online-Schemes
+                                 </Link>
+                              </li>
+                              <li onClick={dropdown}>
+                                 <Link to='/' className='online-consent1' onClick={showSidebar}>
+                                    Aboutus Contents
+                                 </Link>
+                              </li>
+                           </ul>
+                        )
+                        }
+                     </div>
                </li>
                <li>
                   <Link to='./blogpage' className='menu-items' onClick={showSidebar}>
@@ -99,10 +122,10 @@ function Navbar(props) {
                   </Link>
                </li>
                   <li>
-                     <Link to='/aboutus' className='mainitems active' onClick={Dropdownlist}>
+                     <Link to='/aboutus' className='mainitems active' onClick={showSidebar}>
                         <h2 className='mobileviewsidebarheadings'>About</h2>
                      </Link>
-                     <div>
+                     {/* <div>
                         {dropdown && (
                            <ul className='activesubmenu'>
                               <li onClick={dropdown}>
@@ -133,7 +156,7 @@ function Navbar(props) {
                            </ul>
                         )
                         }
-                     </div>
+                     </div> */}
                   </li>
                   <li>
                      <Link to='/contactpage' className='mainitems active' onClick={showSidebar}>

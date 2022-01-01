@@ -1,11 +1,11 @@
 import './Login.css';
 import React,{useState,useRef} from 'react';
 import ReactDom from 'react-dom';
+import { Component } from 'react/cjs/react.production.min';
 function LoginPage({loginopen,onClose}){
     const[login,setloginform]=useState("loginpage");
     
-
-    if(!loginopen) return null
+ if(!loginopen) return null
     return ReactDom.createPortal(
         <>
       <div className='overlay_styles' onClick={onClose}/>
