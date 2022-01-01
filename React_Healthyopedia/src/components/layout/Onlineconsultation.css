@@ -1,29 +1,23 @@
-.online-consent{
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 3.2;
-}
-.category{
+.onlineconsult{
     width: 100%;
-    background-color: white;
-    left: -100%;
     transition: 850ms;
     color: white;
 }
-.cateogory.active{
-    left: 0;
-    transition: 350ms;
+.sidebarheadings1{
+    color: black;
+     font-size: 22px;
 }
-.cards{
+.onlinecards{
     width: 100%;
     /* background-color: lightblue; */
     margin-top: 2em;
 }
 @media (min-width:920px){
-    .cards{
-        width: 100%;
+    .onlinecards{
+        width: 80%;
         display: grid;
-        grid-template-columns: repeat(3,1fr);
-        grid-gap: 22px;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 40px;
+        margin: 0 auto;
     }
 }

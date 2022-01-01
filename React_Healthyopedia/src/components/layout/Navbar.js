@@ -4,11 +4,10 @@ import * as GiIcons from 'react-icons/gi';
 import * as AiIcons from 'react-icons/ai';
 // import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Products from './Products';
 import Dropdown from "./Dropdown";
 import { useLocation } from 'react-router-dom';
 import LoginPage from "../../pages/Login";
-import Consultation from './Onlineconsultation';
+import Onlineappoint from './Onlineconsultation';
 
 function Navbar(props) {
    var nothome="";
@@ -81,20 +80,13 @@ function Navbar(props) {
             <ul>
                <li>
                   <Link to='./shoppage' className='menu-items'>
-                     <Products />
+                     <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-service</h2>
                   </Link>
-               </li>
-               <li>
-                  <Link to='./onlineappointment' className='menu-items'>
-                     <h2 className='sidebarheadings' onClick={Dropdownlist}> Online-Services</h2>
-                  </Link>
-                   <div>
+                  <div className='drop'>
                         {dropdown && (
                            <ul className='activesubmenu'>
                               <li>
-                                 <a>
-                                   <Consultation/>
-                                 </a>
+                                 <Onlineappoint/>
                               </li>
                               <li onClick={dropdown}>
                                  <Link to='/' className='online-consent1' onClick={showSidebar}>
@@ -102,7 +94,7 @@ function Navbar(props) {
                                  </Link>
                               </li>
                               <li onClick={dropdown}>
-                                 <Link to='/' className='online-consent1' onClick={showSidebar}>
+                                 <Link to='/' className='online-consent2' onClick={showSidebar}>
                                     Aboutus Contents
                                  </Link>
                               </li>
@@ -110,6 +102,11 @@ function Navbar(props) {
                         )
                         }
                      </div>
+               </li>
+               <li>
+                  <Link to='./onlineappointment' className='menu-items'>
+                     <h2 className='sidebarheadings' onClick={Dropdownlist}>Products</h2>
+                  </Link>
                </li>
                <li>
                   <Link to='./blogpage' className='menu-items' onClick={showSidebar}>
