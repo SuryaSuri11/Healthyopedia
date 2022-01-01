@@ -1,14 +1,14 @@
 .search 
 {
   background-color: aqua;
-  font-size: 1rem;
+  font-size: 1.2em;
   background: url('../img/search.jpg');
   background-size:contain;
   background-repeat: no-repeat;
   background-position: center right;
-  margin-top: 5em;
+  margin-top: 2em;
   margin-bottom: 3em;
-  width:70%;
+  width:80%;
   outline: none;
 }
 
@@ -37,5 +37,10 @@
   {
     width:70%;
     border-left: 0.5px solid lightgrey;
+  }
+
+  .filter
+  {
+    width: 22%;
   }
 }

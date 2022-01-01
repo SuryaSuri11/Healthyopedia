@@ -11,11 +11,12 @@ function ProductPages(props)
     backwardButton==false ?setBackwardButton(true):setBackwardButton(false)
   }
   var pgs=[];
-  for(let i=1;i<=Math.ceil(6/9);i++)
+  for(let i=1;i<=Math.ceil(props.len/9);i++)
   {
     pgs.push(i);
   }
 
+  console.log(props.len)
   return(
     <div className={classes.pgs}>
       {backwardButton && props.curpage!=1 && <button className={classes.btn} onClick={()=>{props.setCurrentPage(props.curpage-1)}}>{"<"}</button>}

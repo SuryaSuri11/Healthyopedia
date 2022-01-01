@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import classes from './shoppagecontainer.module.css';
 import ProductMenu from './ProductsMenu';
+import ProductCategory from './ProductCategory';
 // import FilterByRating from './FilterByRating';
 // import RangeSlider from './RangeSlider';
-// import ProductCategory from './ProductCategory';
 // import SelectCurrency from './SelectCurrency';
 // import RecentlyViewedProducts from './RecentlyViewedProducts';
-import prod_info from './ProductInfo';
 
 
 function ShopPageContainer() {
+  const [products,setProducts]=useState([]);
+ useEffect(()=>{
+  fetch("http://localhost:8000/api/product-list/").then(
+    response=>response.json()).then(
+      data=>setProducts(data)
+   )
+ },[])
 
   //product
   const [currentpage,setCurrentPage]=useState(1);
@@ -21,22 +27,16 @@ function ShopPageContainer() {
 
   var last_item=currentpage*9;
   var first_item=last_item-9;
-  var prod_items=prod_info;
+  var prod_items=products;
   var product_info=prod_items.slice(first_item,last_item);
   return (
   <div className={classes.wrapper}>
     <div className={classes.product}>
-      <ProductMenu products={product_info} setCurrentPage={CurrentPage} curpage={currentpage}/>
+      <ProductMenu products={product_info} len={products.length} setCurrentPage={CurrentPage} curpage={currentpage}/>
     </div>
     <div className={classes.filter}>
-      {/* <h2>Products Filter</h2>
-      <RangeSlider />
-      <FilterByRating />
-      <input type='search' placeholder='Search products...' className={classes.search} />
+    <input type='search' placeholder='Search products...' className={classes.search} />
       <ProductCategory />
-      <SelectCurrency />
-      <RecentlyViewedProducts /> */}
-      hi
     </div>
   </div>
   );

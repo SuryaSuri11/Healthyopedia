@@ -10,11 +10,11 @@ function ProductHeader()
     <div className={classes.sortdropdown}>
     <select id="sortingdropdown">
     <option id="defaultsort" value="1">Default sorting</option>
-    <option id="popularitysort" value="2">Sort by popularity</option>
+    {/* <option id="popularitysort" value="2">Sort by popularity</option>
     <option id="ratingsort" value="3">Sort by average rating</option>
-    <option id="latestsort" value="4">Sort by latest</option>
-    <option id="lowtohighsort" value="5">Sort by price:low to high</option>
-    <option id="hightolowsort" value="6">Sort by price:high to low</option>
+    <option id="latestsort" value="4">Sort by latest</option> */}
+    <option id="lowtohighsort" value="2">Sort by price:low to high</option>
+    <option id="hightolowsort" value="3">Sort by price:high to low</option>
     </select>
     </div>
   </div>

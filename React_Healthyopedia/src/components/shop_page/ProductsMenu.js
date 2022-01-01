@@ -22,7 +22,7 @@ function ProductMenu(props) {
     <div className={classes.product_container} id={styles[id]}>
       <ProductHeader />
       <ProductItem products={props.products} />
-      <ProductPages setCurrentPage={props.setCurrentPage} curpage={props.curpage}/>
+      <ProductPages len={props.len} setCurrentPage={props.setCurrentPage} curpage={props.curpage}/>
     </div>
   );
 }

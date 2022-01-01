@@ -6,13 +6,13 @@ function ProductImage(props)
 
   function Hovered(hoverimg)
   {
-    if(hoverimg!='none')
+    if(hoverimg!=null)
          setHover(true);
   }
 
   return <span>
- {!hover && <img src={props.item.image} alt={props.item.title} onMouseOver={()=>{Hovered(props.item.hoverimg)}}/>}
-  {hover && <img src={props.item.hoverimg} alt={props.item.title} onMouseOut={()=>{setHover(false)}}/> }
+ {!hover && <img src={"http://localhost:8000"+props.item.img1} alt={props.item.title} onMouseOver={()=>{Hovered(props.item.img2==null ?null:"http://localhost:8000"+props.item.img2)}}/>}
+  {hover && <img src={props.item.img2==null ?null:"http://localhost:8000"+props.item.img2} alt={props.item.title} onMouseOut={()=>{setHover(false)}}/> }
   </span>
 }
 

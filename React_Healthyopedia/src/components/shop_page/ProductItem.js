@@ -11,7 +11,7 @@ function ProductItem(props){
         <div className={classes.link} onClick={()=>{history.push('/product_description',{descProduct:item})}}>
          <h5>{item.category}</h5>
          <h3>{item.title}</h3>
-         <p>20.0</p>
+         <p>{"₹ "+item.price}</p>
          </div>
     </div>
    
