@@ -8,6 +8,8 @@ from .models import Product
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+
+
 # #news 
 from newsapi import NewsApiClient
 from django.http import JsonResponse

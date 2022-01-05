@@ -14,4 +14,5 @@ urlpatterns = [
 
   #news
   path('health-news/',views.news,name='health-news')
+
 ]
