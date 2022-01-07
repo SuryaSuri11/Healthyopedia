@@ -3,8 +3,8 @@ from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from rest_framework import serializers
 
-from api.serializers import ProductSerializer
-from .models import Product
+from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer
+from .models import Product,consultationcategory,Doctorconsultation,consultationform
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -22,7 +22,17 @@ def api_overview(request):
     "product_item":'/product-item/',
     'product_update':'/product-update/',
     "product_create":'/product-create/',
-    "product_delete":'/product-delete/'
+    "product_delete":'/product-delete/',
+    "consult_list":'/consult-list/',
+    "consult_item":'/consult-item/',
+    "doctor_list":'/doctor-list/',
+    "doctordetails_item":'/doctordetails-item/',
+    "doctordetails_category":'/doctordetails-category/',
+    "userform_list":'/userform-list/',
+    "userform_item":'/userform-item/',
+    'user_update':'/user-update/',
+    "user_create":'/user-create/',
+    "user_delete":'/user-delete/',
   }
   return Response(url_list)
 
@@ -77,3 +87,78 @@ def news(request):
   return JsonResponse(all_articles) 
   
 
+#get all data
+@api_view(['GET'])
+def consult_list(request):
+  consult=consultationcategory.objects.all()
+  serializer=consultationcategorySerializer(consult,many=True)
+  return Response(serializer.data)
+
+#get a specific item
+@api_view(['GET'])
+def consult_item(request,pk):
+  consult_item=consultationcategory.objects.get(id=pk)
+  serializer=consultationcategorySerializer(consult_item,many=False)
+  return Response(serializer.data)
+
+#get all data
+@api_view(['GET'])
+def doctor_list(request):
+  doctor=Doctorconsultation.objects.all()
+  serializer=DoctorconsultationSerializer(doctor,many=True)
+  return Response(serializer.data)
+
+#get a specific item based on primary key
+@api_view(['GET'])
+def doctordetails_item(request,pk):
+  doctor_item=Doctorconsultation.objects.get(id=pk)
+  serializer=DoctorconsultationSerializer(doctor_item,many=False)
+  return Response(serializer.data)
+
+#get a specific item based on consultation category
+@api_view(['GET'])
+def doctordetails_category(request,cat):
+  doctor_item=Doctorconsultation.objects.filter(category=cat)
+  serializer=DoctorconsultationSerializer(doctor_item,many=True)
+  return Response(serializer.data)
+
+#get all data
+@api_view(['GET'])
+def userform_list(request):
+  userform=consultationform.objects.all()
+  serializer=consultationformSerializer(userform,many=True)
+  return Response(serializer.data)
+
+#get a specific item
+@api_view(['GET'])
+def userform_item(request,pk):
+  user_item=consultationform.objects.get(id=pk)
+  serializer=consultationformSerializer(user_item,many=False)
+  return Response(serializer.data)
+
+@api_view(['POST'])
+def user_create(request):
+  serializer=consultationformSerializer(data=request.data)
+
+  if serializer.is_valid():
+    serializer.save()
+  
+  return Response(serializer.data)
+
+@api_view(['DELETE'])
+def user_delete(request,pk):
+  user_item=consultationform.objects.get(id=pk)
+  user_item.delete()
+
+  return Response("ITEM DELETED SUCCESSFULLY")
+
+#to update an item
+@api_view(['POST'])
+def user_update(request,pk):
+  user_item=consultationform.objects.get(id=pk)
+  serializer=consultationformSerializer(instance=user_item,data=request.data)
+
+  if serializer.is_valid():
+    serializer.save()
+
+  return Response(serializer.data)

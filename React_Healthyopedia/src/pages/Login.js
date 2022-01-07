@@ -1,21 +1,8 @@
 import './Login.css';
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import ReactDom from 'react-dom';
 function LoginPage({loginopen,onClose}){
     const[login,setloginform]=useState("loginpage");
-    const[details,setdetails]=useState([]);
-useEffect(()=>{
-    fetch("http://localhost:8000/login/login-list/").then(
-        response=>response.json()).then(
-            data=>setdetails(data)
-        )
-},[])
-console.log(details)
-    
-// handleChange(e){
-//    var email=e.target.email
-//    var password=e.target.password;
-// }
  if(!loginopen) return null
     return ReactDom.createPortal(
         <>

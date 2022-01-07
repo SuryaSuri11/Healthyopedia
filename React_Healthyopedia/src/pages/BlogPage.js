@@ -22,7 +22,7 @@ function BlogPage(props){
       )
     },[])
 
-
+  
     // console.log(news['articles'])
     
     
