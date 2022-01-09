@@ -1,4 +1,4 @@
-import React,{ useState} from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import * as GiIcons from 'react-icons/gi';
 import * as AiIcons from 'react-icons/ai';
@@ -8,12 +8,15 @@ import Dropdown from "./Dropdown";
 import { useLocation } from 'react-router-dom';
 import LoginPage from "../../pages/Login";
 import Onlineappoint from './Onlineconsultation';
+import { useHistory } from 'react-router';
+
 
 function Navbar(props) {
-   var nothome="";
+   const history=useHistory();
+   var nothome = "";
    const [sidebar, setSidebar] = useState(false);
-   const [loginopen,setloginopen]=useState(false);
-   
+   const [loginopen, setloginopen] = useState(false);
+
    const showSidebar = () => setSidebar(!sidebar)
    const location = useLocation();
 
@@ -26,7 +29,7 @@ function Navbar(props) {
    if (location.pathname != '/') {
       nothome = true;
    }
-   function  Oncancel() {
+   function Oncancel() {
       setloginopen(false);
       console.log(loginopen)
    }
@@ -50,60 +53,64 @@ function Navbar(props) {
    return (
       <div className='Navcontents'>
          <appointcontext>
-         <header className={(navbar|| nothome) ? 'navbar active' : 'navbar'}>
-            <GiIcons.GiHamburgerMenu size='2rem' onClick={showSidebar} className='sidebaricon' size="2.5em" />
-            <h1 className='logo'>Health Site</h1>
-            {props.appwidth > 1180 && <ul className='nav-links'>
-               <Link to='/' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
-                  <li className='topnav'>Home</li>
-               </Link>
-               <Link to='/aboutus' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'} onMouseEnter={() => setmaindrop(true)} onMouseLeave={() => setmaindrop(false)}>
-                  <li className='topnav' >About</li>
-                  {maindrop && <Dropdown />}
-               </Link>
-               <Link to='/contactpage' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'} >
-                  <li className='topnav'>Contact</li>
-               </Link>
-               <Link to='/dashboard' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
-                  <li className='topnav'>DashBoard</li>
-               </Link>
-               <p className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
-                  <li className='topnav' onClick={()=> setloginopen(true)}>Login</li>
-                  <LoginPage loginopen={loginopen} onClose={Oncancel}/>
-               </p>
-               <Link to='/search' className={(navbar|| nothome) ? 'mainitems active' : 'mainitems'}>
-                  <li className='topnav'>Search</li>
-                  {/* <FaIcons.FaSearch className='searchicon' /> */}
-               </Link>
-            </ul>}
-         </header>
-         <div className={sidebar ? 'sidenav active' : 'sidenav'}>
-            <AiIcons.AiOutlineClose onClick={showSidebar}  className='icon' color="black" />
-            <ul>
-               <li>
-                  <a href='#' className='menu-items'>
-                     <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-service</h2>
-                  </a>
-                  <div className='drop'>
+            <header className={(navbar || nothome) ? 'navbar active' : 'navbar'}>
+               <GiIcons.GiHamburgerMenu size='2rem' onClick={showSidebar} className='sidebaricon' size="2.5em" />
+               <h1 className='logo'>Health Site</h1>
+               {props.appwidth > 1180 && <ul className='nav-links'>
+                  <Link to='/' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
+                     <li className='topnav'>Home</li>
+                  </Link>
+                  <Link to='/aboutus' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'} onMouseEnter={() => setmaindrop(true)} onMouseLeave={() => setmaindrop(false)}>
+                     <li className='topnav' >About</li>
+                     {maindrop && <Dropdown />}
+                  </Link>
+                  <Link to='/contactpage' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'} >
+                     <li className='topnav'>Contact</li>
+                  </Link>
+                  <Link to='/dashboard' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
+                     <li className='topnav'>DashBoard</li>
+                  </Link>
+                  <p className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
+                     <li className='topnav' onClick={() => setloginopen(true)}>Login</li>
+                     <LoginPage loginopen={loginopen} onClose={Oncancel} />
+                  </p>
+                  <Link to='/search' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
+                     <li className='topnav'>Search</li>
+                     {/* <FaIcons.FaSearch className='searchicon' /> */}
+                  </Link>
+               </ul>}
+            </header>
+            <div className={sidebar ? 'sidenav active' : 'sidenav'}>
+               <AiIcons.AiOutlineClose onClick={showSidebar} className='icon' color="black" />
+               <ul>
+                  <li>
+                     <a href='#' className='menu-items'>
+                        <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-services</h2>
+                     </a>
+                     <div className='drop'>
                         {dropdown && (
                            <ul className='activesubmenu'>
                               <li>
-                                 <Onlineappoint value={showSidebar}/>
+                                 <Onlineappoint showSideBar={showSidebar} />
                               </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='online-consent1' onClick={showSidebar}>
-                                    Online-Schemes
-                                 </Link>
+
+                              <li>
+                                 <div className='menu-items' onClick={()=>{
+                                     showSidebar()
+                                     history.push('/health_list')
+                                 }
+                                }>
+                                    <h2 className='sidebarheadings1'> Health Centres </h2>
+                                 </div>
                               </li>
-                              <li onClick={dropdown}>
+                              {/* <li onClick={dropdown}>
                                  <Link to='/' className='online-consent2' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
+                                    Aboutus Content
+                                 </Link> </li>*/}
                            </ul>
-                        )
+                     )
                         }
-                     </div>
+                  </div>
                </li>
                <li>
                   <Link to='./shoppage' className='menu-items'>
@@ -116,13 +123,6 @@ function Navbar(props) {
                   </Link>
                </li>
 
-               {/* My content */}
-               <li>
-                  <Link to='./health_list' className='menu-items' onClick={showSidebar}>
-                     <h2 className='sidebarheadings'> Health List </h2>
-                  </Link>
-               </li>
-               {/* done by surya */}
                {props.appwidth < 1180 && <div><li>
                   <Link to='/' className='mainitems active' onClick={showSidebar}>
                      <h2 className='mobileviewsidebarheadings'>Home</h2>
@@ -177,8 +177,8 @@ function Navbar(props) {
                   </li>
                   <li>
                      <p className='mainitems active' >
-                        <h2 className='mobileviewsidebarlogin' onClick={()=> setloginopen(true)}>Login</h2>
-                        <LoginPage loginopen={loginopen} onClose={Oncancel}/>
+                        <h2 className='mobileviewsidebarlogin' onClick={() => setloginopen(true)}>Login</h2>
+                        <LoginPage loginopen={loginopen} onClose={Oncancel} />
                      </p>
                   </li>
                   <li>
@@ -187,9 +187,9 @@ function Navbar(props) {
                      </Link>
                   </li> </div>}
             </ul>
-         </div>
-         </appointcontext>
       </div>
+         </appointcontext >
+      </div >
    );
 }
 export default Navbar;
