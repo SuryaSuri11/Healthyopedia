@@ -4,7 +4,6 @@ from django.shortcuts import render
 from rest_framework import serializers
 
 from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer
-
 from .models import Product,consultationcategory,Doctorconsultation,consultationform
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -86,7 +85,7 @@ def news(request):
   newsapi = NewsApiClient(api_key='64592e96d9f4454ea620d7778ad005b9')
   all_articles = newsapi.get_top_headlines(language='en',category='health')
   return JsonResponse(all_articles) 
-  
+
 
 #get all data
 @api_view(['GET'])

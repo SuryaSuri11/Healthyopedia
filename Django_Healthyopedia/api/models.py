@@ -1,4 +1,6 @@
+
 from django.db import models
+# from django.utils.translation import Trans
 
 # Create your models here.
 class Product(models.Model):
