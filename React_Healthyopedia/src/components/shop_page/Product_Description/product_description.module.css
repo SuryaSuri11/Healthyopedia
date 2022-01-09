@@ -1,0 +1,229 @@
+.wrapper
+{
+  margin:2em;
+}
+.container 
+{
+  width:100%;
+}
+.img_container
+{
+  width:100%;
+  position: relative;
+}
+
+/*ProdDescImage*/
+.prodimagelist
+{
+  margin: 0;
+  padding: 0;
+}
+
+.prodimagelist li
+{
+  text-decoration: none;
+  list-style-type: none;
+  display: inline;
+}
+
+.prodimagelist li img
+{
+  width:20%;
+  margin:2%;
+  /* background-size: cover; */
+}
+
+.notcurzoomimg
+{
+  opacity:0.6;
+}
+.notcurzoomimg:hover
+{
+  opacity:1;
+}
+
+.curzoomimg
+{
+  opacity: 1;
+}
+
+.basicinfo h1{
+  overflow-wrap: break-word;
+  /* text-align: justify; */
+  margin-bottom:1em;
+}
+
+.basicinfo p{
+  line-height: 2em;
+}
+
+.price,.tabletcnt
+{
+  font-weight: bold;
+}
+
+.option
+{
+  background-color: black;
+  color:white;
+}
+
+/*quantity & add to cart*/
+
+.quantity 
+{
+  list-style-type:none ;
+  margin: 0;
+  margin-top: 6em;
+  padding: 0;
+  display: flex;
+  width:80%;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.quantity li button
+{
+  background-color: black;
+  color: white;
+  border-radius: 9%;
+  /* box-shadow:none;
+  border: none;
+  width:100%;  */
+  font-size: 1.1rem;
+  padding: 0.2em 1em;
+  cursor: pointer;
+}
+
+.quantity li div
+{
+  border:2px solid lightgray;
+  padding:0.4em 1.5em;
+}
+
+
+
+/* Product body */
+
+.composition,.description,.faq
+{
+ margin-bottom: 0.5em;
+ border-top:4px solid white;
+ cursor: pointer;
+ font-size: 1.5rem;
+}
+
+#curinfo
+{
+  border-top: 4px solid black;
+  font-weight: 700;
+}
+
+/* Add review  */
+
+.nofillstar1,.nofillstar2,.nofillstar3,.nofillstar4,.nofillstar5
+{
+  color: #66992f;
+}
+
+#addReviewFrm input:focus,#addReviewFrm textarea:focus
+{
+  outline: none;
+  border:2px solid #66992f; 
+}
+
+
+.submit
+{
+  color: white;
+  background-color: #66992f;
+  border-radius: 20%; 
+  cursor: pointer;
+  padding:0.5em 1em;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/*Related Products*/
+.related{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.related>div{
+  width: 40%;
+  box-sizing: border-box;
+  margin:1.8em;
+}
+
+.addreview
+{
+  border: 1px solid lightgray;
+  padding: 1em;
+}
+
+
+@media (min-width:1000px) {
+  .wrapper
+  {
+    background-color:#f8f6f3;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5em;
+  }
+
+  .container{
+    width: 90%;
+    background-color: white;
+    margin: 0 auto;
+    padding-bottom: 2em;
+  }
+
+  .header
+  {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1em;
+  }
+
+ .img_container
+  {
+    width:40%;
+  }
+
+  .basicinfo h1
+  {
+  font-size: 2em;
+  }
+
+  .bodymenu
+  {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .review_container
+  {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* .addreview
+  {
+    width: 50%;
+  } */
+  /* .reviewinfo
+  {
+    width:40%;
+  } */
+
+  .related>div{
+    width: 20%;
+    /* box-sizing: border-box; */
+    margin: 1em;
+  }
+
+}

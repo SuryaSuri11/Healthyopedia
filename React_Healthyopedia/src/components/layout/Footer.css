@@ -9,6 +9,7 @@
     background-color:#011627;
     color: white;
     position: relative;
+    overflow: hidden;
 }
 .footerheadings{
     padding-left: 1.7em;

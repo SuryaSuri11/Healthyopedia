@@ -1,8 +1,7 @@
+import ShopPageContainer from '../components/shop_page/ShopPageContainer';
 function ShopPage() {
     return(
-        <h1>
-            ShopPage
-        </h1>
+        <ShopPageContainer/>
     );
     }
     export default ShopPage;

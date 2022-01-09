@@ -2,7 +2,6 @@ import React,{useEffect} from "react";
 import './Aboutcontent.css';
 import Aos from "aos";
 import "aos/dist/aos.css";
-import react from 'react';
 function Aboutcontent(props){
     useEffect(()=> {
         Aos.init({duration:2000});
