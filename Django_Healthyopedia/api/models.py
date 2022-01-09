@@ -1,8 +1,5 @@
 
-from re import M
-import re
 from django.db import models
-# from django.utils.translation import Trans
 
 # Create your models here.
 class Product(models.Model):

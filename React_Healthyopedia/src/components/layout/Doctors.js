@@ -20,6 +20,7 @@ return(
          <img src={"http://localhost:8000"+doctor.doctorimage} className='doctorimg'/>
          <div className='details'>
           <h4 className='doctorname'>{doctor.doctorname}</h4>
+          <h6 className='coctor-category'>{doctor.category}</h6>
           <h6 className='fees'>{doctor.fees}</h6>
           <p className='edudetails'>{doctor.educationdetails}</p>
           <button className='appointmentbutton'>
