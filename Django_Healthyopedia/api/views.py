@@ -25,7 +25,7 @@ def api_overview(request):
     'product_update':'/product-update/',
     "product_create":'/product-create/',
     "product_delete":'/product-delete/',
-    "health_news":'/health-news/'
+    "health_news":'/health-news/',
     "consult_list":'/consult-list/',
     "consult_item":'/consult-item/',
     "doctor_list":'/doctor-list/',
