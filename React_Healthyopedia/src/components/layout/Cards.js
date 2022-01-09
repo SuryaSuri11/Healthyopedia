@@ -4,12 +4,19 @@ import { useHistory } from 'react-router';
 import {useState,useEffect,useContext} from 'react';
 import './Doctors.css';
 
-function Cards(props,value){
+function Cards(props){
   const history=useHistory();
   const [doctors,setdoctors]=useState([])
   const[appointopen,setappointopen]=useState(false);
   const setappointclose = () => setappointopen(!appointopen)
 
+
+  // var filterDoctor=async()=>{
+  // }
+  // var doct=async()=>{
+  //   const status=await filterDoctor();
+  //   return status
+  // }
 
   useEffect(()=>{
     fetch("http://localhost:8000/api/doctordetails-category/"+props.title).then(
@@ -17,16 +24,20 @@ function Cards(props,value){
         data=>setdoctors(data) 
      )
    },[])
+
   return(
     <div>    
-       <Link to='/doctor' className='underline' onClick={()=>{history.push('/doctor',{doctors:{name:'abc',age:19}})}}>
-         <div className='cards' onClick={value}>
+       <div className='underline' onClick={()=>{
+         props.showSideBar()
+         history.push('/doctor',{doctors:doctors})
+         }}>
+         <div className='cards'>
               <p className='onlinetitle'>{props.title}</p>
               <img src={props.img} alt='category' className="onlineimg"/>
               <p className='onlinedesc'>{props.desc}</p>
               <p className='diseases'>{props.ex}</p>
          </div>
-         </Link>
+         </div>
          </div>
   );
 }
