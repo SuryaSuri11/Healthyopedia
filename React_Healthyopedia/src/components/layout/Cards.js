@@ -2,7 +2,6 @@ import './Cards.css';
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router';
 import {useState,useEffect,useContext} from 'react';
-import {appointContext} from "./Navbar.js";
 import './Doctors.css';
 
 function Cards(props,value){
