@@ -38,8 +38,9 @@
     -ms-flex-wrap:nowrap;
     flex-wrap: nowrap;
     overflow-y: auto;
-    z-index: 4;
+    z-index: 7;
     color: black;
+    overflow-x: hidden;
 }
 .sidebaricon{
     position: absolute;
@@ -60,16 +61,18 @@ ul li{
     font-size: 1.2rem;
 }
 .sidebarheadings{
-    margin-top: 2em;
-    margin-left: 2em;
+    margin-top: 3em;
+    margin-left: 1em;
+    font-weight: bold;
+    font-size: 30px;
 }
 .mobileviewsidebarheadings{
-    margin-left: 2em;
+    margin-left: 1em;
     margin-top: 2em;
 }
 .mobileviewsidebarlogin{
     margin-top: 2em;
-    margin-left: 1em;
+    margin-left: 0.1em;
 }
 .nav-text{
     margin-top: 6rem;
@@ -106,7 +109,7 @@ header svg{
     top:33%;
 }
 .mainitems
-{
+{   
     text-decoration: none;
     color: white;
     font-size: 20px;
@@ -117,6 +120,30 @@ header svg{
 }
 .mainitems.active{
     color:black;
+}
+.online-consent{
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 2;
+    color: black; 
+    text-decoration:none;
+
+}
+.drop{
+    width: 100%;
+}
+.online-consent1{
+    font-weight: bold;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+    line-height: 4.5;
+}
+.online-consent2{
+    font-weight: bold;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
 }
 .searchicon{
     position: absolute;
@@ -141,16 +168,16 @@ header svg{
     margin-bottom: 2em;
 }
 .activesubmenu{
-    width: max-content;
+    width: 85%;
     list-style-type: none;
     padding-left: 40px;
     padding-top: 30px;
-    line-height: 50px;
+    line-height: 60px;
     font-size: 1.3em;
 }
 .activesubmenu li{
     background-color: white;
-    cursor: pointer;
+    cursor:pointer;
 }
 .dropdownlist{
     width: max-content;

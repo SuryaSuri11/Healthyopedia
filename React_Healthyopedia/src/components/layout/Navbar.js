@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React,{ useState} from 'react';
 import './Navbar.css';
 import * as GiIcons from 'react-icons/gi';
 import * as AiIcons from 'react-icons/ai';
 // import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Products from './Products';
 import Dropdown from "./Dropdown";
 import { useLocation } from 'react-router-dom';
 import LoginPage from "../../pages/Login";
+import Onlineappoint from './Onlineconsultation';
 
 function Navbar(props) {
    var nothome="";
@@ -21,6 +21,7 @@ function Navbar(props) {
    const [dropdown, setDropdown] = useState(false);
 
    const [maindrop, setmaindrop] = useState(false);
+
 
    if (location.pathname != '/') {
       nothome = true;
@@ -48,6 +49,7 @@ function Navbar(props) {
    window.addEventListener('scroll', changebackground)
    return (
       <div className='Navcontents'>
+         <appointcontext>
          <header className={(navbar|| nothome) ? 'navbar active' : 'navbar'}>
             <GiIcons.GiHamburgerMenu size='2rem' onClick={showSidebar} className='sidebaricon' size="2.5em" />
             <h1 className='logo'>Health Site</h1>
@@ -76,16 +78,36 @@ function Navbar(props) {
             </ul>}
          </header>
          <div className={sidebar ? 'sidenav active' : 'sidenav'}>
-            <AiIcons.AiOutlineClose onClick={showSidebar} color='white' className='icon' color="black" />
+            <AiIcons.AiOutlineClose onClick={showSidebar}  className='icon' color="black" />
             <ul>
                <li>
-                  <Link to='./shoppage' className='menu-items' onClick={showSidebar}>
-                  <h2 className='sidebarheadings'> Products</h2>
-                  </Link>
+                  <a href='#' className='menu-items'>
+                     <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-service</h2>
+                  </a>
+                  <div className='drop'>
+                        {dropdown && (
+                           <ul className='activesubmenu'>
+                              <li>
+                                 <Onlineappoint value={showSidebar}/>
+                              </li>
+                              <li onClick={dropdown}>
+                                 <Link to='/' className='online-consent1' onClick={showSidebar}>
+                                    Online-Schemes
+                                 </Link>
+                              </li>
+                              <li onClick={dropdown}>
+                                 <Link to='/' className='online-consent2' onClick={showSidebar}>
+                                    Aboutus Contents
+                                 </Link>
+                              </li>
+                           </ul>
+                        )
+                        }
+                     </div>
                </li>
                <li>
-                  <Link to='./onlineappointment' className='menu-items' onClick={showSidebar}>
-                     <h2 className='sidebarheadings'> Online-Appointment</h2>
+                  <Link to='./shoppage' className='menu-items'>
+                     <h2 className='sidebarheadings' onClick={showSidebar}>Products</h2>
                   </Link>
                </li>
                <li>
@@ -166,6 +188,7 @@ function Navbar(props) {
                   </li> </div>}
             </ul>
          </div>
+         </appointcontext>
       </div>
    );
 }

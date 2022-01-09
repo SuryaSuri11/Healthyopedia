@@ -11,10 +11,12 @@ import LoginPage from './pages/Login';
 import Onlineappointment from './pages/OnlineAppointment';
 import Dashboard from './pages/DashBoard';
 import ProductDescription from "./components/shop_page/Product_Description/ProductDescription";
+import Doctor from './components/layout/Doctors';
 
 // import NavbarResize from './components/layout/NavbarResize';
 // import Footer from './components/layout/Footer';
 import Layout from './components/layout/Layout';
+import Appoint from './components/layout/Appointment';
 function App() {
   return (
     <div className='App'>
@@ -49,6 +51,12 @@ function App() {
           </Route>
           <Route path='/health_list'>
             <HealthList/>
+          </Route>
+          <Route path='/doctor'>
+            <Doctor/>
+          </Route>
+          <Route path='/appoint'>
+           <Appoint/>
           </Route>
         </Switch>
       </Layout>
