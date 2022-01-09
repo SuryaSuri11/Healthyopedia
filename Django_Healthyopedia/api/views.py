@@ -24,7 +24,8 @@ def api_overview(request):
     "product_item":'/product-item/',
     'product_update':'/product-update/',
     "product_create":'/product-create/',
-    "product_delete":'/product-delete/'
+    "product_delete":'/product-delete/',
+    "health_news":'/health-news/'
   }
   return Response(url_list)
 

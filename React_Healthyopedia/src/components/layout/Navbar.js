@@ -93,6 +93,14 @@ function Navbar(props) {
                      <h2 className='sidebarheadings'> Blog </h2>
                   </Link>
                </li>
+
+               {/* My content */}
+               <li>
+                  <Link to='./health_list' className='menu-items' onClick={showSidebar}>
+                     <h2 className='sidebarheadings'> Health List </h2>
+                  </Link>
+               </li>
+               {/* done by surya */}
                {props.appwidth < 1180 && <div><li>
                   <Link to='/' className='mainitems active' onClick={showSidebar}>
                      <h2 className='mobileviewsidebarheadings'>Home</h2>
