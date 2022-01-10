@@ -55,8 +55,8 @@ function Navbar(props) {
          <appointcontext>
             <header className={(navbar || nothome) ? 'navbar active' : 'navbar'}>
                <GiIcons.GiHamburgerMenu size='2rem' onClick={showSidebar} className='sidebaricon' size="2.5em" />
-               <h1 className='logo'>Health Site</h1>
-               {props.appwidth > 1180 && <ul className='nav-links'>
+               <h1 className='logo'>HEALTHOPEDIA</h1>
+               {props.appwidth > 1100 && <ul className='nav-links'>
                   <Link to='/' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
                      <li className='topnav'>Home</li>
                   </Link>
@@ -74,19 +74,15 @@ function Navbar(props) {
                      <li className='topnav' onClick={() => setloginopen(true)}>Login</li>
                      <LoginPage loginopen={loginopen} onClose={Oncancel} />
                   </p>
-                  <Link to='/search' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
-                     <li className='topnav'>Search</li>
-                     {/* <FaIcons.FaSearch className='searchicon' /> */}
-                  </Link>
                </ul>}
             </header>
             <div className={sidebar ? 'sidenav active' : 'sidenav'}>
                <AiIcons.AiOutlineClose onClick={showSidebar} className='icon' color="black" />
                <ul>
                   <li>
-                     <a href='#' className='menu-items'>
+                     <div className='menu-items'>
                         <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-services</h2>
-                     </a>
+                     </div>
                      <div className='drop'>
                         {dropdown && (
                            <ul className='activesubmenu'>
@@ -123,7 +119,7 @@ function Navbar(props) {
                   </Link>
                </li>
 
-               {props.appwidth < 1180 && <div><li>
+               {props.appwidth < 1100 && <div><li>
                   <Link to='/' className='mainitems active' onClick={showSidebar}>
                      <h2 className='mobileviewsidebarheadings'>Home</h2>
                   </Link>
@@ -181,11 +177,7 @@ function Navbar(props) {
                         <LoginPage loginopen={loginopen} onClose={Oncancel} />
                      </p>
                   </li>
-                  <li>
-                     <Link to='/search' className='mainitems active' onClick={showSidebar}>
-                        <h2 className='mobileviewsidebarheadings'>Search</h2>
-                     </Link>
-                  </li> </div>}
+             </div>}
             </ul>
       </div>
          </appointcontext >
