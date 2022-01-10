@@ -12,22 +12,27 @@ const breakPoints=[
 ];
 function Homepagedoctorconsultation(){
     const history=useHistory();
-    const [homedoctors,sethomedoctors]=useState([])
+    // const [homedoctors,sethomedoctors]=useState([])
     function Doctor(category){
+        var doc_list;
         fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
           response=>response.json()).then(
-            data=>sethomedoctors(data) 
-         )
+            data=>history.push('/doctor',{doctors:data})
+            )
+            
     }
+
+    // var filterDoctor=async(category)=>{
+    //     var doc_list=await Doctor(category);
+    // }
+
     return (
         <>
         <h1 className='cat-title'>BOOK APPOINTMENTS BASED ON CATEGORYS</h1>
         <div className='slides'>
             <Carousel breakPoints={breakPoints} className='carousel'>
                 <Item onClick={()=> {
-                    Doctor('Dermatology')
-                    // console.log(homedoctors)
-                    history.push('/doctor',{doctors:homedoctors})
+                    Doctor("Dermatology")
                 }}>
                     <img src='http://localhost:8000/files/images/image1.jpg' className='doctor-img'/>
                     <p className='cat-des'>
@@ -43,7 +48,7 @@ function Homepagedoctorconsultation(){
                 <Item>
                 <img src='http://localhost:8000/files/images/image3.jpg' className='doctor-img'/>
                     <p className='cat-des'>
-                        Paediatrica
+                        Paediatrics
                     </p>
                 </Item>
                 <Item>
