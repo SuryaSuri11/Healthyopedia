@@ -83,10 +83,8 @@ function Navbar(props) {
             <div className={sidebar ? 'sidenav active' : 'sidenav'}>
                <AiIcons.AiOutlineClose onClick={showSidebar} className='icon' color="black" />
                <ul>
-                  <li>
-                     <a href='#' className='menu-items'>
+                  <li className='menu-items'>
                         <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-services</h2>
-                     </a>
                      <div className='drop'>
                         {dropdown && (
                            <ul className='activesubmenu'>

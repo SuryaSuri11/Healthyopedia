@@ -31,15 +31,13 @@ function Homepagedoctorconsultation(){
         <h1 className='cat-title'>BOOK APPOINTMENTS BASED ON CATEGORYS</h1>
         <div className='slides'>
             <Carousel breakPoints={breakPoints} className='carousel'>
-                <Item onClick={()=> {
-                    Doctor("Dermatology")
-                }}>
+                <Item onClick={()=> {Doctor("Dermatology")}}>
                     <img src='http://localhost:8000/files/images/image1.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                        Dermatology
                     </p>
                 </Item>
-                <Item>
+                <Item onClick={()=> {Doctor("Generl Physician")}}>
                 <img src='http://localhost:8000/files/images/image2.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                         General Physician
