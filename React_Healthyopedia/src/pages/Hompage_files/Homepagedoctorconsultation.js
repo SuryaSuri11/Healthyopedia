@@ -1,7 +1,8 @@
-import React from 'react';
+import {useEffect,useState} from 'react';
 import '../HomePage.css';
 import Item from './Item';
 import Carousel from "react-elastic-carousel"
+import { useHistory } from 'react-router';
 
 const breakPoints=[
     {width:1,itemsToShow:1},
@@ -10,12 +11,24 @@ const breakPoints=[
     {width:1200,itemsToShow:4},
 ];
 function Homepagedoctorconsultation(){
+    const history=useHistory();
+    const [homedoctors,sethomedoctors]=useState([])
+    function Doctor(category){
+        fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
+          response=>response.json()).then(
+            data=>sethomedoctors(data) 
+         )
+    }
     return (
         <>
         <h1 className='cat-title'>BOOK APPOINTMENTS BASED ON CATEGORYS</h1>
         <div className='slides'>
             <Carousel breakPoints={breakPoints} className='carousel'>
-                <Item>
+                <Item onClick={()=> {
+                    Doctor('Dermatology')
+                    // console.log(homedoctors)
+                    history.push('/doctor',{doctors:homedoctors})
+                }}>
                     <img src='http://localhost:8000/files/images/image1.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                        Dermatology

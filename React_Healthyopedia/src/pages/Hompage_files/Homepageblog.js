@@ -1,9 +1,10 @@
 import {useState,useEffect} from 'react'
 import '../HomePage.css';
+import { useHistory } from 'react-router';
 
 
 function Homepageblog(){
-
+const history=useHistory();
 const [cardnews,setcardnews]=useState([{status:null,totalResults:null,articles:null}]);
 
 
@@ -58,8 +59,8 @@ const [cardnews,setcardnews]=useState([{status:null,totalResults:null,articles:n
                  </div>
                  </div>
 } 
-                <div href="" className='all-news'>
-                    <button className='all-news-button'>
+                <div className='all-news'>
+                    <button className='all-news-button' onClick={()=> history.push('/blogpage')}>
                      View all News
                      </button>
                 </div>
