@@ -5,13 +5,14 @@
 .text-div{
     width: 80%;
     margin: 0 auto;
+    padding-bottom: 1em;
 }
 .top-text{
     width: 100%;
     text-align: center;
 }
 .anim-img{
-    width: 100%;
+    width: 90%;
     background-color: #00DBDE;
     background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
     background-size:400% 400%;
@@ -20,26 +21,17 @@
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 70px;
-}
-.img-container{
-    width: 90%;
+    border-radius: 10px;
     margin: 0 auto;
-    background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
-    backdrop-filter: blur(7px);
-    border-radius: 20px;
-    -webkit-backdrop-filter: blur(7px);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
 }
 .aboutimg{
     width: 80%;
+    height: 250px;
     display: block;
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
-}
-.aboutimg:first-child{
-    padding-top: 30px;
+    border-radius: 20px;
 }
 .aboutimg:last-child{
     padding-bottom: 30px;
@@ -108,23 +100,22 @@
    .text-div{
        padding: 11em;
    } 
-   .img-container{
+   .anim-img{
        display: grid;
        grid-template-columns: repeat(4,1fr);
        grid-gap: 30px;
        padding-top: 5em;
        padding-bottom: 5em;
        width: 90%;
+       margin: 0 auto;
        margin-top: 40px;
        margin-bottom: 40px;
        padding-left: 40px;
        padding-right: 40px;
+       border-radius: 10px;
    }
    .aboutimg{
        width: 100%;
-   }
-   .aboutimg:first-child{
-    padding-top:1px ;
    }
    .bottom-container{
        padding-top: 30px;

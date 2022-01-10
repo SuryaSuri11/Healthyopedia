@@ -1,21 +1,17 @@
-import {useState,useEffect,useLocation } from 'react';
+import {useState,useEffect} from 'react';
 import './Doctors.css';
 import { Link } from 'react-router-dom';
+
+import {useLocation} from 'react-router';
+
 function Doctor(){
-  const[doctors,setdoctors]=useState([])
+  const location = useLocation();
 
-
-  useEffect(()=>{
-    fetch("http://localhost:8000/api/doctor-list/").then(
-      response=>response.json()).then(
-        data=>setdoctors(data)
-     )
-   },[])
- 
+  // console.log(location.state.doctors)
 
 return(
   <div className="doctor-container">
-    {doctors.map((doctor) => (
+    {location.state.doctors.map((doctor) => (
     <div className="doctor-card">
          <img src={"http://localhost:8000"+doctor.doctorimage} className='doctorimg'/>
          <div className='details'>

@@ -22,12 +22,10 @@ return(
        <h1 className="top-text">magna aliqua.</h1>
        </div>
        <div className="anim-img">
-           <div className="img-container">
                   <img className="aboutimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5tVVBowERx2Dqpljy3CA9Zj0xTiRbXTChrA&usqp=CAU" alt="images"/>
                   <img className="aboutimg" src="https://i.ytimg.com/vi/g424_Vsn-Zo/maxresdefault.jpg" alt="images"/>
                   <img className="aboutimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH2o9GX4dKBfLg_Ux1aRawIxaxr02bnAG_VQ&usqp=CAU" alt="images"/>
                   <img className="aboutimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEH23fl4Ch8_-sHp1Gw-r9HQPacFkFb7IS-w&usqp=CAU" alt="images"/>
-           </div>
        </div>
        <div className="bottom-container">
            <div className="bottom-text">

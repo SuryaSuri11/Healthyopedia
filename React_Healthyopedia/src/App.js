@@ -6,6 +6,7 @@ import ShopPage from './pages/ShopPage';
 import ContactPage from './pages/Contact';
 import BlogPage from './pages/BlogPage';
 import AboutUs from './pages/AboutUs';
+import HealthList from './pages/HealthList';
 import LoginPage from './pages/Login';
 import Onlineappointment from './pages/OnlineAppointment';
 import Dashboard from './pages/DashBoard';
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path='/product_description'>
             <ProductDescription/>
+          </Route>
+          <Route path='/health_list'>
+            <HealthList/>
           </Route>
           <Route path='/doctor'>
             <Doctor/>

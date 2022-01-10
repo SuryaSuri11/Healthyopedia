@@ -1,50 +1,57 @@
 .navbarvideo{
     width: 100%;
     /* min-width: 100%; */
-    height: 750px;
+    height: 700px;
     /* min-height: 100%; */
     overflow: hidden;
     object-fit: contain;
-    
-}
-.product-slider{
-    width: 100%;
-    margin-top: 1em; 
 }
 .pro{
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     padding-top: 2em;
     padding-bottom: 1em;
 }
-.slides{
-    display: flex;
-    width: calc(150px * 10);
-    animation: scroll 20s infinite ;
-}
-.slider-container{
-    width: 90%;
-    margin: auto;
-    position: relative;
-    height: 140px;
-    overflow-x: hidden;
-}
 .cat-title{
-    font-size: 20px;
+    font-size: 28px;
     color: black;
     padding-left: 5px;
     text-align: center;
     padding-bottom: 1.5em;
     padding-top: 15px;
 }
+.slides{
+    text-decoration: none;
+    cursor: pointer;
+}
+.cat-img{
+    padding-top: 30px;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    transition: 0.3s all ease;
+}
+.cat-img:hover{
+    transform: scale(1.06);
+}
+.cat-des{
+    font-size: 20px;
+    padding-top: 10px;
+    text-align: center;  
+    transition: 0.3s all ease;
+}
+.cat-des:hover{
+    transform: scale(1.03);
+}
 .blog-contents{
     width: 100%;
     background-color: white;
 }
 .news-head{
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     padding: bottom 1.2em;
+    margin-top: 1em;
 }
 .news-container{
     width: 100%;
@@ -58,26 +65,29 @@
     padding-top: 1em;
     border-radius: 10px;
     padding-bottom: 1em;
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.3),15px 15px 15px rgba(0,0,0,0.3)
 }
 .news-img{
     width: 90%;
     display: block;
     margin: 0 auto;
-    z-index: 1;
     margin-bottom: 1em;
     border-radius: 10px;
 }
 .news-content{
-    text-align: center;
     margin-top:1em ;
 }
 .news-title{
+    text-align: center;
     font-size: 20px;
 }
 .news-body{
     font-size: 18px;
     padding-top: 1.2em;
     padding-bottom: 0.6em;
+    text-align: justify;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .news-link{
     text-decoration: none;
@@ -92,6 +102,8 @@
     font-size: 15px;
     border-radius: 10px;
     border: none;
+    display: block;
+    margin: 0 auto;
 }
 .all-news{
     text-decoration: none;
@@ -108,19 +120,100 @@
     border: none;
     display: block;
     margin: 0 auto;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 2em;
     cursor: pointer;
 }
+.consult-container{
+    width: 100%;
+}
+.consult-content{
+    width: 80%;
+    margin: 0 auto;
+}
+.carousel{
+    margin-bottom: 20px;
+}
+.doctor-img{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    transition: 0.3s all ease;
+    padding-top: 20px;
+    background-position: center;
+    background-size: cover;
+    clip-path:circle();
+}
+.doctor-img:hover{
+    transform: scale(1.05);
+}
+.entire-content{
+    width: 100%;
+}
+.hos-container{
+    width: 100%;
+    padding-bottom: 3em;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    padding-top: 1em;
+}
+
+.cards{
+    width: 100%;
+    padding-top: 0.1em;
+}
+.hos-cards{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 1.8em;
+    background: #C7D2FE66;
+    margin-top: 2em;
+    border-radius: 10px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    backdrop-filter: blur(15px);
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+.hos-img{
+    width: 90%;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    clip-path: circle();
+}
+.hos-title{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.hos-desc{
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 1em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.health-list-button{
+    text-align: center;
+    font-size: 20px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    border-radius: 10px;
+    background-color: lightskyblue;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    cursor: pointer;
+    color: black;
+}
 @media(min-width:868px){
-   .product-slider{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-gap: 20px;
-    }
-    .cat-img{
-        width: 30%;
-    }
     .news-head{
         margin-bottom: 1.3em;
     }
@@ -152,5 +245,8 @@
     .news-card:hover{
         transform: scale(1.06);
     }
-    
+    .hos-container{
+       display: grid;
+       grid-template-columns: repeat(3,1fr);
+    }
 }
