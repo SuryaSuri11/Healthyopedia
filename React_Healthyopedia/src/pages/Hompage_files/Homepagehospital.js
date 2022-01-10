@@ -21,7 +21,7 @@ function Homepagehospital(){
                     <p data-aos="fade-up"  className='hos-desc'>Get Nearest Hospitals all over India</p>
                 </div>
                 <div data-aos="fade-up" className='hos-cards'>
-                    <img data-aos="fade-up"  src="https://www.wphf.org/wp-content/uploads/2018/01/CHWB-Crosby-Interior-logo-1080p-1030x579.jpg"className='hos-img'/>
+                    <img data-aos="fade-up"  src="https://www.wphf.org/wp-content/uploads/2018/01/CHWB-Crosby-Interior-logo-1080p-1030x579.jpg" className='hos-img'/>
                     <h4 data-aos="fade-up"  className="hos-title">Wellness Center</h4>
                     <p data-aos="fade-up"  className='hos-desc'>Get Nearest Wellness Centers all over India</p>
                 </div>

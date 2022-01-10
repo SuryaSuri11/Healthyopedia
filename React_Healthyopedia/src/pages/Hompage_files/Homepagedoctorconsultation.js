@@ -12,7 +12,7 @@ const breakPoints=[
 ];
 function Homepagedoctorconsultation(){
     const history=useHistory();
-    // const [homedoctors,sethomedoctors]=useState([])
+
     function Doctor(category){
         var doc_list;
         fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
@@ -21,10 +21,6 @@ function Homepagedoctorconsultation(){
             )
             
     }
-
-    // var filterDoctor=async(category)=>{
-    //     var doc_list=await Doctor(category);
-    // }
 
     return (
         <>
@@ -37,31 +33,31 @@ function Homepagedoctorconsultation(){
                        Dermatology
                     </p>
                 </Item>
-                <Item onClick={()=> {Doctor("Generl Physician")}}>
+                <Item onClick={()=> {Doctor("General Physician")}}>
                 <img src='http://localhost:8000/files/images/image2.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                         General Physician
                     </p>
                 </Item>
-                <Item>
+                <Item onClick={()=> {Doctor("Paediatrics")}}>
                 <img src='http://localhost:8000/files/images/image3.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                         Paediatrics
                     </p>
                 </Item>
-                <Item>
+                <Item onClick={()=> {Doctor("Psychiatry")}}>
                 <img src='http://localhost:8000/files/images/image4.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                        Psychiatry
                     </p>
                 </Item>
-                <Item>
+                <Item onClick={()=> {Doctor("Cardiologist")}}>
                 <img src='http://localhost:8000/files/images/image_13.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                         Cardiologist
                     </p>
                 </Item>
-                <Item>
+                <Item onClick={()=> {Doctor("Neurologist")}}>
                 <img src='http://localhost:8000/files/images/images17.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                        Neurologist
