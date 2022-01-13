@@ -1,6 +1,5 @@
 import './Blognews.css';
 function Blognews(props){
-    console.log(props.description)
 return(
      <div className="blog-container">
           <div className="blog-card">

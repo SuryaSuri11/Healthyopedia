@@ -16,7 +16,6 @@ function ProductPages(props)
     pgs.push(i);
   }
 
-  console.log(props.len)
   return(
     <div className={classes.pgs}>
       {backwardButton && props.curpage!=1 && <button className={classes.btn} onClick={()=>{props.setCurrentPage(props.curpage-1)}}>{"<"}</button>}

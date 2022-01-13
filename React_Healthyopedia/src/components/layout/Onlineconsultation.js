@@ -16,6 +16,7 @@ function Onlineappoint(props) {
     fetch("http://localhost:8000/api/consult-list/").then(
       response => response.json()).then(
         data => setonlineappoint(data)
+        // data=>console.log(data)
       )
   }, [])
 

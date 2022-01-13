@@ -11,6 +11,7 @@ urlpatterns = [
   path('product-update/<str:pk>',views.product_update,name='product-update'),
   path('product-item/<str:pk>',views.product_item,name='product-item'),
   path('product-delete/<str:pk>',views.product_delete,name='product-delete'),
+  path('productdetails-category/<str:cat>',views.productdetails_category,name='productdetails-category'),
 
   #news
   path('health-news/',views.news,name='health-news'),

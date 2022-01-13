@@ -25,6 +25,7 @@ def api_overview(request):
     'product_update':'/product-update/',
     "product_create":'/product-create/',
     "product_delete":'/product-delete/',
+    "productdetails_category":"productdetails-category/",
     "health_news":'/health-news/',
     "consult_list":'/consult-list/',
     "consult_item":'/consult-item/',
@@ -83,6 +84,12 @@ def product_update(request,pk):
 
   return Response(serializer.data)
 
+@api_view(['GET'])
+def productdetails_category(request,cat):
+  product_item=Product.objects.filter(organcategory=cat)
+  serializer=ProductSerializer(product_item,many=True)
+  return Response(serializer.data)
+
 
 def news(request):
   newsapi = NewsApiClient(api_key='64592e96d9f4454ea620d7778ad005b9')
@@ -124,6 +131,7 @@ def doctordetails_category(request,cat):
   doctor_item=Doctorconsultation.objects.filter(category=cat)
   serializer=DoctorconsultationSerializer(doctor_item,many=True)
   return Response(serializer.data)
+
 
 #get all data
 @api_view(['GET'])
