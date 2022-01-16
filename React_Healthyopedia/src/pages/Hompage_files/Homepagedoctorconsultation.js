@@ -12,14 +12,24 @@ const breakPoints=[
 ];
 function Homepagedoctorconsultation(){
     const history=useHistory();
+    const [doctors,setDoctors]=useState([]);
+    const [appoint,setAppoint]=useState([]);
 
-    function Doctor(category){
-        var doc_list;
+
+
+    var Doctor=async(category)=>{
         fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
           response=>response.json()).then(
-            data=>history.push('/doctor',{doctors:data})
-            )
-            
+              docdata=>{
+                  setDoctors(docdata);
+              }
+            ) 
+        fetch("http://localhost:8000/api/consult-item/"+category).then(
+        appointdata=>{
+            setAppoint(appointdata);
+        }
+      )
+      history.push('/doctor',{doctors:doctors,onlineappoint:appoint})
     }
 
     return (

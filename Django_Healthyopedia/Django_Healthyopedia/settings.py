@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'newsapi',
-    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
