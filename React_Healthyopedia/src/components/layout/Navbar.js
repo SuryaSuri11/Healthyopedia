@@ -51,7 +51,6 @@ function Navbar(props) {
    window.addEventListener('scroll', changebackground)
    return (
       <div className='Navcontents'>
-         <appointcontext>
             <header className={(navbar || nothome) ? 'navbar active' : 'navbar'}>
                <GiIcons.GiHamburgerMenu size='2rem' onClick={showSidebar} className='sidebaricon' size="2.5em" />
                <h1 className='logo'>HEALTHYOPEDIA</h1>
@@ -146,7 +145,6 @@ function Navbar(props) {
              </div>}
             </ul>
       </div>
-         </appointcontext >
       </div >
    );
 }
