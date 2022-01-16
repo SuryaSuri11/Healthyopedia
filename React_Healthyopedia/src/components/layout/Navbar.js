@@ -189,7 +189,8 @@ function Navbar(props) {
                      </li>
                      <li>
                         <p className='mainitems active' >
-                           <h2 className='mobileviewsidebarlogin' onClick={() => setloginopen(true)}>Login</h2>
+                          {filterctx.userLogin.username==undefined && <h2 className='mobileviewsidebarlogin' onClick={() => setloginopen(true)}>Login</h2>}
+                     {filterctx.userLogin.username!=undefined &&  <h2 className='mobileviewsidebarlogin' onClick={logoutUser}><span className='username'>{filterctx.userLogin.username}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className='logout'>Logout</span></h2>} 
                            <LoginPage loginopen={loginopen} onClose={Oncancel} />
                         </p>
                      </li>
