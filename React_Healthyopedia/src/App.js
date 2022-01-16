@@ -20,6 +20,7 @@ import Appoint from './components/layout/Appointment';
 import Success from './Success';
 import EditProfile from './pages/EditProfile';
 function App() {
+
   return (
     <div className='App'>
       <Layout>

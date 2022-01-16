@@ -1,12 +1,24 @@
 # Create your views here.
+from re import A
+from django import http
+from django.http import response
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from rest_framework import serializers
+from rest_framework import views
+from rest_framework.settings import IMPORT_STRINGS
+from rest_framework.views import APIView
+from rest_framework.exceptions import AuthenticationFailed
+
+from .serializers import UserSerializer
 
 from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer
-from .models import Product,consultationcategory,Doctorconsultation,consultationform,Contact
+from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+import jwt,datetime
+
+
 
 # #news 
 from newsapi import NewsApiClient
@@ -23,6 +35,8 @@ def api_overview(request):
     'product_update':'/product-update/',
     "product_create":'/product-create/',
     "product_delete":'/product-delete/',
+    "productdetails_category":"productdetails-category/",
+    "health_news":'/health-news/',
     "consult_list":'/consult-list/',
     "consult_item":'/consult-item/',
     "doctor_list":'/doctor-list/',
@@ -37,8 +51,8 @@ def api_overview(request):
     "contact_item":'/contact-item/',
     'contact_update':'/contact-update/',
     "contact_create":'/contact-create/',
-    "contact_delete":'/contact-delete/',
-  }
+    "contact_delete":'/contact-delete/', 
+   }
   return Response(url_list)
 
 #get all data
@@ -85,12 +99,18 @@ def product_update(request,pk):
 
   return Response(serializer.data)
 
+@api_view(['GET'])
+def productdetails_category(request,cat):
+  product_item=Product.objects.filter(organcategory=cat)
+  serializer=ProductSerializer(product_item,many=True)
+  return Response(serializer.data)
+
 
 def news(request):
   newsapi = NewsApiClient(api_key='64592e96d9f4454ea620d7778ad005b9')
   all_articles = newsapi.get_top_headlines(language='en',category='health')
   return JsonResponse(all_articles) 
-  
+
 
 #get all data
 @api_view(['GET'])
@@ -127,6 +147,7 @@ def doctordetails_category(request,cat):
   serializer=DoctorconsultationSerializer(doctor_item,many=True)
   return Response(serializer.data)
 
+
 #get all data
 @api_view(['GET'])
 def userform_list(request):
@@ -144,7 +165,7 @@ def userform_item(request,pk):
 @api_view(['POST'])
 def user_create(request):
   serializer=consultationformSerializer(data=request.data)
-  
+
   if serializer.is_valid():
     serializer.save()
   
@@ -187,18 +208,14 @@ def contact_item(request,pk):
 @api_view(['POST'])
 def contact_create(request):
   serializer=ContactSerializer(data=request.data)
-
   if serializer.is_valid():
     serializer.save()
-  
   return Response(serializer.data)
 
 @api_view(['DELETE'])
 def contact_delete(request,pk):
   Contact_item=Contact.objects.get(id=pk)
   Contact_item.delete()
-
-  return Response("ITEM DELETED SUCCESSFULLY")
 
 #to update an item
 @api_view(['POST'])
@@ -210,3 +227,68 @@ def contact_update(request,pk):
     serializer.save()
 
   return Response(serializer.data)
+  
+class RegisterView(APIView):
+  def post(self,request):
+    serializer=UserSerializer(data=request.data)
+    crt=serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data)
+
+class LoginView(APIView):
+  def post(self,request):
+    email=request.data['email']
+    password=request.data['password']
+    user=User.objects.filter(email=email).first()
+
+    if user is None:
+      raise AuthenticationFailed('User not found!')
+    
+    if not user.check_password(password):
+      raise AuthenticationFailed('Incorrect password!')
+
+    payload={
+      'id':user.id,
+      'exp':datetime.datetime.utcnow()+datetime.timedelta(minutes=60),
+      'iat':datetime.datetime.utcnow()
+    }
+
+    token=jwt.encode(payload,'secret',algorithm='HS256')
+
+    response=Response()
+    response.set_cookie(key='jwt',value=token,httponly=True)
+    response.data={
+      'jwt':token
+    }
+    return response
+
+class UserView(APIView):
+  def get(self,request):
+    token=request.COOKIES.get('jwt')
+
+    if not token:
+      raise AuthenticationFailed('No tokens')
+    
+    try:
+      payload=jwt.decode(token,'secret',algorithms=['HS256'])
+    except jwt.ExpiredSignatureError:
+      raise AuthenticationFailed('Unauthenticated!')
+
+    user=User.objects.filter(id=payload['id']).first()
+    serializer=UserSerializer(user)
+    return Response(serializer.data)
+
+
+class LogoutView(APIView):
+  def post(self,request):
+    response=Response()
+    response.delete_cookie('jwt')
+    response.data={
+      'message':'success'
+    }
+
+    return response
+
+
+
+

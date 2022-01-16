@@ -1,6 +1,3 @@
 __pycache__/
-<<<<<<< HEAD
-=======
 api/__pycache__/
->>>>>>> tharun
-db.sqlite3
+Django_Healthyopedia/db.sqlite3

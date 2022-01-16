@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'newsapi',
-    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -137,3 +136,9 @@ MEDIA_URL='/files/'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+# CORS_ORIGIN_ALLOW_ALL=True
+
+CORS_ALLOW_CREDENTIALS=True
+
+AUTH_USER_MODEL='api.User'
