@@ -60,12 +60,12 @@ const [cardnews,setcardnews]=useState([{status:null,totalResults:null,articles:n
                  </div>
 } 
                 <div className='all-news'>
-                    <button className='all-news-button' onClick={()=> history.push('/blogpage')}>
+                    <button className='view-all' onClick={()=> history.push('/blogpage')}>
                      View all News
                      </button>
                 </div>
-</div>
-    )
+                </div>
+    );
 }
 
 export default Homepageblog;

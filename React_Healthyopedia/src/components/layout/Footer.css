@@ -15,7 +15,7 @@
     padding-left: 1.7em;
 }
 .footermain{
-    width: 10;
+    width: 100%;
 }
 .footertop{
     text-align: center;
@@ -24,6 +24,11 @@
 }
 .websitename{
     margin-top: 1em;
+}
+.quote{
+    padding-top: 1em;
+    font-size: 18px;
+    text-align: center;
 }
 .copyright-downpart{
     text-align: center;
@@ -66,11 +71,17 @@ ul{
     .description{
         margin-top: 6em;
     }
-    .footer-contents{
-        position: relative;
+    /* .footer-contents{
+        display: flex;
+    } */
+    .col{
+        flex-basis: 100%;
     }
      .footermain{
         display: flex;
+    }
+    .footerlist{
+        margin-left: 13px;
     }
     .footertop{
         text-align: center;
@@ -89,7 +100,6 @@ ul{
     }
     .footerheadings{
         font-size: 1.5em;
-        text-align: start;
     }
     .copyright-downpart{
         margin-top: 3em;
@@ -101,5 +111,8 @@ ul{
     }
      .fabandinstaicons{
         margin-right: 2em;
+     }
+     .footeritems:hover{
+         color: red;
      }
 } 

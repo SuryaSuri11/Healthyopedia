@@ -20,10 +20,13 @@
     width: 70%;
     display: block;
     margin: 0 auto;
+    border-radius: 10px;
 }
 .onlinedesc{
     font-size: 20px;
     text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .diseases{
     font-size: 17px;

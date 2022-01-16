@@ -1,15 +1,11 @@
 import './Cards.css';
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router';
-import {useState,useEffect,useContext} from 'react';
+import {useState,useEffect} from 'react';
 import './Doctors.css';
-
 function Cards(props){
   const history=useHistory();
   const [doctors,setdoctors]=useState([])
-  const[appointopen,setappointopen]=useState(false);
-  const setappointclose = () => setappointopen(!appointopen)
-
 
   // var filterDoctor=async()=>{
   // }
@@ -19,17 +15,17 @@ function Cards(props){
   // }
 
   useEffect(()=>{
-    fetch("http://localhost:8000/api/doctordetails-category/"+props.title).then(
+    fetch("http://localhost:8000/api/doctordetails-category/"+props.title
+    ).then(
       response=>response.json()).then(
         data=>setdoctors(data) 
      )
    },[])
-
   return(
     <div>    
        <div className='underline' onClick={()=>{
          props.showSideBar()
-         history.push('/doctor',{doctors:doctors})
+         history.push('/doctor',{doctors:doctors,onlineappoint:props.onlineappoint})
          }}>
          <div className='cards'>
               <p className='onlinetitle'>{props.title}</p>

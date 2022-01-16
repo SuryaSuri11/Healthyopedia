@@ -4,6 +4,7 @@ import Homeproduct from './Hompage_files/Homeproduct';
 import Homepageblog from './Hompage_files/Homepageblog';
 import Homepagedoctorconsultation from './Hompage_files/Homepagedoctorconsultation';
 import Homepagehospital from './Hompage_files/Homepagehospital';
+import Homeabout from './Hompage_files/Homeabout';
 
 
 function HomePage() {
@@ -25,6 +26,9 @@ return(
      </div>
      <div>
        <Homepagehospital/>
+     </div>
+     <div>
+       <Homeabout/>
      </div>
 </div>  
 );

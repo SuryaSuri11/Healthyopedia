@@ -1,6 +1,4 @@
-
 from django.db import models
-
 # Create your models here.
 class Product(models.Model):
   title=models.CharField(max_length=400)
@@ -60,7 +58,14 @@ class consultationform(models.Model):
   username=models.CharField(max_length=20)
   doctorid=models.ForeignKey(Doctorconsultation, on_delete=models.CASCADE)
   useremail=models.EmailField()
-  phoneno=models.IntegerField()
+  phoneno=models.CharField(max_length=10)
   Age=models.IntegerField()
   message=models.TextField(blank=True)
 
+class Contact(models.Model):
+  firstname=models.CharField(max_length=30)
+  lastname=models.CharField(max_length=20)
+  email_id=models.EmailField()
+  phone_no=models.CharField(max_length=10,unique=True,null=False)
+  message=models.TextField(null=True,blank=True)
+  

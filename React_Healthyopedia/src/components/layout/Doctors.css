@@ -18,9 +18,9 @@
 }
 .doctorimg{
     width: 40%;
-    border-radius: 50%;
     padding-right: 10px;
     padding-left: 20px;
+    clip-path: circle();
 }
 .details{
     padding-top:10px ;
@@ -54,137 +54,124 @@
 }
 .appoint{
     color: black;
-    text-decoration: none;
+    cursor: pointer;
 }
 :root{
-    --primary:hsla(182, 97%, 63%, 0.747);
-    --secondary:hsla(355, 96%, 62%, 0.781);
+    --primary:hsla(313, 97%, 63%, 0.747);
+    --secondary:hsla(172, 96%, 62%, 0.781);
 }
 .overlay_styles1{
     width: 100%;
     background:linear-gradient(135deg, var(--primary), var(--secondary)),
-    url("https://st.depositphotos.com/1524643/3336/i/950/depositphotos_33361871-stock-photo-doctors-and-nurse.jpg");
-    color: black;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    url("https://static.toiimg.com/thumb/msid-83194191,width-800,resizemode-4,imgsize-62648/share.jpg");
+    padding-top: 4em;
+    padding-bottom: 4em;
 }
-.doctor{
-    font-size: 15px;
-    padding-top: 0.5em;
+.appoint-form{
+      width: 80%;
+      margin: 0 auto;
+      background-color: whitesmoke;
+      padding-top: 2em;
+      padding-bottom: 2em;
+      border-radius: 10px;
 }
-.appoint-card{
-    width: 85%;
-    margin: 0 auto;
-    background-color: white;
-    border-radius:25px;
-}
-.appoint-user{
-    position: relative;
-    width: 100%;
-    padding-top: 20px;
-}
-.appoint-details{
-    position: relative;
-    width: 100%;
-    margin: 25px 0 10px;
-    transition: 0.5s;
-}
-.appoint-inputbox{
-    position: relative;
-    width: 100%;
-    height: 40px;
-    color: black;
-}
-.appoint-inputbox input,
-.textarea-box1{
-    position: absolute;
+.appoint-form> form {
     width: 90%;
-    height: 100%;
-    background: transparent;
-    box-shadow: none;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+  }
+.appoint-label{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.appoint-label-textarea{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5px;
+    padding-top:5px ;
+}
+.appoint-input{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
     border: none;
     outline: none;
+    margin: 5px;
     font-size: 18px;
-    z-index: 1;
-    color: white;
-    margin-left: 20px;
-    letter-spacing: 1px;
-    padding-bottom: 10px;
 }
-.appoint-text{
-    position: absolute;
-    top: 0;
-    left: 0;
-    line-height: 30px;
-    font-size: 18px;
+.appoint-textarea{
     display: block;
-    transition: 0.5s;
-    pointer-events:none;
-    margin-left: 15px;
-}
-.appoint-inputbox input:focus +.appoint-text,
-.appoint-inputbox input:valid +.appoint-text{
-    top: -35px;
-    left: -5px;
-}
-.appoint-line{
-    position: absolute;
-    bottom: 0;
-    display: block;
-    width: 90%;
-    height: 2px;
-    border-radius: 2px;
-    pointer-events: none;
-    background-color: black;
-    margin-left: 15px;
-}
-.appoint-inputbox input:focus ~ .appoint-line,
-.appoint-inputbox input:valid ~ .appoint-line{
-    height: 100%;
-}
-.textarea-inputbox1{
+    margin-top: 5px;
     width: 100%;
-    height: 70px;
+    height: 100px;
+    border-radius: 7px;
+    font-size: 25px;
+    outline: none;
 }
-.textarea-box1{
-    height: 100%;
-    resize: none;
-}
-.textarea-inputbox1 .textarea-box1:focus +.appoint-text,
-.textarea.inputbox1 .textarea-box1:valid +.appoint-text{
-    top:-35px;
-    left: -10px;
-}
-.textarea-inputbox1 .textarea-box1:focus ~ .appoint-line,
-.textarea.inputbox1 .textarea-box1:valid ~ .appoint-line{
-    height: 100%;
+.errors{
+    font-size: 18px;
+    color: red;
+    padding-left: 5px;
 }
 .appoint-submit{
-    border:none;
-    cursor:pointer;
-    outline:none;
-    background-color: black;
+    text-align: center;
     font-size: 18px;
-    border-radius: 30px;
-    margin-left: 1em;
-    color: white;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-top: 20px;
+    border-radius: 23px;
+    background-color: black;
+    border: none;
+    margin: 0 auto;
     margin-top: 1em;
-    margin-bottom: 1em;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 35px;
-    padding-right: 35px;
+    margin-bottom: 2em;
+    cursor: pointer;
+    color: white;
+}
+.faq-container{
+    width:80%;
+    margin: 0 auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: white;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 10px;
+}
+.faq-content{
+    width: 100%;
+    padding-left: 20px;
+}
+.questions{
+    padding-top: 1em;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faplus,.faminus{
+    cursor: pointer;
+}
+.faqquestions{
+    font-size: 1.7em;
+}
+.faqanswers{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 18px;
 }
 @media(min-width:868px){
-    .doctor-container{
-        display:grid;
+    .doctor-div{
+        display: grid;
         grid-template-columns: repeat(2,1fr);
     }
     .details{
-        padding-left: 50px;
+        padding-left: 40px;
     }
     .doctorname{
         font-size: 28px;
@@ -195,10 +182,7 @@
     .edudetails{
         font-size: 23px;
     }
-   .appoint-card{
-       width: 50%;
-   }
-    .appoint-form{
-        width: 100%;
+    .appoint-form> form{
+        width: 90%;
     }
 }

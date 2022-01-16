@@ -17,6 +17,8 @@ import Doctor from './components/layout/Doctors';
 // import Footer from './components/layout/Footer';
 import Layout from './components/layout/Layout';
 import Appoint from './components/layout/Appointment';
+import Success from './Success';
+import EditProfile from './pages/EditProfile';
 function App() {
   return (
     <div className='App'>
@@ -57,6 +59,12 @@ function App() {
           </Route>
           <Route path='/appoint'>
            <Appoint/>
+          </Route>
+          <Route path='/success'>
+              <Success/>
+          </Route>
+          <Route path='/editprofile'>
+              <EditProfile/>
           </Route>
         </Switch>
       </Layout>
