@@ -217,7 +217,17 @@ def contact_delete(request,pk):
   Contact_item=Contact.objects.get(id=pk)
   Contact_item.delete()
 
+#to update an item
+@api_view(['POST'])
+def contact_update(request,pk):
+  contact_item=Contact.objects.get(id=pk)
+  serializer=ContactSerializer(instance=contact_item,data=request.data)
 
+  if serializer.is_valid():
+    serializer.save()
+
+  return Response(serializer.data)
+  
 class RegisterView(APIView):
   def post(self,request):
     serializer=UserSerializer(data=request.data)
