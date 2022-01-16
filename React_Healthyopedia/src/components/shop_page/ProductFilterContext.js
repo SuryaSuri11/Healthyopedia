@@ -8,8 +8,8 @@ const ProductFilterContext = createContext({
   // curCategoryFunc:()=>{},
   curCategory:"",
   shopPageLocation:false,
-  logIn:false,
-  setLogIn:()=>{}
+  loggedIn:false,
+  setLoggedIn:()=>{}
 });
 
 export function ProductFilterContextProvider(props) {
@@ -19,12 +19,34 @@ export function ProductFilterContextProvider(props) {
   const [shopPageLoc,setshopPageLoc]=useState(false);
   const [userlogin,setUserLogin]=useState(false);
 
+
+  var loginInfo=async()=>{
+    try{
+    const response=await fetch('http://localhost:8000/api/user',{
+      headers:{'Content-Type':'application/json'},
+      credentials:'include'
+  });
+  const content =await response.json();
+  console.log(content.username)
+  console.log(content)
+}
+catch(err)
+{
+  console.log(err)
+}
+}
+
   useEffect(()=>{
     fetch("http://localhost:8000/api/product-list/").then(
       response=>response.json()).then(
         data=>setFilteredProducts(data)
      )
    },[])
+
+
+   useEffect(()=>{
+     loginInfo()
+   },[userlogin])
 
 
    useEffect(()=>{
@@ -77,11 +99,11 @@ export function ProductFilterContextProvider(props) {
   //  }
 
 
-  //login 
-
-  function userLoginHandler(){
-    setUserLogin(true)
+  function userLoginHandler() {
+    setUserLogin(true);
   }
+
+
 
   const context = {
     products: filteredProducts,
@@ -90,8 +112,8 @@ export function ProductFilterContextProvider(props) {
     // curCategoryFunc:curCatHandler,
     curCategory:curCat,
     setshopPageLocation:shopPageLocationHandler,
-    logIn:userlogin,
-    setLogIn:userLoginHandler
+    loggedIn:userlogin,
+    setLoggedIn:userLoginHandler
   };
 
   return (

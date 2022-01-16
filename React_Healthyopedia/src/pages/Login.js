@@ -72,15 +72,15 @@ function LoginPage({ loginopen, onClose }) {
 
 
 
-  var loginInfo=async()=>{
-    const response=await fetch('http://localhost:8000/api/user',{
-      headers:{'Content-Type':'application/json'},
-      credentials:'include'
-  });
-  const content =await response.json();
-  console.log(content.username)
-  console.log(content)
-}
+//   var loginInfo=async()=>{
+//     const response=await fetch('http://localhost:8000/api/user',{
+//       headers:{'Content-Type':'application/json'},
+//       credentials:'include'
+//   });
+//   const content =await response.json();
+//   console.log(content.username)
+//   console.log(content)
+// }
 
 
 
@@ -98,7 +98,7 @@ function LoginPage({ loginopen, onClose }) {
         const response=await axios.post("http://localhost:8000/api/login",info,{withCredentials:true})
         console.log("login response ")
         console.log(JSON.stringify(response))
-        loginInfo()
+        filterctx.setLoggedIn()
         setLoginError(false)
         setLoginEmail("")
         setLoginPassword("")
