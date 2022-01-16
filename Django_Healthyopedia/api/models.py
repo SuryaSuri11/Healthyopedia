@@ -71,6 +71,7 @@ class Contact(models.Model):
   phone_no=models.CharField(max_length=10,unique=True,null=False)
   message=models.TextField(null=True,blank=True)
 
+
 class User(AbstractUser):
   username=models.CharField(max_length=255,unique=True)
   email=models.EmailField(max_length=255,unique=True)

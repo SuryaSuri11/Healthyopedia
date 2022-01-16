@@ -111,6 +111,11 @@
     font-size: 17px;
 }
 
+.errormsg
+{
+    color: red;
+}
+
 @media (min-width:900px){
     .login-card{
         width: 30%;

@@ -41,4 +41,5 @@ urlpatterns = [
   path('contact-update/<str:pk>',views.contact_update,name='contact-update'),
   path('contact-item/<str:pk>',views.contact_item,name='contact-item'),
   path('contact-delete/<str:pk>',views.contact_delete,name='contact-delete'),
+
 ]

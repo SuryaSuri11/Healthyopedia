@@ -1,6 +1,7 @@
 from rest_framework import fields, serializers
 from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact
 from api import models
+
 class ProductSerializer(serializers.ModelSerializer):
   class Meta:
     model=Product
@@ -22,6 +23,7 @@ class consultationformSerializer(serializers.ModelSerializer):
   class Meta:
     model=consultationform
     fields='__all__'
+
 
 class ContactSerializer(serializers.ModelSerializer):
   class Meta:

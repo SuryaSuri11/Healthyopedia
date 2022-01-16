@@ -1,4 +1,7 @@
 # Create your views here.
+from re import A
+from django import http
+from django.http import response
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from rest_framework import serializers
@@ -213,7 +216,8 @@ def contact_create(request):
 def contact_delete(request,pk):
   Contact_item=Contact.objects.get(id=pk)
   Contact_item.delete()
-  
+
+
 class RegisterView(APIView):
   def post(self,request):
     serializer=UserSerializer(data=request.data)

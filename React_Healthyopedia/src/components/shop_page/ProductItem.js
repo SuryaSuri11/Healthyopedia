@@ -13,7 +13,7 @@ function ProductItem(props){
          <h3>{item.title}</h3>
          <p>{"₹ "+item.price}</p>
          </div>
-    </div>
+     </div>
    
     );
   });
