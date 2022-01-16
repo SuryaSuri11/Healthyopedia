@@ -98,7 +98,7 @@ function LoginPage({ loginopen, onClose }) {
         const response=await axios.post("http://localhost:8000/api/login",info,{withCredentials:true})
         console.log("login response ")
         console.log(JSON.stringify(response))
-        filterctx.setLoggedIn()
+        filterctx.setLoggedIn(true)
         setLoginError(false)
         setLoginEmail("")
         setLoginPassword("")

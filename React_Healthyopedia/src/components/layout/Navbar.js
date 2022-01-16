@@ -18,32 +18,16 @@ function Navbar(props) {
    const history = useHistory();
    const filterctx = useContext(ProductFilterContext);
 
-   // useEffect(()=>{
-   //    (async()=>{
-   //       try
-   //       {
-   //       const response=await fetch("http://localhost:8000/api/user",{
-   //          headers:{'Content-Type':'application/json'},
-   //          credentials:'include',
-   //       });
-   //       const content=await response.json();
-   //       console.log(content)
-   //    }
-   //    catch(err)
-   //    {
-   //       console.log(err)
-   //    }
-   //    })()
-   // },[filterctx.logIn])
 
-   // var logoutUser = async () => {
-   //    await fetch('http://localhost:8000/api/logout', {
-   //       method: "POST",
-   //       headers: { 'Content-Type': 'application/json' },
-   //       credentials: 'include'
-   //    });
-   //    filterctx.setLogIn(false)
-   // }
+   var logoutUser = async () => {
+      await fetch('http://localhost:8000/api/logout', {
+         method: "POST",
+         headers: { 'Content-Type': 'application/json' },
+         credentials: 'include'
+      });
+      // filterctx.setLoggedIn(false);
+      filterctx.setUserLogin();
+   }
 
    var nothome = "";
    const [sidebar, setSidebar] = useState(false);
@@ -81,6 +65,7 @@ function Navbar(props) {
          setDropdown(true);
    };
 
+   console.log("navbar "+filterctx.userLogin.username)
    window.addEventListener('scroll', changebackground)
    return (
       <div className='Navcontents'>
@@ -103,8 +88,8 @@ function Navbar(props) {
                      <li className='topnav'>DashBoard</li>
                   </Link>
                   <p className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
-                     {<li className='topnav' onClick={() => setloginopen(true)}>Login</li>}
-                     {/* {filterctx.logIn && <li className='topnav' onClick={logoutUser}>Logout</li>} */}
+                     {filterctx.userLogin.username==undefined && <li className='topnav' onClick={() => setloginopen(true)}>Login</li>}
+                     {filterctx.userLogin.username!=undefined &&  <li className='topnav' onClick={logoutUser}><span className='username'>{filterctx.userLogin.username}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className='logout'>Logout</span></li>} 
                      <LoginPage loginopen={loginopen} onClose={Oncancel} />
                   </p>
                </ul>}
