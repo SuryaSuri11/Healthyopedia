@@ -150,18 +150,6 @@ function Navbar(props) {
                         <h2 className='sidebarheadings'> Blog </h2>
                      </Link>
                   </li>
-<<<<<<< HEAD
-                  <li>
-                     <p className='mainitems active' >
-                        <h2 className='mobileviewsidebarlogin' onClick={() => setloginopen(true)}>Login</h2>
-                        <LoginPage loginopen={loginopen} onClose={Oncancel} />
-                     </p>
-                  </li>
-             </div>}
-            </ul>
-      </div>
-      </div >
-=======
                      <li>
                         <Link to='/contactpage' className='mainitems active' onClick={showSidebar}>
                            <h2 className='mobileviewsidebarheadings'>Contact</h2>
@@ -183,7 +171,6 @@ function Navbar(props) {
                </ul>
             </div>
           </div>
->>>>>>> 43da2a45be1d3e636e2178f6264f275e4634ed7d
    );
 }
 
