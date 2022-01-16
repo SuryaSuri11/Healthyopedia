@@ -1,0 +1,36 @@
+.success-container{
+    width: 100%;
+    background-color:#F8F6F3;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+.success-contents{
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.sucess-title{
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 1.6em;
+    font-size: 2.5em;
+}
+.success-img{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+.redirect{
+    font-size: 1.5em;
+    text-align: center;
+    cursor: pointer;
+    padding-bottom: 1em; 
+    text-align: center;
+    color:blue;
+    text-decoration: underline;
+}
+.redirect:hover{
+    color: red;
+}

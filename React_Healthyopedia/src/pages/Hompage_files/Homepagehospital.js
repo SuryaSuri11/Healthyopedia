@@ -31,11 +31,11 @@ function Homepagehospital(){
                     <p data-aos="fade-up" className='hos-desc'>Get Nearest Diagnostic Centers all over India</p>
             </div>
             </div>
-            <button className='health-list-button' onClick={()=>
-                    history.push('/health_list')
-                    }>
-                        View all data...
-                </button>
+            <div className='all-news'>
+                    <button className='view-all' onClick={()=> history.push('/health_list')}>
+                     View all data..
+                     </button>
+                </div>
         </div>
     )
 }

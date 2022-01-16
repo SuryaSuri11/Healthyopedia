@@ -19,7 +19,6 @@ function Onlineappoint(props) {
         // data=>console.log(data)
       )
   }, [])
-
   return (
     <div className="onlineconsult">
       <h2 className='sidebarheadings1' onClick={Onlineappointment}>
@@ -28,7 +27,9 @@ function Onlineappoint(props) {
 
       {onlineopen && <div className='onlinecards'>
         {onlineappoint.map((appoint) => {
-          return <Cards title={appoint.category} img={"http://localhost:8000" + appoint.categoryimage} desc={appoint.categorydescription} ex={appoint.categorydiseases} showSideBar={props.showSideBar} />
+          return <Cards title={appoint.category} img={"http://localhost:8000" + appoint.categoryimage} desc={appoint.categorydescription} 
+          ex={appoint.categorydiseases} showSideBar={props.showSideBar} onlineappoint={appoint}
+          />
         })}
       </div>}
     </div>

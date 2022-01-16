@@ -3,8 +3,8 @@ from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from rest_framework import serializers
 
-from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer
-from .models import Product,consultationcategory,Doctorconsultation,consultationform
+from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer
+from .models import Product,consultationcategory,Doctorconsultation,consultationform,Contact
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -37,6 +37,11 @@ def api_overview(request):
     'user_update':'/user-update/',
     "user_create":'/user-create/',
     "user_delete":'/user-delete/',
+    "contact_list":'/contact-list/',
+    "contact_item":'/contact-item/',
+    'contact_update':'/contact-update/',
+    "contact_create":'/contact-create/',
+    "contact_delete":'/contact-delete/',
   }
   return Response(url_list)
 
@@ -106,8 +111,8 @@ def consult_list(request):
 
 #get a specific item
 @api_view(['GET'])
-def consult_item(request,pk):
-  consult_item=consultationcategory.objects.get(id=pk)
+def consult_item(request,cat):
+  consult_item=consultationcategory.objects.get(category=cat)
   serializer=consultationcategorySerializer(consult_item,many=False)
   return Response(serializer.data)
 
@@ -150,7 +155,7 @@ def userform_item(request,pk):
 @api_view(['POST'])
 def user_create(request):
   serializer=consultationformSerializer(data=request.data)
-
+  
   if serializer.is_valid():
     serializer.save()
   
@@ -168,6 +173,49 @@ def user_delete(request,pk):
 def user_update(request,pk):
   user_item=consultationform.objects.get(id=pk)
   serializer=consultationformSerializer(instance=user_item,data=request.data)
+
+  if serializer.is_valid():
+    serializer.save()
+
+  return Response(serializer.data)
+
+#contact
+
+#get all data
+@api_view(['GET'])
+def contact_list(request):
+  contact_list=Contact.objects.all()
+  serializer=ContactSerializer(contact_list,many=True)
+  return Response(serializer.data)
+
+#get a specific item
+@api_view(['GET'])
+def contact_item(request,pk):
+  contact_item=Contact.objects.get(id=pk)
+  serializer=ContactSerializer(contact_item,many=False)
+  return Response(serializer.data)
+
+@api_view(['POST'])
+def contact_create(request):
+  serializer=ContactSerializer(data=request.data)
+
+  if serializer.is_valid():
+    serializer.save()
+  
+  return Response(serializer.data)
+
+@api_view(['DELETE'])
+def contact_delete(request,pk):
+  Contact_item=Contact.objects.get(id=pk)
+  Contact_item.delete()
+
+  return Response("ITEM DELETED SUCCESSFULLY")
+
+#to update an item
+@api_view(['POST'])
+def contact_update(request,pk):
+  contact_item=Contact.objects.get(id=pk)
+  serializer=ContactSerializer(instance=contact_item,data=request.data)
 
   if serializer.is_valid():
     serializer.save()

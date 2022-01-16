@@ -4,7 +4,6 @@ import * as GiIcons from 'react-icons/gi';
 import * as AiIcons from 'react-icons/ai';
 // import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Dropdown from "./Dropdown";
 import { useLocation } from 'react-router-dom';
 import LoginPage from "../../pages/Login";
 import Onlineappoint from './Onlineconsultation';
@@ -23,7 +22,7 @@ function Navbar(props) {
    const [navbar, setNavbar] = useState(false);
    const [dropdown, setDropdown] = useState(false);
 
-   const [maindrop, setmaindrop] = useState(false);
+   // const [maindrop, setmaindrop] = useState(false);
 
 
    if (location.pathname != '/') {
@@ -60,9 +59,8 @@ function Navbar(props) {
                   <Link to='/' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
                      <li className='topnav'>Home</li>
                   </Link>
-                  <Link to='/aboutus' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'} onMouseEnter={() => setmaindrop(true)} onMouseLeave={() => setmaindrop(false)}>
+                  <Link to='/aboutus' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
                      <li className='topnav' >About</li>
-                     {maindrop && <Dropdown />}
                   </Link>
                   <Link to='/contactpage' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'} >
                      <li className='topnav'>Contact</li>
@@ -123,41 +121,9 @@ function Navbar(props) {
                   </Link>
                </li>
                   <li>
-                     <Link to='/aboutus' className='mainitems active' onClick={Dropdownlist}>
+                     <Link to='/aboutus' className='mainitems active' onClick={showSidebar}>
                         <h2 className='mobileviewsidebarheadings'>About</h2>
                      </Link>
-                     <div>
-                        {dropdown && (
-                           <ul className='activesubmenu'>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                           </ul>
-                        )
-                        }
-                     </div>
                   </li>
                   <li>
                      <Link to='/contactpage' className='mainitems active' onClick={showSidebar}>

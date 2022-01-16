@@ -200,8 +200,9 @@ header svg{
     }
     .logo{
       position: absolute;
+      font-size: 1.8em;
       top: 40%;
-      left: 25%;
+      left: 24%;
       text-align: center;
     }
 }

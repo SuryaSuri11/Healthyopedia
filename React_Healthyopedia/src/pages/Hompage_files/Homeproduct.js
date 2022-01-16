@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import Carousel from "react-elastic-carousel"
 import '../HomePage.css';
 import Item from './Item';
@@ -24,6 +23,7 @@ function Homeproduct(){
             <Carousel breakPoints={breakPoints}>
                 <Item onClick={()=>{filterctx.categoryFilter("RESPIRATORY CARE");history.push('/shoppage')}}>
                     <img src='https://zeelabpharmacy.com/public/uploads/healthconcern/EMCEE5eb8fab9e4d68-120X.png' className='cat-img'/>
+
                     <p className='cat-des'>
                        Respiratory Care 
                     </p>
@@ -54,6 +54,7 @@ function Homeproduct(){
                 </Item>
                 <Item onClick={()=>{filterctx.categoryFilter("DIABETIC CARE");history.push('/shoppage')}}>
                 <img src='https://zeelabpharmacy.com/public/uploads/healthconcern/EMCEE5eb8ff511094b-120X.png' className='cat-img'/>
+
                     <p className='cat-des'>
                     Diabetic Care
                     </p>
@@ -66,6 +67,11 @@ function Homeproduct(){
                 </Item>
                </Carousel>
          </div>
+         <div className='all-news'>
+                    <button className='view-all' onClick={()=> history.push('/shoppage')}>
+                     View all Products
+                     </button>
+                </div>
         </>
     );
 }

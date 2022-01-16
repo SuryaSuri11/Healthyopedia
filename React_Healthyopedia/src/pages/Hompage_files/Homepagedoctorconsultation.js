@@ -1,4 +1,4 @@
-import {useEffect,useState} from 'react';
+import {useState} from 'react';
 import '../HomePage.css';
 import Item from './Item';
 import Carousel from "react-elastic-carousel"
@@ -25,7 +25,7 @@ function Homepagedoctorconsultation(){
     return (
         <>
         <h1 className='cat-title'>BOOK APPOINTMENTS BASED ON CATEGORYS</h1>
-        <div className='slides'>
+        <div className='slides'>z
             <Carousel breakPoints={breakPoints} className='carousel'>
                 <Item onClick={()=> {Doctor("Dermatology")}}>
                     <img src='http://localhost:8000/files/images/image1.jpg' className='doctor-img'/>
