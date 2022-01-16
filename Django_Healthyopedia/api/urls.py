@@ -1,6 +1,7 @@
 from django.urls import path
 
 from . import views
+from .views import RegisterView,LoginView,UserView,LogoutView
 
 urlpatterns = [
   path('', views.api_overview, name='api-overview'), # our-domain.com/meetups
@@ -28,4 +29,11 @@ urlpatterns = [
   path('user-item/<str:pk>',views.userform_item,name='user-item'),
   path('user-delete/<str:pk>',views.user_delete,name='user-delete'),
   
+  #signup/register
+  path('register',RegisterView.as_view()),
+  path('login',LoginView.as_view()),
+  path('user',UserView.as_view()),
+  path('logout',LogoutView.as_view()),
+
+
 ]

@@ -15,3 +15,7 @@ admin.site.register(Doctorconsultation)
 from .models import consultationform
 # Register your models here.
 admin.site.register(consultationform)
+
+from .models import User
+# Register your models here.
+admin.site.register(User)

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Navbar.css';
 import * as GiIcons from 'react-icons/gi';
 import * as AiIcons from 'react-icons/ai';
@@ -9,10 +9,42 @@ import { useLocation } from 'react-router-dom';
 import LoginPage from "../../pages/Login";
 import Onlineappoint from './Onlineconsultation';
 import { useHistory } from 'react-router';
+import ProductFilterContext from '../shop_page/ProductFilterContext';
+import { useEffect } from 'react/cjs/react.development';
+
 
 
 function Navbar(props) {
-   const history=useHistory();
+   const history = useHistory();
+   const filterctx = useContext(ProductFilterContext);
+
+   // useEffect(()=>{
+   //    (async()=>{
+   //       try
+   //       {
+   //       const response=await fetch("http://localhost:8000/api/user",{
+   //          headers:{'Content-Type':'application/json'},
+   //          credentials:'include',
+   //       });
+   //       const content=await response.json();
+   //       console.log(content)
+   //    }
+   //    catch(err)
+   //    {
+   //       console.log(err)
+   //    }
+   //    })()
+   // },[filterctx.logIn])
+
+   // var logoutUser = async () => {
+   //    await fetch('http://localhost:8000/api/logout', {
+   //       method: "POST",
+   //       headers: { 'Content-Type': 'application/json' },
+   //       credentials: 'include'
+   //    });
+   //    filterctx.setLogIn(false)
+   // }
+
    var nothome = "";
    const [sidebar, setSidebar] = useState(false);
    const [loginopen, setloginopen] = useState(false);
@@ -31,7 +63,7 @@ function Navbar(props) {
    }
    function Oncancel() {
       setloginopen(false);
-      console.log(loginopen)
+      // console.log(loginopen)
    }
    function changebackground() {
       if (window.scrollY >= 500) {
@@ -71,7 +103,8 @@ function Navbar(props) {
                      <li className='topnav'>DashBoard</li>
                   </Link>
                   <p className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
-                     <li className='topnav' onClick={() => setloginopen(true)}>Login</li>
+                     {<li className='topnav' onClick={() => setloginopen(true)}>Login</li>}
+                     {/* {filterctx.logIn && <li className='topnav' onClick={logoutUser}>Logout</li>} */}
                      <LoginPage loginopen={loginopen} onClose={Oncancel} />
                   </p>
                </ul>}
@@ -80,7 +113,7 @@ function Navbar(props) {
                <AiIcons.AiOutlineClose onClick={showSidebar} className='icon' color="black" />
                <ul>
                   <li className='menu-items'>
-                        <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-services</h2>
+                     <h2 className='sidebarheadings' onClick={Dropdownlist}>Online-services</h2>
                      <div className='drop'>
                         {dropdown && (
                            <ul className='activesubmenu'>
@@ -89,11 +122,11 @@ function Navbar(props) {
                               </li>
 
                               <li>
-                                 <div className='menu-items' onClick={()=>{
-                                     showSidebar()
-                                     history.push('/health_list')
+                                 <div className='menu-items' onClick={() => {
+                                    showSidebar()
+                                    history.push('/health_list')
                                  }
-                                }>
+                                 }>
                                     <h2 className='sidebarheadings1'> Health Centres </h2>
                                  </div>
                               </li>
@@ -102,82 +135,82 @@ function Navbar(props) {
                                     Aboutus Content
                                  </Link> </li>*/}
                            </ul>
-                     )
-                        }
-                  </div>
-               </li>
-               <li>
-                  <Link to='./shoppage' className='menu-items'>
-                     <h2 className='sidebarheadings' onClick={showSidebar}>Products</h2>
-                  </Link>
-               </li>
-               <li>
-                  <Link to='./blogpage' className='menu-items' onClick={showSidebar}>
-                     <h2 className='sidebarheadings'> Blog </h2>
-                  </Link>
-               </li>
-
-               {props.appwidth < 1100 && <div><li>
-                  <Link to='/' className='mainitems active' onClick={showSidebar}>
-                     <h2 className='mobileviewsidebarheadings'>Home</h2>
-                  </Link>
-               </li>
-                  <li>
-                     <Link to='/aboutus' className='mainitems active' onClick={Dropdownlist}>
-                        <h2 className='mobileviewsidebarheadings'>About</h2>
-                     </Link>
-                     <div>
-                        {dropdown && (
-                           <ul className='activesubmenu'>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                              <li onClick={dropdown}>
-                                 <Link to='/' className='mainitems active' onClick={showSidebar}>
-                                    Aboutus Contents
-                                 </Link>
-                              </li>
-                           </ul>
                         )
                         }
                      </div>
                   </li>
                   <li>
-                     <Link to='/contactpage' className='mainitems active' onClick={showSidebar}>
-                        <h2 className='mobileviewsidebarheadings'>Contact</h2>
+                     <Link to='./shoppage' className='menu-items'>
+                        <h2 className='sidebarheadings' onClick={showSidebar}>Products</h2>
                      </Link>
                   </li>
                   <li>
-                     <Link to='/dashboard' className='mainitems active' onClick={showSidebar}>
-                        <h2 className='mobileviewsidebarheadings'>DashBoard</h2>
+                     <Link to='./blogpage' className='menu-items' onClick={showSidebar}>
+                        <h2 className='sidebarheadings'> Blog </h2>
                      </Link>
                   </li>
-                  <li>
-                     <p className='mainitems active' >
-                        <h2 className='mobileviewsidebarlogin' onClick={() => setloginopen(true)}>Login</h2>
-                        <LoginPage loginopen={loginopen} onClose={Oncancel} />
-                     </p>
+
+                  {props.appwidth < 1100 && <div><li>
+                     <Link to='/' className='mainitems active' onClick={showSidebar}>
+                        <h2 className='mobileviewsidebarheadings'>Home</h2>
+                     </Link>
                   </li>
-             </div>}
-            </ul>
-      </div>
+                     <li>
+                        <Link to='/aboutus' className='mainitems active' onClick={Dropdownlist}>
+                           <h2 className='mobileviewsidebarheadings'>About</h2>
+                        </Link>
+                        <div>
+                           {dropdown && (
+                              <ul className='activesubmenu'>
+                                 <li onClick={dropdown}>
+                                    <Link to='/' className='mainitems active' onClick={showSidebar}>
+                                       Aboutus Contents
+                                    </Link>
+                                 </li>
+                                 <li onClick={dropdown}>
+                                    <Link to='/' className='mainitems active' onClick={showSidebar}>
+                                       Aboutus Contents
+                                    </Link>
+                                 </li>
+                                 <li onClick={dropdown}>
+                                    <Link to='/' className='mainitems active' onClick={showSidebar}>
+                                       Aboutus Contents
+                                    </Link>
+                                 </li>
+                                 <li onClick={dropdown}>
+                                    <Link to='/' className='mainitems active' onClick={showSidebar}>
+                                       Aboutus Contents
+                                    </Link>
+                                 </li>
+                                 <li onClick={dropdown}>
+                                    <Link to='/' className='mainitems active' onClick={showSidebar}>
+                                       Aboutus Contents
+                                    </Link>
+                                 </li>
+                              </ul>
+                           )
+                           }
+                        </div>
+                     </li>
+                     <li>
+                        <Link to='/contactpage' className='mainitems active' onClick={showSidebar}>
+                           <h2 className='mobileviewsidebarheadings'>Contact</h2>
+                        </Link>
+                     </li>
+                     <li>
+                        <Link to='/dashboard' className='mainitems active' onClick={showSidebar}>
+                           <h2 className='mobileviewsidebarheadings'>DashBoard</h2>
+                        </Link>
+                     </li>
+                     <li>
+                        <p className='mainitems active' >
+                           <h2 className='mobileviewsidebarlogin' onClick={() => setloginopen(true)}>Login</h2>
+                           <LoginPage loginopen={loginopen} onClose={Oncancel} />
+                        </p>
+                     </li>
+                  </div>}
+               </ul>
+            </div>
          </appointcontext >
       </div >
    );

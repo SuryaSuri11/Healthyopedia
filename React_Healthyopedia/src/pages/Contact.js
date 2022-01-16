@@ -58,7 +58,7 @@ function ContactPage(){
                 <div className='contact-user'>
                 <div className='contact-details'>
                     <div className='contact-inputbox'>
-                        <input type="text" name="" required='required'/>
+                        <input type="email" name="" required='required'/>
                         <span className='contact-text'>E-mail</span>
                         <span className='contact-line'></span>
                     </div>

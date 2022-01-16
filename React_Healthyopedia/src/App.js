@@ -17,7 +17,10 @@ import Doctor from './components/layout/Doctors';
 // import Footer from './components/layout/Footer';
 import Layout from './components/layout/Layout';
 import Appoint from './components/layout/Appointment';
+import { useEffect } from 'react/cjs/react.development';
+import axios from 'axios';
 function App() {
+
   return (
     <div className='App'>
       <Layout>

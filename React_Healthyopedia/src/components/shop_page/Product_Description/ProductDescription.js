@@ -22,7 +22,6 @@ function ProductDescription() {
   // {
   //   setDescInfo(false);
   // }
-
   return <div className={classes.wrapper}>
     <div className={classes.container}>
       <div className={classes.header}>

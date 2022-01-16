@@ -7,7 +7,9 @@ const ProductFilterContext = createContext({
   categoryFilter:()=>{},
   // curCategoryFunc:()=>{},
   curCategory:"",
-  shopPageLocation:false
+  shopPageLocation:false,
+  logIn:false,
+  setLogIn:()=>{}
 });
 
 export function ProductFilterContextProvider(props) {
@@ -15,6 +17,7 @@ export function ProductFilterContextProvider(props) {
   const [curCat,setCurCat] = useState("all");
   const [curCatWithoutRd,setCurCatWithoutRd] = useState("all");
   const [shopPageLoc,setshopPageLoc]=useState(false);
+  const [userlogin,setUserLogin]=useState(false);
 
   useEffect(()=>{
     fetch("http://localhost:8000/api/product-list/").then(
@@ -73,13 +76,22 @@ export function ProductFilterContextProvider(props) {
   //    setCurCat(e.target.value);
   //  }
 
+
+  //login 
+
+  function userLoginHandler(){
+    setUserLogin(true)
+  }
+
   const context = {
     products: filteredProducts,
     totalProducts: filteredProducts.length,
     categoryFilter:categoryFilterHandler,
     // curCategoryFunc:curCatHandler,
     curCategory:curCat,
-    setshopPageLocation:shopPageLocationHandler
+    setshopPageLocation:shopPageLocationHandler,
+    logIn:userlogin,
+    setLogIn:userLoginHandler
   };
 
   return (
