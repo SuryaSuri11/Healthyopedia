@@ -9,7 +9,8 @@ const ProductFilterContext = createContext({
   curCategory:"",
   shopPageLocation:false,
   loggedIn:false,
-  setLoggedIn:()=>{}
+  setLoggedIn:()=>{},
+  userLogin:{}
 });
 
 export function ProductFilterContextProvider(props) {
@@ -18,6 +19,8 @@ export function ProductFilterContextProvider(props) {
   const [curCatWithoutRd,setCurCatWithoutRd] = useState("all");
   const [shopPageLoc,setshopPageLoc]=useState(false);
   const [userlogin,setUserLogin]=useState(false);
+
+  const [userInfo,setUserInfo]=useState({status:false,username:"",email:""});
 
 
   var loginInfo=async()=>{
@@ -28,7 +31,11 @@ export function ProductFilterContextProvider(props) {
   });
   const content =await response.json();
   console.log(content.username)
-  console.log(content)
+  setUserInfo({
+    status:true,
+    username:content.username,
+    email:content.email
+  })
 }
 catch(err)
 {
