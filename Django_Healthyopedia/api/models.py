@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
 # Create your models here.
 class Product(models.Model):
   title=models.CharField(max_length=400,primary_key=True)
@@ -68,5 +70,12 @@ class Contact(models.Model):
   email_id=models.EmailField()
   phone_no=models.CharField(max_length=10,unique=True,null=False)
   message=models.TextField(null=True,blank=True)
-  
 
+class User(AbstractUser):
+  username=models.CharField(max_length=255,unique=True)
+  email=models.EmailField(max_length=255,unique=True)
+  password=models.CharField(max_length=255)
+
+  USERNAME_FIELD='email'
+
+  REQUIRED_FIELDS=['username']

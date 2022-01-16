@@ -1,5 +1,7 @@
 from django.urls import path
+
 from . import views
+from .views import RegisterView,LoginView,UserView,LogoutView
 
 urlpatterns = [
   path('', views.api_overview, name='api-overview'), # our-domain.com/meetups
@@ -26,6 +28,12 @@ urlpatterns = [
   path('user-update/<str:pk>',views.user_update,name='user-update'),
   path('user-item/<str:pk>',views.userform_item,name='user-item'),
   path('user-delete/<str:pk>',views.user_delete,name='user-delete'),
+  
+  #signup/register
+  path('register',RegisterView.as_view()),
+  path('login',LoginView.as_view()),
+  path('user',UserView.as_view()),
+  path('logout',LogoutView.as_view()),
 
   #contact
   path('contact-list/',views.contact_list,name='contact-list'),
@@ -33,5 +41,4 @@ urlpatterns = [
   path('contact-update/<str:pk>',views.contact_update,name='contact-update'),
   path('contact-item/<str:pk>',views.contact_item,name='contact-item'),
   path('contact-delete/<str:pk>',views.contact_delete,name='contact-delete'),
-  
 ]
