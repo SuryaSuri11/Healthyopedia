@@ -12,30 +12,36 @@ const breakPoints=[
 ];
 function Homepagedoctorconsultation(){
     const history=useHistory();
-    const [doctors,setDoctors]=useState([]);
-    const [appoint,setAppoint]=useState([]);
+    // const [doctors,setDoctors]=useState([]);
+    // const [appoint,setAppoint]=useState([]);
 
 
 
     var Doctor=async(category)=>{
-        fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
-          response=>response.json()).then(
-              docdata=>{
-                  setDoctors(docdata);
-              }
-            ) 
-        fetch("http://localhost:8000/api/consult-item/"+category).then(
-        appointdata=>{
-            setAppoint(appointdata);
-        }
-      )
-      history.push('/doctor',{doctors:doctors,onlineappoint:appoint})
+        var doctors=[];
+        var appoint=[];
+        const docdata=await fetch("http://localhost:8000/api/doctordetails-category/"+category);
+        const appointdata=await fetch("http://localhost:8000/api/consult-item/"+category);
+        // fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
+        //   response=>response.json()).then(
+        //       docdata=>{
+        //           setDoctors(docdata);
+        //       }
+        //     ) 
+        // fetch("http://localhost:8000/api/consult-item/"+category).then(
+        // appointdata=>{
+        //     setAppoint(appointdata);
+        // }
+    //   )
+        doctors=docdata.json()
+        appoint=appointdata.json()
+        history.push('/doctor',{doctors:doctors,onlineappoint:appoint})
     }
 
     return (
-        <>
+        <div id="onlineconsult">
         <h1 className='cat-title'>BOOK APPOINTMENTS BASED ON CATEGORYS</h1>
-        <div className='slides'>z
+        <div className='slides'>
             <Carousel breakPoints={breakPoints} className='carousel'>
                 <Item onClick={()=> {Doctor("Dermatology")}}>
                     <img src='http://localhost:8000/files/images/image1.jpg' className='doctor-img'/>
@@ -75,7 +81,7 @@ function Homepagedoctorconsultation(){
                 </Item>
                </Carousel>
          </div>
-        </>
+        </div>
     );
 }
 

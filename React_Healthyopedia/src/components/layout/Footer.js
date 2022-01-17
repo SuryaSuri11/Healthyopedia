@@ -5,14 +5,14 @@ function Footer(){
  return(
      <div className='footercontainer'>
         <p className='footertop'>
-            Got a Project that you would like to discuss?
+            A Health Website
         </p>
         <div className="footermain">
           <div className="col">
           <div className='footer-headingcontents'>
           <div className="description">
         <h1 className='websitename'>HEALTHYOPEDIA</h1>
-        <p className="quote">Keep your vitality. A life without health is like a river without water.Maxime Lagacé</p>
+        <p className="quote">Keep your vitality. A life without health is like a river without water</p>
         </div>
         </div>
             </div>
@@ -22,10 +22,10 @@ function Footer(){
                       Quick Links
                   </h3>
                 <ul>
-                <li className="footerlist"><Link to="/"className='footeritems' to="">Home</Link></li>
-                <li className="footerlist"><Link to="aboutus"className='footeritems' to="">About</Link></li>
-                <li className="footerlist"><Link to="blogpage"className='footeritems' to="">Blog</Link></li>
-                <li className="footerlist"><Link to="contactpage"className='footeritems' to="">Contact Us</Link></li>
+                <li className="footerlist"><Link to="/"className='footeritems' >Home</Link></li>
+                <li className="footerlist"><Link to="/aboutus" className='footeritems' >About</Link></li>
+                <li className="footerlist"><Link to="/blogpage" className='footeritems' >Blog</Link></li>
+                <li className="footerlist"><Link to="/contactpage" className='footeritems'>Contact Us</Link></li>
                 </ul>
               </div>
               </div>
@@ -35,10 +35,10 @@ function Footer(){
                  Our Services
               </h3>
               <ul>
-                <li className="footerlist">  <Link to="shoppage" className="footeritems">Products</Link></li>
-                  <li className="footerlist"><Link to=""className='footeritems' to="">Online Consultation</Link></li>
-                 <li className="footerlist"> <Link to="blogpage"className='footeritems' to="">Health News</Link></li>
-                  <li className="footerlist"><Link to="health_list"className='footeritems' to="">Health Lists</Link></li>
+                <li className="footerlist">  <Link to="/shoppage" className="footeritems">Products</Link></li>
+                  <li className="footerlist"><a href="/" className='footeritems' >Online Consultation</a></li>
+                 <li className="footerlist"> <Link to="/blogpage" className='footeritems' >Health News</Link></li>
+                  <li className="footerlist"><Link to="/health_list" className='footeritems'>Health Lists</Link></li>
               </ul>
             </div>
             </div>

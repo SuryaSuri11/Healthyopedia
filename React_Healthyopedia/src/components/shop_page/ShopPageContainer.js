@@ -44,7 +44,7 @@ function ShopPageContainer() {
       <ProductMenu products={product_info} len={filterctx.totalProducts} setCurrentPage={CurrentPage} curpage={currentpage}/>
     </div>
     <div className={classes.filter}>
-    <input type='search' placeholder='Search products...' className={classes.search} />
+    {/* <input type='search' placeholder='Search products...' className={classes.search} /> */}
       <ProductCategory />
     </div>
   </div>

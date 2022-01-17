@@ -1,4 +1,4 @@
-.search 
+/* .search 
 {
   background-color: aqua;
   font-size: 1.2em;
@@ -10,16 +10,17 @@
   margin-bottom: 3em;
   width:80%;
   outline: none;
-}
+} */
 
-.search:focus
+/* .search:focus
 {
   background:transparent;
-}
+} */
 
 .filter
 {
   margin:2em;
+  margin-top: 5em;
 }
 
 

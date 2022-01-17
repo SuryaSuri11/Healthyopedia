@@ -70,19 +70,29 @@
 
 /*quantity & add to cart*/
 
-.quantity 
+.firstquantity,.secondquantity
 {
   list-style-type:none ;
   margin: 0;
-  margin-top: 6em;
+  margin-top: 4em;
   padding: 0;
   display: flex;
-  width:80%;
   justify-content: space-between;
   margin-bottom: 1em;
 }
 
-.quantity li button
+.firstquantity
+{
+  width:50%;
+}
+
+.secondquantity
+{
+  width:60%;
+}
+
+
+.firstquantity li button,.secondquantity li button
 {
   background-color: black;
   color: white;
@@ -91,14 +101,14 @@
   border: none;
   width:100%;  */
   font-size: 1.1rem;
-  padding: 0.2em 1em;
+  padding: 0.5em 1em;
   cursor: pointer;
 }
 
-.quantity li div
+.firstquantity li div
 {
   border:2px solid lightgray;
-  padding:0.4em 1.5em;
+  padding:0.6em 1.5em;
 }
 
 
@@ -164,6 +174,51 @@
 }
 
 
+/* medicine product details  */
+
+.compositioninfo
+{
+  margin-top: 4em;
+  font-size: 1.3rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.descsection
+{
+  margin-top: 2em;
+}
+
+
+
+.descsection p,.faqinfo
+{
+  text-align: justify;
+  margin-top: 0.8em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 150%;
+}
+
+.faqinfo
+{
+  margin-top: 2em;
+}
+
+.faqquestion
+{
+  font-weight: bolder;
+}
+
+@media (min-width:600px)
+{
+  .firstquantity{
+    width:40%;
+  }
+
+  .secondquantity{
+    width: 40%;
+  }
+}
+
 @media (min-width:1000px) {
   .wrapper
   {
@@ -181,6 +236,10 @@
     padding-bottom: 2em;
   }
 
+  .prodbody
+  {
+    margin:0 3em;
+  }
   .header
   {
     display: flex;
@@ -190,7 +249,7 @@
 
  .img_container
   {
-    width:40%;
+    width:25%;
   }
 
   .basicinfo h1
@@ -211,6 +270,14 @@
     justify-content: space-around;
   }
 
+  .firstquantity
+  {
+    width:80%;
+  }
+
+  .secondquantity{
+    width: 90%;
+  }
   /* .addreview
   {
     width: 50%;

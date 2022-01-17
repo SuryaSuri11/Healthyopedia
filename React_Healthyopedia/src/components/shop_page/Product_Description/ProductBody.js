@@ -43,41 +43,41 @@ function ProductBody(props)
 
     <div className={classes.bodymenudesc}>
       {curdesc.composition && 
-      <div>
+     <div className={classes.compositioninfo}>
       <p>{props.item.composition}</p>
       </div>
       }
 
       {curdesc.description && 
-      <div>
+      <div className={classes.descsection}>
       <p>{props.item.description}</p>
 
-      {props.item.uses!="none" && <div>
+      {props.item.uses!="none" && <div className={classes.descsection}>
       <h2>Uses of {props.item.title}</h2>
       <p>{props.item.uses}</p>
       </div>}
 
-      {props.item.benefits!="none" && <div>
+      {props.item.benefits!="none" && <div className={classes.descsection}>
       <h2>Benefits of {props.item.title}</h2>
       <p>{props.item.benefits}</p>
       </div>}
 
-      {props.item.sideEffects!="none" && <div>
+      {props.item.sideEffects!="none" && <div className={classes.descsection}>
       <h2>Side Effects </h2>
       <p>{props.item.sideEffects}</p>
       </div>}
 
-      {props.item.safetyAdvice!="none" && <div>
+      {props.item.safetyAdvice!="none" && <div className={classes.descsection}>
       <h2>Safety Advice</h2>
       <p>{props.item.safetyAdvice}</p>
       </div>}
 
-      {props.item.hwToUse!="none" && <div>
+      {props.item.hwToUse!="none" && <div className={classes.descsection}>
       <h2>How to use</h2>
       <p>{props.item.hwToUse}</p>
       </div>}
 
-      {props.item.works!="none" && <div>
+      {props.item.works!="none" && <div className={classes.descsection}>
       <h2>How it Works</h2>
       <p>{props.item.works}</p>
       </div>}
@@ -85,7 +85,33 @@ function ProductBody(props)
       }
 
       {curdesc.faq && <div>
-        {props.item.faq}
+
+        {props.item.faqquestion1!=null && <div className={classes.faqinfo}>
+        <p className={classes.faqquestion}> {props.item.faqquestion1}</p>
+        <p>{props.item.faqanswer1}</p>
+        </div>}
+
+        {props.item.faqquestion2!=null && <div className={classes.faqinfo}>
+        <p className={classes.faqquestion}>{props.item.faqquestion2}</p>
+        <p>{props.item.faqanswer2}</p>
+        </div>}
+
+        {props.item.faqquestion3!=null && <div className={classes.faqinfo}>
+        <p className={classes.faqquestion}>{props.item.faqquestion3}</p>
+        <p>{props.item.faqanswer3}</p>
+        </div>}
+
+        {props.item.faqquestion4!=null && <div className={classes.faqinfo}>
+        <p className={classes.faqquestion}>{props.item.faqquestion4}</p>
+        <p>{props.item.faqanswer4}</p>
+        </div>}
+
+        {props.item.faqquestion5!=null && <div className={classes.faqinfo}>
+        <p className={classes.faqquestion}>{props.item.faqquestion5}</p>
+        <p>{props.item.faqanswer5}</p>
+        </div>}
+
+
         </div>  
       }
     </div>

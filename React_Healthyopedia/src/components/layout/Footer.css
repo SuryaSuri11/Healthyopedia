@@ -24,11 +24,14 @@
 }
 .websitename{
     margin-top: 1em;
+    /* text-align: center; */
+    padding-left: 1em;
 }
 .quote{
     padding-top: 1em;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
+    margin-top: 2em;
 }
 .copyright-downpart{
     text-align: center;

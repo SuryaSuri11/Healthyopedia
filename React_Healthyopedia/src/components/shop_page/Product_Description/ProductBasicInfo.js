@@ -23,13 +23,15 @@ function ProductBasicInfo(props) {
     <p>{props.item.category}</p>
     <p className={classes.price}>₹ {props.item.price} (Inclusive of all Taxes)</p>
     <p className={classes.tabletcnt}>{props.item.quantity}</p>
-    <ul className={classes.quantity}>
-      <li><button onClick={QuantityValDec}>-</button></li>
+    <ul className={classes.firstquantity}>
+      <li><button >-</button></li>
       <li><div>{quantityVal}</div></li>
       <li><button onClick={QuantityValInc}>+</button></li>
-      <li><button>Add to cart</button></li>
-      <li><button>Buy now</button></li>
     </ul> 
+    <ul className={classes.secondquantity}>
+      <li><button>Buy now</button></li>
+      <li><button>Add to cart</button></li>
+    </ul>
 
     {/* <div className={classes.dispcategory}>Category:<span> {props.item.category}</span></div> */}
   </div>
