@@ -1,5 +1,5 @@
 from rest_framework import fields, serializers
-from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact
+from .models import  Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,CartItems
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -24,6 +24,10 @@ class consultationformSerializer(serializers.ModelSerializer):
     model=consultationform
     fields='__all__'
 
+class CartSerializer(serializers.ModelSerializer):
+  class Meta:
+    model=CartItems
+    fields='__all__'
 
 class ContactSerializer(serializers.ModelSerializer):
   class Meta:

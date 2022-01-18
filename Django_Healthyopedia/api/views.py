@@ -1,5 +1,4 @@
 # Create your views here.
-from re import A
 from django import http
 from django.http import response
 from django.http.response import HttpResponse, JsonResponse
@@ -12,8 +11,8 @@ from rest_framework.exceptions import AuthenticationFailed
 
 from .serializers import UserSerializer
 
-from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer
-from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact
+from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer,CartSerializer
+from .models import  Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,CartItems
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import jwt,datetime
@@ -52,6 +51,14 @@ def api_overview(request):
     'contact_update':'/contact-update/',
     "contact_create":'/contact-create/',
     "contact_delete":'/contact-delete/', 
+    "login":'/login/',
+    "register":'/register/',
+    "logout":'/logout/',
+    "user_cart":'/user-cart/', 
+    'cart_create':'cart-create',
+    'cart_list':'cart-list',
+    'cart_delete':'cart-delete',
+    'cart_item':'cart-item',
    }
   return Response(url_list)
 
@@ -64,8 +71,8 @@ def product_list(request):
 
 #get a specific item
 @api_view(['GET'])
-def product_item(request,pk):
-  login_item=Product.objects.get(id=pk)
+def product_item(request,title):
+  login_item=Product.objects.get(title=title)
   serializer=ProductSerializer(login_item,many=False)
   return Response(serializer.data)
 
@@ -278,6 +285,13 @@ class UserView(APIView):
     serializer=UserSerializer(user)
     return Response(serializer.data)
 
+#get a specific item
+@api_view(['GET'])
+def user_cart(request,id):
+  cart_items=CartItems.objects.filter(user=id)
+  serializer=CartSerializer(cart_items,many=True)
+  return Response(serializer.data)
+
 
 class LogoutView(APIView):
   def post(self,request):
@@ -291,4 +305,39 @@ class LogoutView(APIView):
 
 
 
+# #Cart items
+
+# #get all data
+@api_view(['GET'])
+def cart_list(request):
+  productlst=CartItems.objects.all()
+  serializer=CartSerializer(productlst,many=True)
+  return Response(serializer.data)
+
+
+# #create a item
+@api_view(['POST'])
+def cart_create(request):
+  serializer=CartSerializer(data=request.data)
+
+  if serializer.is_valid():
+    serializer.save()
+  
+  return Response(serializer.data)
+
+ #to delete a item
+@api_view(['DELETE'])
+def cart_delete(request,title):
+ cart_item=CartItems.objects.filter(title=title).first()
+ cart_item.delete()
+
+ return Response("ITEM DELETED SUCCESSFULLY")
+
+
+#get cart item
+@api_view(['GET'])
+def cart_item(request,title,id):
+  cart_item=CartItems.objects.get(title=title,user=id)
+  serializer=CartSerializer(cart_item,many=False)
+  return Response(serializer.data)
 

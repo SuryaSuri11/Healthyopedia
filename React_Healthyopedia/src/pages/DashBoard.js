@@ -3,7 +3,11 @@ import { useHistory } from 'react-router';
 import "./Dashboard.css";
 import * as FaIcons from "react-icons/fa"
 import Dashboardproduct from './Dashboardproduct';
+import {useContext} from 'react';
+import ProductFilterContext from '../components/shop_page/ProductFilterContext';
+
 function DashBoard() {
+  const filterctx=useContext(ProductFilterContext);
   const history=useHistory();
   return (
     <div className='dashboard-container'>
@@ -15,11 +19,13 @@ function DashBoard() {
                 Edit Profile
            </button>
            <div className='left-card'>
-               <p className='profile-details'>Name:</p>
+               {/* <p className='profile-details'>Name:</p>
                <p className='profile-details'>Age</p>
                <p className='profile-details'>Sex:</p>
                <p className='profile-details'>E-mail</p>
-               <p className='profile-details'>Phone-no:</p>
+               <p className='profile-details'>Phone-no:</p> */}
+               <p className='profile-details'>UserName: {filterctx.userLogin.username}</p>
+               <p className='profile-details'>Email: {filterctx.userLogin.email}</p>
            </div>
            </div>
        </div>
@@ -32,9 +38,9 @@ function DashBoard() {
            <h1 className='cart'>Products Bought</h1>
            <div className='items'>
            <div className='cart_section_styling'>
-            <h2 className='order_heading'>Your Cart</h2>
+            <h2 className='order_heading'>Products</h2>
             <FaIcons.FaShoppingCart size="6em" className="icon_alignment" />
-            <p className='empty'>Your Cart Is Empty</p>
+            <p className='empty'>No Products Bought</p>
             <FaIcons.FaSadTear size="4em" className="icon_alignment1"/>
             </div>    
            </div>

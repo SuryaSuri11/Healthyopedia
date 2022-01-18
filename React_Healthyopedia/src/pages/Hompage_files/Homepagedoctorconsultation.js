@@ -12,30 +12,15 @@ const breakPoints=[
 ];
 function Homepagedoctorconsultation(){
     const history=useHistory();
-    // const [doctors,setDoctors]=useState([]);
-    // const [appoint,setAppoint]=useState([]);
 
 
 
-    var Doctor=async(category)=>{
-        var doctors=[];
-        var appoint=[];
-        const docdata=await fetch("http://localhost:8000/api/doctordetails-category/"+category);
-        const appointdata=await fetch("http://localhost:8000/api/consult-item/"+category);
+    function Doctor(category){
         // fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
-        //   response=>response.json()).then(
-        //       docdata=>{
-        //           setDoctors(docdata);
-        //       }
-        //     ) 
-        // fetch("http://localhost:8000/api/consult-item/"+category).then(
-        // appointdata=>{
-        //     setAppoint(appointdata);
-        // }
-    //   )
-        doctors=docdata.json()
-        appoint=appointdata.json()
-        history.push('/doctor',{doctors:doctors,onlineappoint:appoint})
+        //     res=>resz
+        // );
+        // const appointdata=await fetch("http://localhost:8000/api/consult-item/"+category);
+
     }
 
     return (

@@ -10,7 +10,7 @@ urlpatterns = [
   path('product-list/',views.product_list,name='product-list'),
   path('product-create/',views.product_create,name='product-create'),
   path('product-update/<str:pk>',views.product_update,name='product-update'),
-  path('product-item/<str:pk>',views.product_item,name='product-item'),
+  path('product-item/<str:title>',views.product_item,name='product-item'),
   path('product-delete/<str:pk>',views.product_delete,name='product-delete'),
   path('productdetails-category/<str:cat>',views.productdetails_category,name='productdetails-category'),
 
@@ -34,6 +34,8 @@ urlpatterns = [
   path('login',LoginView.as_view()),
   path('user',UserView.as_view()),
   path('logout',LogoutView.as_view()),
+  path('user-cart/<str:id>',views.user_cart,name='user-cart'),
+  
 
   #contact
   path('contact-list/',views.contact_list,name='contact-list'),
@@ -41,5 +43,14 @@ urlpatterns = [
   path('contact-update/<str:pk>',views.contact_update,name='contact-update'),
   path('contact-item/<str:pk>',views.contact_item,name='contact-item'),
   path('contact-delete/<str:pk>',views.contact_delete,name='contact-delete'),
+
+
+  #cart
+  path('cart-list/',views.cart_list,name='cart-list'),
+  path('cart-create/',views.cart_create,name='cart-create'),
+  # path('cart-update/<str:pk>',views.cart_update,name='cart-update'),
+  # path('contact-item/<str:pk>',views.contact_item,name='contact-item'),
+  path('cart-delete/<str:title>',views.cart_delete,name='cart-delete'),
+  path('cart-item/<str:title>/<str:id>',views.cart_item,name='cart-item'),
 
 ]

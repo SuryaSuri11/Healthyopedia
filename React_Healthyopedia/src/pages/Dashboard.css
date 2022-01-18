@@ -46,7 +46,8 @@
 }
 .profile-details{
     padding-top: 1.3em;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
 .gender{
     display: block;
@@ -143,10 +144,11 @@
 }
 
 .order_heading{
-background-color: #96CE49;;
+background-color: black;;
 margin: 0;
 font-size: 30px;
 border-radius: 8px;
+color: white;
 }
 
 .icon_alignment{
@@ -159,6 +161,15 @@ border-radius: 8px;
 .icon_alignment1{
     padding-top: 2em;
     padding-bottom: 2em;
+}
+
+.delete
+{
+    background-color:black;
+    padding: 0.5em;
+    font-size: 0.8rem;
+    color: white;
+    border-radius: 5px;
 }
 
 @media(min-width:800px){

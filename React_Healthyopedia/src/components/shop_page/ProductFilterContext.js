@@ -1,5 +1,5 @@
+import axios from 'axios';
 import { createContext, useState, useEffect } from 'react';
-import { FaSleigh } from 'react-icons/fa';
 
 const ProductFilterContext = createContext({
   products: [],
@@ -11,7 +11,11 @@ const ProductFilterContext = createContext({
   loggedIn:false,
   setLoggedIn:()=>{},
   userLogin:{},
-  setUserLogin:()=>{}
+  setUserLogin:()=>{},
+  cartProdsTitle:[],
+  cartToggledFunc:()=>{},
+  cartToggledVal:false,
+  deleteCartItem:()=>{}
 });
 
 export function ProductFilterContextProvider(props) {
@@ -22,20 +26,39 @@ export function ProductFilterContextProvider(props) {
   const [userlogin,setUserLogin]=useState(false);
 
   const [userInfo,setUserInfo]=useState({});
+  const [cartItemsTitle,setCartItemsTitle]=useState([]);
+  const [cartToggled,setCartToggled]=useState(false);
 
-
-  var loginInfo=async()=>{
+ const getCartItems=async(id)=>{
+  try{
+    const response=await fetch('http://localhost:8000/api/user-cart/'+id,{
+      headers:{'Content-Type':'application/json'},
+      credentials:'include'
+  });
+  const content =await response.json();
+  // console.log(content)
+  setCartItemsTitle(content)
+ }
+ catch(err)
+{
+  console.log(err)
+}
+}
+  
+  const loginInfo=async()=>{
     try{
     const response=await fetch('http://localhost:8000/api/user',{
       headers:{'Content-Type':'application/json'},
       credentials:'include'
   });
   const content =await response.json();
-  console.log(content.username)
+  // console.log(content)
   setUserInfo({
+    id:content.id,
     username:content.username,
     email:content.email
   })
+  getCartItems(content.id)
 }
 catch(err)
 {
@@ -53,7 +76,8 @@ catch(err)
 
    useEffect(()=>{
      loginInfo()
-   },[userlogin])
+   },[userlogin,cartToggled])
+
 
 
    useEffect(()=>{
@@ -114,6 +138,42 @@ catch(err)
     setUserInfo({});
   }
 
+  function toggleCartHandler(){
+    cartToggled ?setCartToggled(false):setCartToggled(true)
+  }
+
+  function deleteCartItemHandler(title)
+  {
+    console.log(title)
+    axios.delete('http://localhost:8000/api/cart-delete/'+title,{withCredentials:true}).then(res=>{
+      // console.log(response)
+      toggleCartHandler()
+    }).catch(
+      err=>console.log(err)
+    )
+  }
+
+  // function deleteCartHandler(title) {
+  //   try{
+  //     const response=await fetch('http://localhost:8000/api/cart-delete/'+title,{
+  //       headers:{'Content-Type':'application/json'},
+  //       credentials:'include'
+  //   });
+  //   const content =await response.json();
+  //   // console.log(content)
+  //   setUserInfo({
+  //     id:content.id,
+  //     username:content.username,
+  //     email:content.email
+  //   })
+  //   getCartItems(content.id)
+  // }
+  // catch(err)
+  // {
+  //   console.log(err)
+  // }
+  // }
+
 
   const context = {
     products: filteredProducts,
@@ -125,7 +185,11 @@ catch(err)
     loggedIn:userlogin,
     setLoggedIn:userLoginHandler,
     userLogin:userInfo,
-    setUserLogin:userInfoHandler
+    setUserLogin:userInfoHandler,
+    cartProdsTitle:cartItemsTitle,
+    cartToggledFunc:toggleCartHandler,
+    deleteCartItem:deleteCartItemHandler,
+    cartToggledVal:cartToggled
   };
 
   return (
