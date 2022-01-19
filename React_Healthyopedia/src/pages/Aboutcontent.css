@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Merriweather:ital,wght@0,300;1,300&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');
+
 .about-card{
     width: 100%;
 }
@@ -20,12 +22,14 @@
     padding-top: 10px;
     padding-bottom: 20px;
     text-transform: capitalize;
+    font-family: 'Luxurious Roman', cursive;
 }
 .about-description{
     text-align: center;
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: 'Merriweather', serif;
 }
 .about-description:last-child{
     padding-bottom: 20px;

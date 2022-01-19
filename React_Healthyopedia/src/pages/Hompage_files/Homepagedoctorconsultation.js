@@ -14,13 +14,13 @@ function Homepagedoctorconsultation(){
     const history=useHistory();
 
 
-
-    function Doctor(category){
-        // fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
-        //     res=>resz
-        // );
-        // const appointdata=await fetch("http://localhost:8000/api/consult-item/"+category);
-
+    var Doctor=async(category)=>{
+        fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
+          response=>response.json()).then(
+              docdata=>{
+                history.push('/doctor',{doctors:docdata})
+              }
+            ) 
     }
 
     return (
@@ -34,7 +34,7 @@ function Homepagedoctorconsultation(){
                        Dermatology
                     </p>
                 </Item>
-                <Item onClick={()=> {Doctor("General Physician")}}>
+                <Item onClick={()=> {Doctor("GeneralPhysician")}}>
                 <img src='http://localhost:8000/files/images/image2.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                         General Physician

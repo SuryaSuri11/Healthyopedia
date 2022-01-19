@@ -75,6 +75,10 @@ function HomePage() {
     <video autoPlay loop muted>
       <source src={Navbarvideo} type="video/mp4"/>
     </video>
+    <h1 className='video-text'>
+      Do not let illness make you realize <br/>
+      the value of health
+    </h1>
 </div>
      <div>
        <Homeproduct/>

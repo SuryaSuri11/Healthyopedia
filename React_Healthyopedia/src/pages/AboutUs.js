@@ -4,10 +4,10 @@ import "aos/dist/aos.css";
 import "./AboutUs.css";
 import * as FaIcons from 'react-icons/fa'
 import Aboutcontent from "./Aboutcontent";
-const aboutset=[[<FaIcons.FaThumbsUp size={30}/>,"Easy Set Up","Your team works from our","headquaters and is ready to go","within weeks."],
-[<FaIcons.FaUserFriends size={30}/>,"Scaleable","Start nimble grow your team as","your company does."],
-[<FaIcons.FaThumbsUp size={30}/>,"Easy Set Up","Your team works from our","headquaters and is ready to go","within weeks."],
-[<FaIcons.FaUserFriends size={30}/>,"Scaleable","Start nimble grow your team as","your company does."],
+const aboutset=[[<FaIcons.FaCapsules size="4rem"/>,"Products Sales","Generic Medicine"],
+[<FaIcons.FaCalendar size="4rem"/>,"Online Consultation","Booking Appointments"],
+[<FaIcons.FaClinicMedical size="4rem"/>,"Health Centres","Get Nearest Hospital and Diagnostic centre"],
+[<FaIcons.FaNewspaper size="4rem"/>,"Blog News","Get Latest News Related to Health"],
 ]
 
 function AboutUs(props){
@@ -17,9 +17,9 @@ function AboutUs(props){
 return(
     <div className='aboutcontainer'>
      <div className="text-div">
-       <h1 className="top-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
-       <h1 className="top-text">sed do eiusmod tempor incididunt ut labore et dolore</h1>
-       <h1 className="top-text">magna aliqua.</h1>
+       <h1 className="top-text">DO NOT LET ILLNESS</h1>
+       <h1 className="top-text">MAKE YOU REALIZE</h1>
+       <h1 className="top-text">THE VALUE OF HEALTH</h1>
        </div>
        <div className="anim-img">
                   <img className="aboutimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5tVVBowERx2Dqpljy3CA9Zj0xTiRbXTChrA&usqp=CAU" alt="images"/>
@@ -29,8 +29,10 @@ return(
        </div>
        <div className="bottom-container">
            <div className="bottom-text">
-               <h2 data-aos="fade-up" className="bold-text">Lorem ipsum dolor sit amet. A dolorum quibusdam obcaecati neque ab cupiditate omnis et dolore fugiat.</h2>
-               <p data-aos="fade-up" className="bold-bottom">Lorem ipsum dolor sit amet. A dolorum quibusdam obcaecati neque ab cupiditate omnis et dolore fugiat. Eos aliquam inventore ut aliquam sint et natus tempore eum perferendis rerum qui quam aperiam qui aliquam quis eum distinctio quia.</p>
+               <h2 data-aos="fade-up" className="bold-text">Our Website is a  freely 
+                   accessible which provides various health benefits to the users for the maintenance of their health.
+               </h2>
+               <p data-aos="fade-up" className="bold-bottom">The various health benefits which is  provided in the webites:.</p>
            </div>
        </div>
        <div className="our-contents">
@@ -43,12 +45,26 @@ return(
                  Our Website Values 
              </h1>
              <div className="below-texts"> 
-             <p className="below-title">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit
-             </p>
-             <p className="below-title">
-             sed do eiusmod tempor incididunt ut labore et dolore
-             </p>
+        <ul className="values">
+           <li className="below-title">
+                Provides Consultation based on Categorey
+            </li> 
+             <li className="below-title">
+                 Sales of Generic Medicienes
+             </li>
+             <li className="below-title">
+                  Displays News related to Health for the Users
+             </li>
+             <li className="below-title">
+                  Provides Free Consultation
+             </li>
+             <li className="below-title">
+                  User Health Repository to store Reports
+             </li>
+             <li className="below-title">
+                  List of Health centres,Hospitals and Diagnostic
+             </li>
+             </ul>
              </div>
              </div>
       </div>

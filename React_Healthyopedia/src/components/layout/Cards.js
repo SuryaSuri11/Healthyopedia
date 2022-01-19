@@ -25,7 +25,8 @@ function Cards(props){
     <div>    
        <div className='underline' onClick={()=>{
          props.showSideBar()
-         history.push('/doctor',{doctors:doctors,onlineappoint:props.onlineappoint})
+        //  history.push('/doctor',{doctors:doctors,onlineappoint:props.onlineappoint})
+         history.push('/doctor',{doctors:doctors})
          }}>
          <div className='cards'>
               <p className='onlinetitle'>{props.title}</p>

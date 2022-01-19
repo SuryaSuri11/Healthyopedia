@@ -35,7 +35,7 @@ urlpatterns = [
   path('user',UserView.as_view()),
   path('logout',LogoutView.as_view()),
   path('user-cart/<str:id>',views.user_cart,name='user-cart'),
-  
+  path('user-id/<str:email>',views.user_id,name="user-id"),
 
   #contact
   path('contact-list/',views.contact_list,name='contact-list'),
@@ -52,5 +52,12 @@ urlpatterns = [
   path('user-cart-list/<str:id>',views.user_cart_list,name='user-cart-list'),
   path('cart-delete/<str:title>',views.cart_delete,name='cart-delete'),
   path('cart-item/<str:title>/<str:id>',views.cart_item,name='cart-item'),
+
+  #repository
+  path('repo-list/',views.repo_list,name='repo-list'),
+  path('repo-create/',views.repo_create,name='repo-create'),
+  path('repo-update/<str:pk>',views.repo_update,name='repo-update'),
+  path('repo-item/<str:pk>',views.repo_item,name='repo-item'),
+  path('repo-delete/<str:title>',views.repo_delete,name='repo-delete'),
 
 ]

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -91,3 +92,14 @@ class User(AbstractUser):
 class CartItems(models.Model):
   title=models.ForeignKey(Product,on_delete=models.CASCADE)
   user=models.ForeignKey(User,on_delete=models.CASCADE)
+
+
+def upload_path(instance,filename):
+  return '/'.join(['image',str(instance.title),filename])
+
+class Repository(models.Model):
+  date=models.DateField()
+  title=models.CharField(max_length=40,primary_key=True)
+  image=models.ImageField(upload_to=upload_path)
+  user=models.ForeignKey(User,on_delete=models.CASCADE) 
+

@@ -71,7 +71,7 @@ function Navbar(props) {
             <header className={(navbar || nothome) ? 'navbar active' : 'navbar'}>
                <GiIcons.GiHamburgerMenu size='2rem' onClick={showSidebar} className='sidebaricon' size="2.5em" />
                <h1 className='logo'>HEALTHYOPEDIA</h1>
-               {props.appwidth > 1100 && <ul className='nav-links'>
+               {props.appwidth > 1260 && <ul className='nav-links'>
                   <Link to='/' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
                      <li className='topnav'>Home</li>
                   </Link>
@@ -86,7 +86,7 @@ function Navbar(props) {
                   </Link>
                   <p className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>
                      {filterctx.userLogin.username==undefined && <li className='topnav' onClick={() => setloginopen(true)}>Login</li>}
-                     {filterctx.userLogin.username!=undefined &&  <li className='topnav' onClick={logoutUser}><span className='username'>{filterctx.userLogin.username}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className='logout'>Logout</span></li>} 
+                     {filterctx.userLogin.username!=undefined &&  <li className='topnav'><span className='username'>{filterctx.userLogin.username}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className='logout' onClick={logoutUser}>Logout</span></li>} 
                      <LoginPage loginopen={loginopen} onClose={Oncancel} />
                   </p>
                </ul>}
@@ -131,7 +131,7 @@ function Navbar(props) {
                      <h2 className='sidebarheadings'> Blog </h2>
                   </Link>
                </li>
-               {props.appwidth < 1100 && <div><li>
+               {props.appwidth < 1260 && <div><li>
                   <Link to='/' className='mainitems active' onClick={showSidebar}>
                      <h2 className='mobileviewsidebarheadings'>Home</h2>
                   </Link>

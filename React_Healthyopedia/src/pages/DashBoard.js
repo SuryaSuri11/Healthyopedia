@@ -5,7 +5,7 @@ import * as FaIcons from "react-icons/fa"
 import Dashboardproduct from './Dashboardproduct';
 import {useContext} from 'react';
 import ProductFilterContext from '../components/shop_page/ProductFilterContext';
-
+import Userrepository from './UserRepository';
 function DashBoard() {
   const filterctx=useContext(ProductFilterContext);
   const history=useHistory();
@@ -15,9 +15,6 @@ function DashBoard() {
       <div className='left'>
        <div className='left-side-contents'>
            <img src="https://media.istockphoto.com/vectors/user-profile-icon-vector-avatar-portrait-symbol-flat-shape-person-vector-id1270368615?k=20&m=1270368615&s=170667a&w=0&h=qpvA8Z6L164ZcKfIyOl-E8fKnfmRZ09Tks7WEoiLawA=" alt="profile-pic" className='profile-icon'/>
-           <button className='view-all' className="edit-profile" onClick={()=> history.push('/editprofile')}>
-                Edit Profile
-           </button>
            <div className='left-card'>
                {/* <p className='profile-details'>Name:</p>
                <p className='profile-details'>Age</p>
@@ -30,7 +27,11 @@ function DashBoard() {
            </div>
        </div>
        <div className='right'>
-            User Health Repository
+         <h1 className='repo'>User Repository</h1>
+         <button className='view-all' onClick={()=> history.push('/userrepo')}>
+                     Add Data
+          </button>
+            <Userrepository/>
        </div>
        </div>
        <div className='product-bought'>
@@ -39,7 +40,7 @@ function DashBoard() {
            <div className='items'>
            <div className='cart_section_styling'>
             <h2 className='order_heading'>Products</h2>
-            <FaIcons.FaShoppingCart size="6em" className="icon_alignment" />
+            <FaIcons.FaShoppingCart size="5.5em" className="icon_alignment" />
             <p className='empty'>No Products Bought</p>
             <FaIcons.FaSadTear size="4em" className="icon_alignment1"/>
             </div>    

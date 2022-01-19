@@ -17,8 +17,8 @@ import Doctor from './components/layout/Doctors';
 // import Footer from './components/layout/Footer';
 import Layout from './components/layout/Layout';
 import Appoint from './components/layout/Appointment';
-import Success from './Success';
-import EditProfile from './pages/EditProfile';
+import Success from './pages/Success';
+import Userrepo from './pages/UserrepoForm';
 function App() {
 
   return (
@@ -64,8 +64,8 @@ function App() {
           <Route path='/success'>
               <Success/>
           </Route>
-          <Route path='/editprofile'>
-              <EditProfile/>
+          <Route path='/userrepo'>
+              <Userrepo/>
           </Route>
         </Switch>
       </Layout>

@@ -11,13 +11,12 @@ function Homeabout() {
                        WELCOME TO
                      </h1>
                      <h3 className='abt-name'>
-                         HELTHYOPEDIA
+                         HEALTHYOPEDIA
                      </h3>
                      <p className='abt-para'>
-                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                     when an unknown printer took a galley of type and scrambled it to make a type
-                     specimen book.
+                     It is a Website which is freely 
+                     accessible that provides various health benefits to the users for 
+                     the maintenance of their health.
                      </p>
                      <div className='about-us-button'>
                     <button className='view-all' onClick={()=> history.push('/aboutus')}>

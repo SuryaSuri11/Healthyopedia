@@ -18,6 +18,11 @@
     transform: translate(-50%,-50%);
     z-index: 11;
 }
+.text{
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'IBM Plex Serif', serif;
+}
 .loginform{
     width: 90%;
 }
@@ -104,7 +109,7 @@
     cursor: pointer;
     margin-left: 1.4em;
     padding-bottom: 20px;
-
+    font-family: 'Kanit', sans-serif;
 }
 .signin:hover{
     color: blue;

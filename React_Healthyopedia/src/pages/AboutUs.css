@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Merriweather:ital,wght@0,300;1,300&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');
+
+
 .aboutcontainer{
     width: 100%;
     overflow-x: hidden;
@@ -10,6 +13,7 @@
 .top-text{
     width: 100%;
     text-align: center;
+    font-family: 'Caveat', cursive;
 }
 .anim-img{
     width: 90%;
@@ -47,10 +51,12 @@
     font-size: 24px;
     padding-top: 25px;
     padding-bottom: 25px;
+    font-family: 'Quicksand', sans-serif;
 }
 .bold-bottom{
-    font-size: 14px;
+    font-size: 20px;
     padding-bottom: 30px;
+    font-family: 'Neonderthaw', cursive;
 }
 :root{
     --primary:hsla(313, 97%, 63%, 0.747);
@@ -71,11 +77,13 @@
     text-align: center;
     padding-left: 20px;
     font-size: 20px;
+    font-family: 'Luxurious Roman', cursive;   
 }
 .below-title{
     font-size: 20px;
     text-align: center;
     padding-top: 30px;
+    font-family: 'Neonderthaw', cursive;
 }
 .below-title:last-child{
     padding-top: 20px;
@@ -137,7 +145,7 @@
        padding-top: 6em;
        padding-bottom: 10em;
    }
-   .below-texts{
+   .values{
        display: grid;
        grid-template-columns: repeat(2,1fr);
        padding-top: 3em;

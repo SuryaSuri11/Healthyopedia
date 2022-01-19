@@ -105,7 +105,6 @@ function HealthList(){
               <th>Hospital Name</th>
               <th>City Name</th>
               <th>Address</th>
-              <th>Google Maps</th>
           </tr>
           </thead>
           <tbody>
@@ -115,7 +114,6 @@ function HealthList(){
               <td>{hospital.hospitalname}</td>
               <td>{hospital.cityname.toUpperCase()}</td>
               <td>{hospital.hospitaladdress}</td>
-              <td><button className='gmap'>View</button></td>
           </tr>
             })
           }
@@ -149,7 +147,6 @@ function HealthList(){
               <th>Doctor Count</th>
               <th>Address</th>
               <th>Ph No</th>
-              <th>Google Maps</th>
           </tr>
           </thead>
           <tbody>
@@ -162,7 +159,6 @@ function HealthList(){
               <td>{centre.doctorcount}</td>
               <td>{centre.wellnesscentreaddress}</td>
               <td>{centre.wellnesscentrecontactno}</td>
-              <td><button className='gmap'>View</button></td>
           </tr>
             })
           }
@@ -193,7 +189,6 @@ function HealthList(){
               <th>Centre Name</th>
               <th>City</th>
               <th>Address</th>
-              <th>Google Maps</th>
           </tr>
           </thead>
           <tbody>
@@ -203,7 +198,6 @@ function HealthList(){
               <td>{centre.diagnosticcentrename}</td>
               <td>{centre.cityname}</td>
               <td>{centre.diagnosticcentreaddress}</td>
-              <td><button className='gmap'>View</button></td>
           </tr>
             })
           }
