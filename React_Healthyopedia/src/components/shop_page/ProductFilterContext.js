@@ -15,7 +15,12 @@ const ProductFilterContext = createContext({
   cartProdsTitle:[],
   cartToggledFunc:()=>{},
   cartToggledVal:false,
-  deleteCartItem:()=>{}
+  deleteCartItem:()=>{},
+  // sortProducts:()=>{},
+  addCartItem:()=>{},
+  removeCartItem:()=>{},
+  cartProducts:{},
+  emptyUserCartItems:()=>{}
 });
 
 export function ProductFilterContextProvider(props) {
@@ -28,6 +33,88 @@ export function ProductFilterContextProvider(props) {
   const [userInfo,setUserInfo]=useState({});
   const [cartItemsTitle,setCartItemsTitle]=useState([]);
   const [cartToggled,setCartToggled]=useState(false);
+  // const [itempresent,setItemPresent]=useState({});
+  // const [isItempresent,setItemIsPresent]=useState(false);
+  const [cartItems,setCartItems]=useState({});
+
+  //logout empty and initial fetch 
+
+
+  // var iscartItem=async(title)=>{
+  //   var res;
+  //   try{
+  //   res=await axios.get("http://localhost:8000/api/cart-item/"+props.item.title+"/"+userInfo.id)
+  //   return res.data;
+  //   }
+  //   catch(err)
+  //   {
+  //     console.log(err)
+  //   }
+  //   }
+
+  // var checkCartHandler=async(title)=>
+  // {
+  //   const item=await iscartItem(title);
+  //   console.log("item "+item)
+  //   if(item.title==title)
+  //   {
+  //     setItemIsPresent(true)
+  //   }
+  //   else
+  //   {
+  //     setItemIsPresent(false)
+  //   }
+  // }
+
+  const getUserCartItems=async(id)=>{
+    try{
+      const response=await fetch('http://localhost:8000/api/user-cart-list/'+id,{
+        headers:{'Content-Type':'application/json'},
+        credentials:'include'
+    });
+    const content =await response.json();
+    console.log('user-cart-items ')
+    content.map((item)=>{
+      var obj={};
+      obj[item.title]=true
+      setCartItems((prevItem)=>{
+        return {...prevItem,...obj}
+      })
+    })
+    console.log(cartItems)
+   }
+   catch(err)
+  {
+    console.log(err)
+  }
+  }
+
+  function emptyUserCartItemsHandler()
+  {
+    setCartItems({});
+  }
+
+  useEffect(()=>{
+    getUserCartItems(userInfo.id)
+  },[userInfo])
+
+  function addCartItemHandler(title)
+  {
+    var obj={};
+    obj[title]=true
+    setCartItems((prevItem)=>{
+      return {...prevItem,...obj}
+  })
+  }
+
+  function removeCartItemHandler(title)
+  {
+    var obj={};
+    obj[title]=false
+    setCartItems((prevItem)=>{
+      return {...prevItem,...obj}
+    })
+  }
 
  const getCartItems=async(id)=>{
   try{
@@ -153,6 +240,9 @@ catch(err)
     )
   }
 
+
+ 
+
   // function deleteCartHandler(title) {
   //   try{
   //     const response=await fetch('http://localhost:8000/api/cart-delete/'+title,{
@@ -189,7 +279,13 @@ catch(err)
     cartProdsTitle:cartItemsTitle,
     cartToggledFunc:toggleCartHandler,
     deleteCartItem:deleteCartItemHandler,
-    cartToggledVal:cartToggled
+    cartToggledVal:cartToggled,
+    // sortProducts:sortProductsHandler,
+    addCartItem:addCartItemHandler,
+    removeCartItem:removeCartItemHandler,
+    cartProducts:cartItems,
+    emptyUserCartItems:emptyUserCartItemsHandler
+
   };
 
   return (

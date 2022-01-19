@@ -59,6 +59,7 @@ def api_overview(request):
     'cart_list':'cart-list',
     'cart_delete':'cart-delete',
     'cart_item':'cart-item',
+    'user_cart_list':'user-cart-list'
    }
   return Response(url_list)
 
@@ -341,3 +342,9 @@ def cart_item(request,title,id):
   serializer=CartSerializer(cart_item,many=False)
   return Response(serializer.data)
 
+#get cart list based on user
+@api_view(['GET'])
+def user_cart_list(request,id):
+  cart_item=CartItems.objects.filter(user=id)
+  serializer=CartSerializer(cart_item,many=True)
+  return Response(serializer.data)

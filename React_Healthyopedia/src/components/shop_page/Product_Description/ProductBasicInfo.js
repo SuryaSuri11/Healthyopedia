@@ -8,20 +8,6 @@ import { useEffect } from 'react/cjs/react.development';
 function ProductBasicInfo(props) {
   const filterctx = useContext(ProductFilterContext);
   const [quantityVal, setQuantityVal] = useState(1);
-  const [itempresent,setItemPresent]=useState({});
-
-
-  useEffect(()=>{
-    {
-    axios.get("http://localhost:8000/api/cart-item/"+props.item.title+"/"+filterctx.userLogin.id).then(
-      res=>{
-        setItemPresent(res.data);
-        // console.log(res.data);
-      }
-    ).catch(err=>{console.log(err)})
-    }
-
-  },[filterctx.cartToggledVal])
 
 
   function addtocart() {
@@ -35,6 +21,7 @@ function ProductBasicInfo(props) {
     }).then(response => {
       // console.log(response)
       filterctx.cartToggledFunc();
+      filterctx.addCartItem(props.item.title)
     }).catch(function (error) {
       console.log(error);
     })}
@@ -51,8 +38,7 @@ function ProductBasicInfo(props) {
   // {
   //   setFlagDropdown(false) 
   // }
-  console.log(itempresent.title)
-  console.log(filterctx.userLogin.username)
+console.log(filterctx.cartProducts)
   return <div className={classes.basicinfo}>
       <h1>{props.item.title}</h1>
       <p>This Medicine Requires Valid Prescription</p>
@@ -66,8 +52,8 @@ function ProductBasicInfo(props) {
       </ul>
       <ul className={classes.secondquantity}>
         <li><button>Buy now</button></li>
-        {itempresent.title!=undefined && <li><button onClick={()=>{filterctx.deleteCartItem(props.item.title)}}>Remove from cart</button></li>}
-        {(itempresent.title==undefined || filterctx.userLogin.username==undefined) && <li><button onClick={addtocart}>Add to cart</button></li>}
+        {filterctx.cartProducts[props.item.title] && filterctx.userLogin.username!=undefined && <li><button className={classes.removecartbtn} onClick={()=>{filterctx.deleteCartItem(props.item.title);filterctx.removeCartItem(props.item.title)}}>Remove from cart</button></li>}
+        {!filterctx.cartProducts[props.item.title] && filterctx.userLogin.username!=undefined && <li><button onClick={addtocart}>Add to cart</button></li>}
       </ul>
 
       {/* <div className={classes.dispcategory}>Category:<span> {props.item.category}</span></div> */}

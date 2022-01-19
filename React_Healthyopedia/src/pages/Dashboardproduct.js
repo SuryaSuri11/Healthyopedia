@@ -1,10 +1,12 @@
 import React from 'react'
 import './Dashboard.css'
 import {useState,useEffect,useContext} from "react";
+import { useHistory } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import ProductFilterContext from '../components/shop_page/ProductFilterContext';
 
 function Dashboardproduct() {
+const history=useHistory();
  const filterctx=useContext(ProductFilterContext);
  const [pageNumber, setPageNumber] = useState(0);
  const [cartProducts, setCartProducts] = useState([]);
@@ -101,7 +103,8 @@ function Dashboardproduct() {
          <td className='data' data-label="Product Details">{item.title}</td>
          <td className='data' data-label="Category">{item.category}</td>
          <td className='data' data-label="Price">{item.price}</td>
-         <td className='data' data-label="Delete"><button className='delete' onClick={()=>{filterctx.deleteCartItem(item.title)}}>Delete</button></td>
+         <td className='data' data-label="Delete"><button className='cartbtn'onClick={()=>{history.push('/product_description',{descProduct:item})}}>View</button></td>
+         <td className='data' data-label="Delete"><button className='cartbtn' onClick={()=>{filterctx.deleteCartItem(item.title);filterctx.removeCartItem(item.title)}}>Delete</button></td>
      </tr>
  })
  const pageCount =Math.ceil(cartProducts.length/usersPerPage)
@@ -124,6 +127,9 @@ function Dashboardproduct() {
                     </th>
                     <th className='headings'>
                         Price
+                    </th>
+                    <th className='headings'>
+                        View
                     </th>
                     <th className='headings'>
                         Delete

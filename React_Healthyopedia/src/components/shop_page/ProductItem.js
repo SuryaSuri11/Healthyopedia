@@ -1,8 +1,11 @@
 import classes from './products.module.css';
 import ProductImage from './ProductImage';
 import { useHistory } from 'react-router';
+// import {useContext} from 'react';
+// import ProductFilterContext from './ProductFilterContext';
 
 function ProductItem(props){
+  // const filterctx=useContext(ProductFilterContext);
   const history=useHistory();
   return props.products.map((item)=>{
     return (

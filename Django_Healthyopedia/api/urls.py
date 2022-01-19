@@ -49,7 +49,7 @@ urlpatterns = [
   path('cart-list/',views.cart_list,name='cart-list'),
   path('cart-create/',views.cart_create,name='cart-create'),
   # path('cart-update/<str:pk>',views.cart_update,name='cart-update'),
-  # path('contact-item/<str:pk>',views.contact_item,name='contact-item'),
+  path('user-cart-list/<str:id>',views.user_cart_list,name='user-cart-list'),
   path('cart-delete/<str:title>',views.cart_delete,name='cart-delete'),
   path('cart-item/<str:title>/<str:id>',views.cart_item,name='cart-item'),
 

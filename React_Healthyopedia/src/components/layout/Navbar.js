@@ -25,6 +25,7 @@ function Navbar(props) {
       });
       // filterctx.setLoggedIn(false);
       filterctx.setUserLogin();
+      filterctx.emptyUserCartItems();
    }
 
    var nothome = "";
