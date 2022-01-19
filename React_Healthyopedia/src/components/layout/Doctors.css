@@ -26,6 +26,7 @@
     padding-top:10px ;
     font-size: 25px;
     text-align: center;
+    font-family: 'Caveat', cursive;
 }
 .doctorname{
     word-wrap: break-word;
@@ -51,6 +52,7 @@
     margin-top: 1.5em;
     text-decoration: none;
     font-size: 17px;
+    font-family: 'Caveat', cursive;
 }
 .appoint{
     color: black;
@@ -66,6 +68,7 @@
     url("https://static.toiimg.com/thumb/msid-83194191,width-800,resizemode-4,imgsize-62648/share.jpg");
     padding-top: 4em;
     padding-bottom: 4em;
+    font-family: 'Dancing Script', cursive;
 }
 .appoint-form{
       width: 80%;
@@ -153,6 +156,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Mochiy Pop P One', sans-serif;
 }
 .faplus,.faminus{
     cursor: pointer;
@@ -163,7 +167,11 @@
 .faqanswers{
     padding-top: 5px;
     padding-bottom: 5px;
+    width: 95%;
     font-size: 18px;
+    transition: transform 750ms ease-in;
+    transition-delay: 750ms;
+    font-family: 'Assistant', sans-serif;
 }
 @media(min-width:868px){
     .doctor-div{

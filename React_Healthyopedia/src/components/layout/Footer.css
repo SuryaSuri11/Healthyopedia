@@ -10,9 +10,11 @@
     color: white;
     position: relative;
     overflow: hidden;
+    font-family: 'Prompt', sans-serif;
 }
 .footerheadings{
     padding-left: 1.7em;
+    font-family: 'Permanent Marker', cursive;
 }
 .footermain{
     width: 100%;
@@ -24,11 +26,13 @@
 }
 .websitename{
     margin-top: 1em;
+    font-family: 'Merriweather', serif;
 }
 .quote{
     padding-top: 1em;
-    font-size: 18px;
+    font-size: 21px;
     text-align: center;
+    font-family: 'Roboto Slab', serif;
 }
 .copyright-downpart{
     text-align: center;
@@ -46,6 +50,7 @@ ul{
 .footerlist{
     padding-left:2em ;
     margin-top: 2em;
+    font-family: 'Caveat', cursive;
 }
 .footeritems{
     text-decoration: none;

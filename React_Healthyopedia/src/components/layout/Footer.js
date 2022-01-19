@@ -22,10 +22,10 @@ function Footer(){
                       Quick Links
                   </h3>
                 <ul>
-                <li className="footerlist"><Link to="/"className='footeritems' to="">Home</Link></li>
-                <li className="footerlist"><Link to="aboutus"className='footeritems' to="">About</Link></li>
-                <li className="footerlist"><Link to="blogpage"className='footeritems' to="">Blog</Link></li>
-                <li className="footerlist"><Link to="contactpage"className='footeritems' to="">Contact Us</Link></li>
+                <li className="footerlist"><Link to="/"className='footeritems'>Home</Link></li>
+                <li className="footerlist"><Link to="./aboutus"className='footeritems'>About</Link></li>
+                <li className="footerlist"><Link to="./blogpage"className='footeritems' >Blog</Link></li>
+                <li className="footerlist"><Link to="./contactpage"className='footeritems' >Contact Us</Link></li>
                 </ul>
               </div>
               </div>
@@ -35,10 +35,10 @@ function Footer(){
                  Our Services
               </h3>
               <ul>
-                <li className="footerlist">  <Link to="shoppage" className="footeritems">Products</Link></li>
-                  <li className="footerlist"><Link to=""className='footeritems' to="">Online Consultation</Link></li>
-                 <li className="footerlist"> <Link to="blogpage"className='footeritems' to="">Health News</Link></li>
-                  <li className="footerlist"><Link to="health_list"className='footeritems' to="">Health Lists</Link></li>
+                <li className="footerlist">  <Link to="./shoppage" className="footeritems">Products</Link></li>
+                  <li className="footerlist"><Link to="/"className='footeritems'>Online Consultation</Link></li>
+                 <li className="footerlist"> <Link to="./blogpage"className='footeritems'>Health News</Link></li>
+                  <li className="footerlist"><Link to="./health_list"className='footeritems'>Health Lists</Link></li>
               </ul>
             </div>
             </div>

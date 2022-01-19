@@ -3,6 +3,7 @@
     background-color:#F8F6F3;
     padding-top: 3em;
     padding-bottom: 3em;
+    font-family: 'Varela Round', sans-serif;
 }
 .success-contents{
     width: 80%;
@@ -30,6 +31,12 @@
     text-align: center;
     color:blue;
     text-decoration: underline;
+}
+.time{
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold;
+    padding-bottom: 1em;
 }
 .redirect:hover{
     color: red;

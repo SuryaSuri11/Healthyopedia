@@ -2,7 +2,7 @@ import './Doctors.css';
 import { Link } from 'react-router-dom';
 import {FaPlus,FaMinus} from 'react-icons/fa';
 import {useLocation} from 'react-router';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useHistory } from 'react-router';
 
 function Doctor(){
@@ -13,7 +13,7 @@ function Doctor(){
   const[faq,setfaq]=useState(false);
   const[faq1,setfaq1]=useState(false);
   const[faq2,setfaq2]=useState(false);
-
+  const[onlineappoint,setonlineappoint]=useState([]);
   function Toogle(){
     if(faq==true){
       setfaq(false);
@@ -38,6 +38,22 @@ function Doctor(){
     setfaq2(true);
   }
   }
+console.log(location.state.doctors)
+useEffect(()=>{
+  fetch("http://localhost:8000/api/consult-item/"+location.state.doctors[0].category).then(
+      response => response.json()).then(
+        data => setonlineappoint(data)
+        // data=>console.log(data)
+      )
+},[])
+function Fees(){
+if(location.state.doctors.fees===0){
+  <h6 className='fees'>Free</h6>
+}
+else{
+    <h6 className='fees'>₹{location.state.doctors.fees}</h6>
+}
+}
 return(
   <div className="doctor-container">
      <div className='doctor-div'>
@@ -48,7 +64,6 @@ return(
           <h4 className='doctorname'>{doctor.doctorname}</h4>
           <h6 className='coctor-category'>{doctor.category}</h6>
           <h6 className='fees'>₹ {doctor.fees}</h6>
-          <h6>Doctor_id: {doctor.doctorid}</h6>
           <p className='edudetails'>{doctor.educationdetails}</p>
           <button className='appointmentbutton'>
           <div  onClick={()=>{
@@ -64,34 +79,34 @@ return(
         <div className='faq-container'>
           <div className='faq-content'>
           <div className='questions'>
-          <h2 className='faqquestions'>{location.state.onlineappoint.faqquestion1}</h2>
+          <h2 className='faqquestions'>{onlineappoint.faqquestion1}</h2>
           <span onClick={Toogle}>{faq ?<FaMinus className='faminus' size="1.3rem"/>: <FaPlus className='faplus' size="1.3rem" />}</span>
           </div>
           {faq ?
           <div>
-          <p className='faqanswers'>{location.state.onlineappoint.faqanswer1}</p>
+          <p className='faqanswers'>{onlineappoint.faqanswer1}</p>
           </div>: null
           }
           </div>
           <div className='faq-content'>
           <div className='questions'>
-          <h2 className='faqquestions'>{location.state.onlineappoint.faqquestion2}</h2>
+          <h2 className='faqquestions'>{onlineappoint.faqquestion2}</h2>
           <span onClick={Toogle1}>{faq1 ?<FaMinus className='faminus' size="1.3rem"/>: <FaPlus className='faplus' size="1.3rem" />}</span>
           </div>
           {faq1 ?
           <div>
-          <p className='faqanswers'>{location.state.onlineappoint.faqanswer2}</p>
+          <p className='faqanswers'>{onlineappoint.faqanswer2}</p>
           </div>: null
           }
           </div>
           <div className='faq-content'>
           <div className='questions'>
-          <h2 className='faqquestions'>{location.state.onlineappoint.faqquestion3}</h2>
+          <h2 className='faqquestions'>{onlineappoint.faqquestion3}</h2>
           <span  onClick={Toogle2}>{faq2 ?<FaMinus className='faminus' size="1.3rem"/>: <FaPlus className='faplus' size="1.3rem" />}</span>
           </div>
           {faq2 ?
           <div>
-          <p className='faqanswers'>{location.state.onlineappoint.faqanswer3}</p>
+          <p className='faqanswers'>{onlineappoint.faqanswer3}</p>
           </div>: null
           }
           </div>

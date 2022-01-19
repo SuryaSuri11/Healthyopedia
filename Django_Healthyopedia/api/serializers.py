@@ -1,5 +1,5 @@
 from rest_framework import fields, serializers
-from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact
+from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,Repository
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -46,3 +46,7 @@ class UserSerializer(serializers.ModelSerializer):
     instance.save()
     return instance
 
+class RepositorySerializer(serializers.ModelSerializer):
+  class Meta:
+    model=Repository
+    fields='__all__'

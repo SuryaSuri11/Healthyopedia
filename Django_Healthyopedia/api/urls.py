@@ -34,6 +34,7 @@ urlpatterns = [
   path('login',LoginView.as_view()),
   path('user',UserView.as_view()),
   path('logout',LogoutView.as_view()),
+  path('user-id/<str:email>',views.user_id,name="user-id"),
 
   #contact
   path('contact-list/',views.contact_list,name='contact-list'),
@@ -42,4 +43,10 @@ urlpatterns = [
   path('contact-item/<str:pk>',views.contact_item,name='contact-item'),
   path('contact-delete/<str:pk>',views.contact_delete,name='contact-delete'),
 
+  #repository
+  path('repo-list/',views.repo_list,name='repo-list'),
+  path('repo-create/',views.repo_create,name='repo-create'),
+  path('repo-update/<str:pk>',views.repo_update,name='repo-update'),
+  path('repo-item/<str:pk>',views.repo_item,name='repo-item'),
+  path('repo-delete/<str:title>',views.repo_delete,name='repo-delete'),
 ]

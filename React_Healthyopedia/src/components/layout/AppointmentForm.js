@@ -8,12 +8,12 @@ function Appoint(props){
    const [formValues, setFormValues] = useState(initialValues);
    const [formErrors, setFormErrors] = useState({});
    const [isSubmit, setIsSubmit] = useState(false);
+   const[fetch,setfetch]=useState([])
  
    const handleChange = (e) => {
      const { name, value } = e.target;
      setFormValues({ ...formValues, [name]: value });
    };
- 
    const handleSubmit = (e) => {
      e.preventDefault();
      setFormErrors(validate(formValues));
@@ -63,7 +63,7 @@ function Appoint(props){
      if (!values.phoneno) {
        errors.phoneno= "Phoneno is required";
      }
-     else if(isNaN(values.phoneno)){
+     else if(isNaN(values.phoneno) && values.phoneno.length<10 && values.phoneno.length>10){
        errors.phoneno="Phoneno is invalid"
      }
      return errors;

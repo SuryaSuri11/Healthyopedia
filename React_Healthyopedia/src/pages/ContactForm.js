@@ -63,7 +63,7 @@ function ContactPage(props){
     if (!values.phoneno) {
       errors.phoneno= "Phoneno is required";
     }
-    else if(isNaN(values.phoneno)){
+    else if(isNaN(values.phoneno) && values.phoneno.length<10 && values.length>10){
       errors.phoneno="Phoneno is invalid"
     }
     return errors;

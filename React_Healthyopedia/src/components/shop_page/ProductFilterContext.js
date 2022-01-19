@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react';
-import { FaSleigh } from 'react-icons/fa';
 
 const ProductFilterContext = createContext({
   products: [],
@@ -33,6 +32,7 @@ export function ProductFilterContextProvider(props) {
   const content =await response.json();
   console.log(content.username)
   setUserInfo({
+    id:content.id,
     username:content.username,
     email:content.email
   })

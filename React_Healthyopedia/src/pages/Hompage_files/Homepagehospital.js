@@ -33,7 +33,7 @@ function Homepagehospital(){
             </div>
             <div className='all-news'>
                     <button className='view-all' onClick={()=> history.push('/health_list')}>
-                     View all data..
+                     View all data
                      </button>
                 </div>
         </div>

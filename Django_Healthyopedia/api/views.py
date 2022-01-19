@@ -12,8 +12,8 @@ from rest_framework.exceptions import AuthenticationFailed
 
 from .serializers import UserSerializer
 
-from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer
-from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact
+from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer,RepositorySerializer
+from .models import Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,Repository
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import jwt,datetime
@@ -52,6 +52,12 @@ def api_overview(request):
     'contact_update':'/contact-update/',
     "contact_create":'/contact-create/',
     "contact_delete":'/contact-delete/', 
+    "repo_list":'/repo-list/',
+    "repo_item":'/repo-item/',
+    "user_id":"/user-id",
+    'repo_update':'/repo-update/',
+    "repo_create":'/repo-create/',
+    "repo_delete":'/repo-delete/', 
    }
   return Response(url_list)
 
@@ -289,6 +295,66 @@ class LogoutView(APIView):
 
     return response
 
+#get user id
+@api_view(['GET'])
+def user_id(request,email):
+  user_item=User.objects.get(email=email)
+  serializer=UserSerializer(user_item,many=False)
+  return Response(serializer.data)
 
 
+#repository
 
+@api_view(['GET'])
+def repo_list(request):
+  repo_list=Repository.objects.all()
+  serializer=RepositorySerializer(repo_list,many=True)
+  return Response(serializer.data)
+
+
+#get a specific item
+@api_view(['GET'])
+def repo_item(request,pk):
+  repo_item=Repository.objects.get(id=pk)
+  serializer=RepositorySerializer(repo_item,many=False)
+  return Response(serializer.data)
+
+@api_view(['POST'])
+def repo_create(request):
+  serializer=RepositorySerializer(data=request.data)
+  if serializer.is_valid():
+    serializer.save()
+  return Response(serializer.data)
+
+# @api_view(['DELETE'])
+# def repo_delete(request,pk):
+#   repo_item=Repository.objects.get(id=pk)
+#   repo_item.delete()
+#   return Response("ITEM DELETED SUCCESSFULLY")
+
+#to delete an repo
+@api_view(['DELETE'])
+def repo_delete(request,title):
+  repo_item=Repository.objects.get(title=title)
+  repo_item.delete()
+
+  return Response("ITEM DELETED SUCCESSFULLY")
+
+# #to delete a item
+# @api_view(['DELETE'])
+# def repo_delete(request,title):
+#  repo_item=Repository.objects.get(title=title)
+#  repo_item.delete()
+
+#  return Response("ITEM DELETED SUCCESSFULLY")
+
+
+#to update an item
+@api_view(['POST'])
+def repo_update(request,pk):
+  repo_item=Repository.objects.get(id=pk)
+  serializer=RepositorySerializer(instance=repo_item,data=request.data)
+
+  if serializer.is_valid():
+    serializer.save()
+  return Response(serializer.data)

@@ -12,24 +12,15 @@ const breakPoints=[
 ];
 function Homepagedoctorconsultation(){
     const history=useHistory();
-    const [doctors,setDoctors]=useState([]);
-    const [appoint,setAppoint]=useState([]);
-
 
 
     var Doctor=async(category)=>{
         fetch("http://localhost:8000/api/doctordetails-category/"+category).then(
           response=>response.json()).then(
               docdata=>{
-                  setDoctors(docdata);
+                history.push('/doctor',{doctors:docdata})
               }
             ) 
-        fetch("http://localhost:8000/api/consult-item/"+category).then(
-        appointdata=>{
-            setAppoint(appointdata);
-        }
-      )
-      history.push('/doctor',{doctors:doctors,onlineappoint:appoint})
     }
 
     return (
@@ -43,7 +34,7 @@ function Homepagedoctorconsultation(){
                        Dermatology
                     </p>
                 </Item>
-                <Item onClick={()=> {Doctor("General Physician")}}>
+                <Item onClick={()=> {Doctor("GeneralPhysician")}}>
                 <img src='http://localhost:8000/files/images/image2.jpg' className='doctor-img'/>
                     <p className='cat-des'>
                         General Physician
