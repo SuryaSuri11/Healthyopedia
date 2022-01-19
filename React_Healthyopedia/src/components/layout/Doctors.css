@@ -160,6 +160,7 @@
 }
 .faplus,.faminus{
     cursor: pointer;
+    margin-right: 10px;
 }
 .faqquestions{
     font-size: 1.7em;

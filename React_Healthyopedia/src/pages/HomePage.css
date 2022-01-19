@@ -396,3 +396,9 @@
         animation-duration: 3s;
     }
 }
+
+@media(max-width:1240){
+    .video-text{
+        display: none;
+    }
+}
