@@ -26,10 +26,6 @@ function Footer(){
                 <li className="footerlist"><Link to="/aboutus" className='footeritems' >About</Link></li>
                 <li className="footerlist"><Link to="/blogpage" className='footeritems' >Blog</Link></li>
                 <li className="footerlist"><Link to="/contactpage" className='footeritems'>Contact Us</Link></li>
-                <li className="footerlist"><Link to="/"className='footeritems'>Home</Link></li>
-                <li className="footerlist"><Link to="./aboutus"className='footeritems'>About</Link></li>
-                <li className="footerlist"><Link to="./blogpage"className='footeritems' >Blog</Link></li>
-                <li className="footerlist"><Link to="./contactpage"className='footeritems' >Contact Us</Link></li>
                 </ul>
               </div>
               </div>
@@ -43,10 +39,6 @@ function Footer(){
                   <li className="footerlist"><a href="/" className='footeritems' >Online Consultation</a></li>
                  <li className="footerlist"> <Link to="/blogpage" className='footeritems' >Health News</Link></li>
                   <li className="footerlist"><Link to="/health_list" className='footeritems'>Health Lists</Link></li>
-                <li className="footerlist">  <Link to="./shoppage" className="footeritems">Products</Link></li>
-                  <li className="footerlist"><Link to="/"className='footeritems'>Online Consultation</Link></li>
-                 <li className="footerlist"> <Link to="./blogpage"className='footeritems'>Health News</Link></li>
-                  <li className="footerlist"><Link to="./health_list"className='footeritems'>Health Lists</Link></li>
               </ul>
             </div>
             </div>

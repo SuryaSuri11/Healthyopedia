@@ -82,11 +82,6 @@ class User(AbstractUser):
 
   REQUIRED_FIELDS=['username']
 
-# class Repository(models.Model):
-#   date=models.DateField()
-#   title=models.CharField(max_length=40)
-#   image=models.ImageField(upload_to='images')
-#   user=models.ForeignKey(User,on_delete=models.CASCADE)
 
 
 class CartItems(models.Model):

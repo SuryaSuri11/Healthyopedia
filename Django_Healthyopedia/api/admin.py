@@ -26,10 +26,6 @@ from .models import User
 admin.site.register(User)
 
 
-# from .models import Repository
-# # Register your models here.
-# admin.site.register(Repository)
-
 from .models import CartItems
 # Register your models here.
 admin.site.register(CartItems)

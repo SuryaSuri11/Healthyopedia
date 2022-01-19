@@ -1,6 +1,6 @@
 from rest_framework import fields, serializers
 
-from .models import  Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,CartItems,Repository
+from .models import  Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,Repository,CartItems
 
 
 

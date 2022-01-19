@@ -11,8 +11,8 @@ from rest_framework.exceptions import AuthenticationFailed
 
 from .serializers import UserSerializer
 
-from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer,CartSerializer,RepositorySerializer
-from .models import  Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,CartItems,Repository
+from api.serializers import ProductSerializer,consultationcategorySerializer,DoctorconsultationSerializer,consultationformSerializer,ContactSerializer,RepositorySerializer,CartSerializer
+from .models import  Product,consultationcategory,Doctorconsultation,consultationform,User,Contact,Repository,CartItems
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -327,7 +327,7 @@ def repo_list(request):
   serializer=RepositorySerializer(repo_list,many=True)
   return Response(serializer.data)
 
-# #Cart items
+#Cart items
 
 # #get all data
 @api_view(['GET'])
@@ -383,11 +383,6 @@ def repo_create(request):
     serializer.save()
   return Response(serializer.data)
 
-# @api_view(['DELETE'])
-# def repo_delete(request,pk):
-#   repo_item=Repository.objects.get(id=pk)
-#   repo_item.delete()
-#   return Response("ITEM DELETED SUCCESSFULLY")
 
 #to delete an repo
 @api_view(['DELETE'])
@@ -397,13 +392,7 @@ def repo_delete(request,title):
 
   return Response("ITEM DELETED SUCCESSFULLY")
 
-# #to delete a item
-# @api_view(['DELETE'])
-# def repo_delete(request,title):
-#  repo_item=Repository.objects.get(title=title)
-#  repo_item.delete()
 
-#  return Response("ITEM DELETED SUCCESSFULLY")
 
 
 #to update an item
