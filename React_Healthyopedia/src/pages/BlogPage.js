@@ -19,6 +19,7 @@ function BlogPage(props){
      fetch("http://localhost:8000/api/health-news/").then(
        response=>response.json()).then(
          data=>setNews(data)
+        // data=>console.log(data)
       )
     },[])
 

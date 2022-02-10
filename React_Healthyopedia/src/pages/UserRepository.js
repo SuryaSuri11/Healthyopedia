@@ -5,8 +5,8 @@ import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 function Userrepository() {
 
-    const [pageNumber, setPageNumber] = useState(0);
-    const [repodata,setrepodata]=useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
+  const [repodata,setrepodata]=useState([]);
   const usersPerPage = 4;
   const pagesVisited = pageNumber * usersPerPage;
   

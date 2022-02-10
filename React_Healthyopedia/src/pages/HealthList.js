@@ -41,13 +41,13 @@ function HealthList(){
 
   function fetchDiagnosticCentre(val) {
     if (val != 'all') {
-      fetch("https://api.data.gov.in/resource/34e827e1-03e0-4193-a0e7-1fcc62e306b5?api-key=579b464db66ec23bdd000001590a6c9d0ce941ca4a526d8eb9dbf555&format=json&offset=0&limit=190&filters[cityname]=" + val).then(
+      fetch("https://api.data.gov.in/resource/34e827e1-03e0-4193-a0e7-1fcc62e306b5?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=190&filters[cityname]=" + val).then(
         response => response.json()).then(
           data => setDiagnostic(data)
         )
     }
     else {
-      fetch("https://api.data.gov.in/resource/34e827e1-03e0-4193-a0e7-1fcc62e306b5?api-key=579b464db66ec23bdd000001590a6c9d0ce941ca4a526d8eb9dbf555&format=json&offset=0&limit=190").then(
+      fetch("https://api.data.gov.in/resource/34e827e1-03e0-4193-a0e7-1fcc62e306b5?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=190").then(
         response => response.json()).then(
           data => setDiagnostic(data)
         )
@@ -56,14 +56,17 @@ function HealthList(){
 
   function fetchHospitals(val) {
     if (val != 'all') {
-      fetch("https://api.data.gov.in/resource/de59e770-2333-4eaf-9088-a3643de040c8?api-key=579b464db66ec23bdd0000013649b0c1f5fd470c7f46023824517dfa&format=json&offset=0&limit=1000&filters[cityname]=" + val).then(
+      fetch("https://api.data.gov.in/resource/de59e770-2333-4eaf-9088-a3643de040c8?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=1000&filters[cityname]=" + val).then(
         response => response.json()).then(
-          data => setHospitals(data)
-          // data => console.log(data)
+          // data => setHospitals(data)
+          data => {
+            console.log("hospitals")
+            console.log(data)
+          }
         )
     }
     else {
-      fetch("https://api.data.gov.in/resource/de59e770-2333-4eaf-9088-a3643de040c8?api-key=579b464db66ec23bdd0000013649b0c1f5fd470c7f46023824517dfa&format=json&offset=0&limit=1000").then(
+      fetch("https://api.data.gov.in/resource/de59e770-2333-4eaf-9088-a3643de040c8?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=1000").then(
         response => response.json()).then(
           data => setHospitals(data)
         )
