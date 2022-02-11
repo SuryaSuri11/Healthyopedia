@@ -63,8 +63,14 @@ function ContactPage(props){
     if (!values.phoneno) {
       errors.phoneno= "Phoneno is required";
     }
-    else if(isNaN(values.phoneno) && values.phoneno.length<10 && values.length>10){
-      errors.phoneno="Phoneno is invalid"
+    else if(isNaN(values.phoneno)){
+      errors.phoneno="Phoneno is invalid";
+    }
+    else if(values.phoneno.length < 10){
+      errors.phoneno="Phoneno is invalid";
+    }
+    else if(values.phoneno.length > 10){
+      errors.phoneno="Phoneno is invalid";
     }
     return errors;
   };
@@ -80,7 +86,7 @@ function ContactPage(props){
                          <FaIcons.FaAddressBook className='address'/>
                          Address
                          </h3>
-                         <p className='info'>New Horizon College Of Engineering, Marathalli</p>
+                         <p className='info'>New Horizon College Of Engineering, Marathahalli</p>
                   </div>
               </div>
               <div className='contact-box'>
@@ -98,7 +104,7 @@ function ContactPage(props){
                             <FaIcons.FaEnvelopeSquare/>
                             E-mail
                          </h3>
-                         <p className='info'>Newhorizon@gmail.com</p>
+                         <p className='info'>newhorizon@gmail.com</p>
                   </div>                  
               </div>
               </div>

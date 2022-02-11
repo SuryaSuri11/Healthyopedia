@@ -58,11 +58,11 @@ function HealthList(){
     if (val != 'all') {
       fetch("https://api.data.gov.in/resource/de59e770-2333-4eaf-9088-a3643de040c8?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=1000&filters[cityname]=" + val).then(
         response => response.json()).then(
-          // data => setHospitals(data)
-          data => {
-            console.log("hospitals")
-            console.log(data)
-          }
+          data => setHospitals(data)
+          // data => {
+          //   console.log("hospitals")
+          //   console.log(data)
+          // }
         )
     }
     else {

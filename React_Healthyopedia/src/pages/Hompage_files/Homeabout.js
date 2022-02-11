@@ -14,8 +14,8 @@ function Homeabout() {
                          HEALTHYOPEDIA
                      </h3>
                      <p className='abt-para'>
-                     It is a Website which is freely 
-                     accessible that provides various health benefits to the users for 
+                     A freely 
+                     accessible website that provides various health benefits to the users for 
                      the maintenance of their health.
                      </p>
                      <div className='about-us-button'>

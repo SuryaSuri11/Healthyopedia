@@ -3,13 +3,19 @@ import './Dashboard.css'
 import {useState,useEffect} from "react";
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
+import {useContext} from 'react';
+import ProductFilterContext from '../components/shop_page/ProductFilterContext';
+
 function Userrepository() {
+  const filterctx=useContext(ProductFilterContext);
 
   const [pageNumber, setPageNumber] = useState(0);
   const [repodata,setrepodata]=useState([]);
   const usersPerPage = 4;
   const pagesVisited = pageNumber * usersPerPage;
   
+  console.log(filterctx.userLogin);
+
   function deleterepoitem(title)
   {
     // console.log(id)
@@ -21,7 +27,7 @@ function Userrepository() {
   }
 
   function repositorylist(){
-    fetch("http://localhost:8000/api/repo-list/").then(
+    fetch("http://localhost:8000/api/repo-list/"+filterctx.userLogin.id).then(
         response => response.json()).then(
           data => setrepodata(data)
           // data=>console.log(data)
@@ -29,7 +35,7 @@ function Userrepository() {
      }
   useEffect(() => {
     repositorylist();
-  }, [])
+  }, [filterctx.userLogin])
    var i=0; 
    const displayUsers = repodata.slice(pagesVisited,pagesVisited + usersPerPage)
    .map((repo)=>{

@@ -4,9 +4,9 @@ import "aos/dist/aos.css";
 import "./AboutUs.css";
 import * as FaIcons from 'react-icons/fa'
 import Aboutcontent from "./Aboutcontent";
-const aboutset=[[<FaIcons.FaCapsules size="4rem"/>,"Products Sales","Generic Medicine"],
+const aboutset=[[<FaIcons.FaCapsules size="4rem"/>,"Product Sales","Generic Medicine"],
 [<FaIcons.FaCalendar size="4rem"/>,"Online Consultation","Booking Appointments"],
-[<FaIcons.FaClinicMedical size="4rem"/>,"Health Centres","Get Nearest Hospital and Diagnostic centre"],
+[<FaIcons.FaClinicMedical size="4rem"/>,"Health Centres","Get Nearest Hospital and Diagnostic centres list"],
 [<FaIcons.FaNewspaper size="4rem"/>,"Blog News","Get Latest News Related to Health"],
 ]
 
@@ -29,8 +29,8 @@ return(
        </div>
        <div className="bottom-container">
            <div className="bottom-text">
-               <h2 data-aos="fade-up" className="bold-text">Our Website is a  freely 
-                   accessible which provides various health benefits to the users for the maintenance of their health.
+               <h2 data-aos="fade-up" className="bold-text">
+                   A freely accessible website which provides various health benefits to the users for the maintenance of their health.
                </h2>
                <p data-aos="fade-up" className="bold-bottom">The various health benefits which is  provided in the webites:.</p>
            </div>
@@ -47,13 +47,13 @@ return(
              <div className="below-texts"> 
         <ul className="values">
            <li className="below-title">
-                Provides Consultation based on Categorey
+                Provides Consultation based on Category
             </li> 
              <li className="below-title">
-                 Sales of Generic Medicienes
+                 Generic Medicine Sales
              </li>
              <li className="below-title">
-                  Displays News related to Health for the Users
+                  Latest Health News
              </li>
              <li className="below-title">
                   Provides Free Consultation
@@ -62,7 +62,7 @@ return(
                   User Health Repository to store Reports
              </li>
              <li className="below-title">
-                  List of Health centres,Hospitals and Diagnostic
+                  List of Hospital, Wellness and Diagnostic centres
              </li>
              </ul>
              </div>

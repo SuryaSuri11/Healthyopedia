@@ -322,8 +322,8 @@ def user_id(request,email):
 #repository
 
 @api_view(['GET'])
-def repo_list(request):
-  repo_list=Repository.objects.all()
+def repo_list(request,pk):
+  repo_list=Repository.objects.filter(user=pk)
   serializer=RepositorySerializer(repo_list,many=True)
   return Response(serializer.data)
 

@@ -54,7 +54,7 @@ urlpatterns = [
   path('cart-item/<str:title>/<str:id>',views.cart_item,name='cart-item'),
 
   #repository
-  path('repo-list/',views.repo_list,name='repo-list'),
+  path('repo-list/<str:pk>',views.repo_list,name='repo-list'),
   path('repo-create/',views.repo_create,name='repo-create'),
   path('repo-update/<str:pk>',views.repo_update,name='repo-update'),
   path('repo-item/<str:pk>',views.repo_item,name='repo-item'),

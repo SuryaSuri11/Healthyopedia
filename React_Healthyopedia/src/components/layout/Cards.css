@@ -9,6 +9,8 @@
     color: black;
     margin-top: 2em;
     word-wrap: break-word;
+    height:500px;
+    overflow:hidden;
 }
 .onlinetitle{
     text-align: center;

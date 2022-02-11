@@ -10,6 +10,7 @@ const history=useHistory();
  const filterctx=useContext(ProductFilterContext);
  const [pageNumber, setPageNumber] = useState(0);
  const [cartProducts, setCartProducts] = useState([]);
+ var i=0;
 
  const Products=async(title)=>{
     try{
@@ -94,7 +95,6 @@ const history=useHistory();
 //      catgeory:"Respiratory Care"
 //     },
 //    ]
-   var i=0;
    const displayUsers = cartProducts.slice(pagesVisited,pagesVisited + usersPerPage)
    .map((item)=>{
        i++;
