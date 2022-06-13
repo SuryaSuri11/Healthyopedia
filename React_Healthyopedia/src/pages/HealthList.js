@@ -41,7 +41,7 @@ function HealthList(){
 
   function fetchDiagnosticCentre(val) {
     if (val != 'all') {
-      fetch("https://api.data.gov.in/resource/34e827e1-03e0-4193-a0e7-1fcc62e306b5?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=190&filters[cityname]=" + val).then(
+      fetch("https://api.data.gov.in/resource/34e827e1-03e0-4193-a0e7-1fcc62e306b5?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=190&filters[cityName]=" + val).then(
         response => response.json()).then(
           data => setDiagnostic(data)
         )
@@ -56,7 +56,7 @@ function HealthList(){
 
   function fetchHospitals(val) {
     if (val != 'all') {
-      fetch("https://api.data.gov.in/resource/de59e770-2333-4eaf-9088-a3643de040c8?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=1000&filters[cityname]=" + val).then(
+      fetch("https://api.data.gov.in/resource/de59e770-2333-4eaf-9088-a3643de040c8?api-key=579b464db66ec23bdd0000017d0d88f6de35494644bbb539558708d8&format=json&offset=0&limit=1000&filters[cityName]=" + val).then(
         response => response.json()).then(
           data => setHospitals(data)
           // data => {
@@ -79,7 +79,7 @@ function HealthList(){
     fetchDiagnosticCentre(curDiagnosticCity);
   }, [curcity,curWellnessCity,curDiagnosticCity])
 
-  // console.log(hospitals)
+  console.log(diagnostic)
   return(
     <div>
   <ul class="menu cf">
@@ -114,9 +114,9 @@ function HealthList(){
           {
             hospitals.records.map((hospital)=>{
               return<tr>
-              <td>{hospital.hospitalname}</td>
-              <td>{hospital.cityname.toUpperCase()}</td>
-              <td>{hospital.hospitaladdress}</td>
+              <td>{hospital.hospitalName}</td>
+              <td>{hospital.cityName.toUpperCase()}</td>
+              <td>{hospital.hospitalAddress}</td>
           </tr>
             })
           }
@@ -198,9 +198,9 @@ function HealthList(){
           {
             diagnostic.records.map((centre)=>{
               return<tr>
-              <td>{centre.diagnosticcentrename}</td>
-              <td>{centre.cityname}</td>
-              <td>{centre.diagnosticcentreaddress}</td>
+              <td>{centre.diagnosticCentreName}</td>
+              <td>{centre.cityName}</td>
+              <td>{centre.diagnosticCentreAddress}</td>
           </tr>
             })
           }

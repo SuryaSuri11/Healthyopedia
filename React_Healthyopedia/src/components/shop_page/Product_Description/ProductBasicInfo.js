@@ -46,7 +46,7 @@ console.log(filterctx.cartProducts)
       <p className={classes.price}>₹ {props.item.price} (Inclusive of all Taxes)</p>
       <p className={classes.tabletcnt}>{props.item.quantity}</p>
       <ul className={classes.firstquantity}>
-        <li><button >-</button></li>
+        <li><button onClick={QuantityValDec}>-</button></li>
         <li><div>{quantityVal}</div></li>
         <li><button onClick={QuantityValInc}>+</button></li>
       </ul>

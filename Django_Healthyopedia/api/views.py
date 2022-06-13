@@ -180,7 +180,7 @@ def userform_item(request,pk):
 @api_view(['POST'])
 def user_create(request):
   serializer=consultationformSerializer(data=request.data)
-
+  print(serializer)
   if serializer.is_valid():
     serializer.save()
   

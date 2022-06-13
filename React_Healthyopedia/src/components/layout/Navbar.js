@@ -69,7 +69,7 @@ function Navbar(props) {
    return (
       <div className='Navcontents'>
             <header className={(navbar || nothome) ? 'navbar active' : 'navbar'}>
-               <GiIcons.GiHamburgerMenu size='2rem' onClick={showSidebar} className='sidebaricon' size="2.5em" />
+               <GiIcons.GiHamburgerMenu onClick={showSidebar} className='sidebaricon' size="2.5em" />
                <h1 className='logo'>HEALTHYOPEDIA</h1>
                {props.appwidth > 1260 && <ul className='nav-links'>
                   <Link to='/' className={(navbar || nothome) ? 'mainitems active' : 'mainitems'}>

@@ -9,7 +9,7 @@ function Doctor(){
   const history=useHistory();
   const location = useLocation();
   // console.log(location.state.doctors)
-  console.log(location.state.onlineappoint)
+  //console.log(location.state.onlineappoint)
   const[faq,setfaq]=useState(false);
   const[faq1,setfaq1]=useState(false);
   const[faq2,setfaq2]=useState(false);
