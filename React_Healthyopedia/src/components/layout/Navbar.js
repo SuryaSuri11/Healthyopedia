@@ -112,6 +112,15 @@ function Navbar(props) {
                                     <h2 className='sidebarheadings1'> Health Centres </h2>
                                  </div>
                               </li>
+                              {/* <li>
+                                 <div className='menu-items' onClick={() => {
+                                    showSidebar()
+                                    history.push('/symptom_predictor')
+                                 }
+                                 }>
+                                    <h2 className='sidebarheadings1'> Symptom Predictor </h2>
+                                 </div>
+                              </li> */}
                               {/* <li onClick={dropdown}>
                                  <Link to='/' className='online-consent2' onClick={showSidebar}>
                                     Aboutus Content

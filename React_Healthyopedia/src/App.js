@@ -7,6 +7,7 @@ import ContactPage from './pages/Contact';
 import BlogPage from './pages/BlogPage';
 import AboutUs from './pages/AboutUs';
 import HealthList from './pages/HealthList';
+import Symptom from './pages/Symptom';
 import LoginPage from './pages/Login';
 import Onlineappointment from './pages/OnlineAppointment';
 import Dashboard from './pages/DashBoard';
@@ -55,6 +56,9 @@ function App() {
           <Route path='/health_list'>
             <HealthList/>
           </Route>
+          {/* <Route path='/symptom_predictor'>
+           <Symptom/>
+          </Route> */}
           <Route path='/doctor'>
             <Doctor/>
           </Route>

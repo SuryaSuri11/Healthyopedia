@@ -1,25 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Merriweather:ital,wght@0,300;1,300&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Luxurious+Roman&family=Merriweather:ital,wght@0,300;1,300&family=Montserrat:ital,wght@0,100;1,200&family=Nunito:wght@200&display=swap');
 
 
-.aboutcontainer{
+.aboutcontainer {
     width: 100%;
     overflow-x: hidden;
 }
-.text-div{
+
+.text-div {
     width: 80%;
     margin: 0 auto;
     padding-bottom: 1em;
 }
-.top-text{
+
+.top-text {
     width: 100%;
     text-align: center;
     font-family: 'Caveat', cursive;
 }
-.anim-img{
+
+.anim-img {
     width: 90%;
     background-color: #00DBDE;
     background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
-    background-size:400% 400%;
+    background-size: 400% 400%;
     position: relative;
     animation: change 6s ease-in-out infinite;
     padding-top: 20px;
@@ -28,7 +32,8 @@
     border-radius: 10px;
     margin: 0 auto;
 }
-.aboutimg{
+
+.aboutimg {
     width: 80%;
     height: 250px;
     display: block;
@@ -37,35 +42,42 @@
     padding-bottom: 10px;
     border-radius: 20px;
 }
-.aboutimg:last-child{
+
+.aboutimg:last-child {
     padding-bottom: 30px;
 }
-.bottom-container{
+
+.bottom-container {
     width: 100%;
 }
-.bottom-text{
+
+.bottom-text {
     width: 80%;
     margin: 0 auto;
 }
-.bold-text{
+
+.bold-text {
     font-size: 24px;
     padding-top: 25px;
     padding-bottom: 25px;
     font-family: 'Quicksand', sans-serif;
 }
-.bold-bottom{
+
+.bold-bottom {
     font-size: 20px;
     padding-bottom: 30px;
     font-family: 'Neonderthaw', cursive;
 }
-:root{
-    --primary:hsla(313, 97%, 63%, 0.747);
-    --secondary:hsla(172, 96%, 62%, 0.781);
+
+:root {
+    --primary: hsla(313, 97%, 63%, 0.747);
+    --secondary: hsla(172, 96%, 62%, 0.781);
 }
-.gradient-content{
+
+.gradient-content {
     width: 100%;
-    background:linear-gradient(135deg, var(--primary), var(--secondary)),
-    url("https://st.depositphotos.com/1907633/2184/i/600/depositphotos_21841631-stock-photo-success-smart-medical-doctor-with.jpg");
+    background: linear-gradient(135deg, var(--primary), var(--secondary)),
+        url("https://st.depositphotos.com/1907633/2184/i/600/depositphotos_21841631-stock-photo-success-smart-medical-doctor-with.jpg");
     color: black;
     background-position: center;
     background-repeat: no-repeat;
@@ -73,84 +85,100 @@
     padding-top: 2em;
     padding-bottom: 10em;
 }
-.gradient-text{
+
+.gradient-text {
     text-align: center;
     padding-left: 20px;
     font-size: 20px;
-    font-family: 'Luxurious Roman', cursive;   
+    font-family: 'Luxurious Roman', cursive;
 }
-.below-title{
+
+.below-title {
     font-size: 20px;
     text-align: center;
     padding-top: 30px;
     font-family: 'Neonderthaw', cursive;
 }
-.below-title:last-child{
+
+.below-title:last-child {
     padding-top: 20px;
 }
-@keyframes change{
-    0%{
+
+@keyframes change {
+    0% {
         background-position: 0 50%;
     }
-    50%{
+
+    50% {
         background-position: 100% 50%;
     }
-    100%{
+
+    100% {
         background-position: 0 50%;
     }
-    
+
 }
 
-@media (min-width:768px){
-   .top-text{
-       width: 100%;
-   }
-   .text-div{
-       padding: 11em;
-   } 
-   .anim-img{
-       display: grid;
-       grid-template-columns: repeat(4,1fr);
-       grid-gap: 30px;
-       padding-top: 5em;
-       padding-bottom: 5em;
-       width: 90%;
-       margin: 0 auto;
-       margin-top: 40px;
-       margin-bottom: 40px;
-       padding-left: 40px;
-       padding-right: 40px;
-       border-radius: 10px;
-   }
-   .aboutimg{
-       width: 100%;
-   }
-   .bottom-container{
-       padding-top: 30px;
-       padding-bottom: 4em;
-       width: 50%;
-       margin: 0 auto;
-   }
-   .bottom-text{
-       padding-top: 3em;
-   }
-   .our-contents{
-       display: grid;
-       grid-template-columns: repeat(2,1fr);
-   }
-   .gradient-text{
-       font-size: 2em;
-   }
-   .gradient-content{
-       padding-top: 6em;
-       padding-bottom: 10em;
-   }
-   .values{
-       display: grid;
-       grid-template-columns: repeat(2,1fr);
-       padding-top: 3em;
-   } 
-   .below-title:last-child{
-       padding-top: 20px;
-}
+@media (min-width:768px) {
+    .top-text {
+        width: 100%;
+    }
+
+    .text-div {
+        padding: 11em;
+    }
+
+    .anim-img {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 30px;
+        padding-top: 5em;
+        padding-bottom: 5em;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        border-radius: 10px;
+    }
+
+    .aboutimg {
+        width: 100%;
+    }
+
+    .bottom-container {
+        padding-top: 30px;
+        padding-bottom: 4em;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .bottom-text {
+        padding-top: 3em;
+    }
+
+    .our-contents {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gradient-text {
+        font-size: 2em;
+    }
+
+    .gradient-content {
+        padding-top: 6em;
+        padding-bottom: 10em;
+    }
+
+    .values {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 3em;
+    }
+
+    .below-title:last-child {
+        padding-top: 20px;
+    }
 }
